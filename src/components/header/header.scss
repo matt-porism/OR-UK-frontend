@@ -1,0 +1,25 @@
+header {
+  background-color: #373737;
+  color: white;
+  padding: 2rem 0;
+  
+  .container {
+    margin: 0 auto;
+    width: 1080px;
+    display: flex;
+    justify-content: space-between;
+    
+    .title {
+      h1, p {
+        margin: 0;
+      }
+    }
+
+    img {
+      background-color: #fff;
+      height: 150px;
+      width: 250px;
+    }
+
+  }
+}
