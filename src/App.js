@@ -1,37 +1,54 @@
 import { useState, useEffect } from 'react';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
+import Card from './components/card/Card'
 import './App.css';
 
 function App() {
 
-  const URL = 'http://54.78.155.180:1337/landing-page'
+  const LANDING_PAGE_URL = 'http://54.78.155.180:1337/landing-page'
+  const EVENTS_URL = 'http://54.78.155.180:1337/events'
 
   const [headerText, setHeaderText] = useState("");
   const [bodyText, setBodyText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     // fetch from strapi
-    fetch(URL).then(res => res.json())
+    fetch(LANDING_PAGE_URL).then(res => res.json())
     .then( data => {
-      console.log('DATA', data)
       // set data from strapi to state vars
       setHeaderText(data.title);
       setBodyText(data.projectOverview)
       setImageUrl(data.logo.name)
     })
+
+    fetch(EVENTS_URL).then(res => res.json())
+      .then(data => setEvents(data))
   }, []);
 
+  const eventNodes = events.map(event => {
+    return (
+      <Card key={event.id} title={event.title} body={event.body} image={event.image.name}/>
+    )
+  })
 
   return (
     <div className="App">
       <Header />
-      <main class="content">
-        <h2>{headerText} </h2>
-        <p>{bodyText}</p>
-        <img className="logo" src={imageUrl} alt="logo"/>
-      </main>
+      <div class="container">
+        <main>
+          <h2>{headerText} </h2>
+          <p>{bodyText}</p>
+          <img className="logo" src={imageUrl} alt="logo"/>
+        </main>
+        <hr></hr>
+        <h2>Upcoming events</h2>
+        <section className="cards">
+          {eventNodes}
+        </section>
+      </div>
       <Footer className="footer" />
     </div>
   );
