@@ -8,3 +8,8 @@
 .content {
   flex: 1;
 }
+
+.logo {
+  width: 200px;
+  heigth: 150px;
+}
