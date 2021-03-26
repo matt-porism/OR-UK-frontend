@@ -6,23 +6,33 @@ import './App.css';
 
 function App() {
 
-  const URL = 'http://54.78.155.180:1337/landing-page'
+  const LANDING_PAGE_URL = 'http://54.78.155.180:1337/landing-page'
+  const EVENTS_URL = 'http://54.78.155.180:1337/events'
 
   const [headerText, setHeaderText] = useState("");
   const [bodyText, setBodyText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     // fetch from strapi
-    fetch(URL).then(res => res.json())
+    fetch(LANDING_PAGE_URL).then(res => res.json())
     .then( data => {
       // set data from strapi to state vars
       setHeaderText(data.title);
       setBodyText(data.projectOverview)
       setImageUrl(data.logo.name)
     })
+
+    fetch(EVENTS_URL).then(res => res.json())
+      .then(data => setEvents(data))
   }, []);
 
+  const eventNodes = events.map(event => {
+    return (
+      <Card key={event.id} title={event.title} body={event.body} image={event.image.name}/>
+    )
+  })
 
   return (
     <div className="App">
@@ -36,10 +46,7 @@ function App() {
         <hr></hr>
         <h2>Upcoming events</h2>
         <section className="cards">
-          <Card title={headerText} body={bodyText} date="22/11/2021" image={imageUrl}/>
-          <Card title={headerText} body={bodyText} date="22/11/2021" image={imageUrl}/>
-          <Card title={headerText} body={bodyText} date="22/11/2021" image={imageUrl}/>
-          <Card title={headerText} body={bodyText} date="22/11/2021" image={imageUrl}/>
+          {eventNodes}
         </section>
       </div>
       <Footer className="footer" />
