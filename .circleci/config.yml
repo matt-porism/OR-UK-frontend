@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/OR-UK-frontend  
     steps:
     - checkout
+    - run: node --version
     - run: echo "running tests"
     - run: npm install
     - run: npm test 
