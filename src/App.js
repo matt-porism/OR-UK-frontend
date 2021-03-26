@@ -7,9 +7,9 @@ import './App.css';
 
 function App() {
 
-  const BASE_URL = 'http://54.78.155.180:1337/'
-  const LANDING_PAGE_URI = 'landing-page'
-  const EVENTS_URI = 'events'
+  const BASE_URL = 'http://54.78.155.180:1337'
+  const LANDING_PAGE_URI = '/landing-page'
+  const EVENTS_URI = '/events'
 
   const [headerText, setHeaderText] = useState("");
   const [bodyText, setBodyText] = useState("");
@@ -32,7 +32,7 @@ function App() {
 
   const eventNodes = events.map(event => {
     return (
-      <Card key={event.id} title={event.title} body={event.body} image={event.image.name}/>
+      <Card key={event.id} title={event.title} body={event.body} image={BASE_URL + event.image.url}/>
     )
   })
 
