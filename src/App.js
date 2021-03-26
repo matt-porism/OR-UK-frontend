@@ -7,8 +7,9 @@ import './App.css';
 
 function App() {
 
-  const LANDING_PAGE_URL = 'http://54.78.155.180:1337/landing-page'
-  const EVENTS_URL = 'http://54.78.155.180:1337/events'
+  const BASE_URL = 'http://54.78.155.180:1337/'
+  const LANDING_PAGE_URI = 'landing-page'
+  const EVENTS_URI = 'events'
 
   const [headerText, setHeaderText] = useState("");
   const [bodyText, setBodyText] = useState("");
@@ -17,7 +18,7 @@ function App() {
 
   useEffect(() => {
     // fetch from strapi
-    fetch(LANDING_PAGE_URL).then(res => res.json())
+    fetch(BASE_URL + LANDING_PAGE_URI).then(res => res.json())
     .then( data => {
       // set data from strapi to state vars
       setHeaderText(data.title);
@@ -25,7 +26,7 @@ function App() {
       setImageUrl(data.logo.name)
     })
 
-    fetch(EVENTS_URL).then(res => res.json())
+    fetch(BASE_URL + EVENTS_URI).then(res => res.json())
       .then(data => setEvents(data))
   }, []);
 
