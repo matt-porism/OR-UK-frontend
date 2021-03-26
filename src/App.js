@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Card from './components/card/Card'
@@ -37,10 +38,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div class="container">
+      <div className="container">
         <main>
           <h2>{headerText} </h2>
-          <p>{bodyText}</p>
+          <ReactMarkdown>{bodyText}</ReactMarkdown>
           <img className="logo" src={imageUrl} alt="logo"/>
         </main>
         <hr></hr>
