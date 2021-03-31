@@ -67,7 +67,7 @@ function App() {
 		{side}
 		<div className={mainPanelCss}>
 		<main>
-		<h2>{headerText} </h2>
+		<h2>{headerText}</h2>
           <ReactMarkdown>{bodyText}</ReactMarkdown>
           <img className="logo" src={imageUrl} alt="logo"/>
         </main>
