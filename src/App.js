@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { BrowserRouter as Router } from 'react-router-dom';
 import '../node_modules/jquery/dist/jquery.min.js';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import Header from './components/header/Header';
@@ -62,22 +63,24 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header mainMenu={mainMenu} topMenuId={topMenuId} />
-      <div className="container-fluid">
-        <div className="row">
-          {side}
-          <div className={mainPanelCss}>
-            <main>
-              <h2>{headerText}</h2>
-              <ReactMarkdown>{bodyText}</ReactMarkdown>
-              <img className="logo" src={imageUrl} alt="logo" />
-            </main>
+    <Router>
+      <div className="App">
+        <Header mainMenu={mainMenu} topMenuId={topMenuId} />
+        <div className="container-fluid">
+          <div className="row">
+            {side}
+            <div className={mainPanelCss}>
+              <main>
+                <h2>{headerText}</h2>
+                <ReactMarkdown>{bodyText}</ReactMarkdown>
+                <img className="logo" src={imageUrl} alt="logo" />
+              </main>
+            </div>
           </div>
         </div>
+        <Footer className="footer" />
       </div>
-      <Footer className="footer" />
-    </div>
+    </Router>
   );
 }
 

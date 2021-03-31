@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './header.scss';
 import Logo from '../../assets/logo.png';
 
@@ -33,9 +34,9 @@ export class Header extends Component<HeaderProps> {
                     }
                     return (
                       <li className={cssClass} key={mainMenu[index].link}>
-                        <a className="nav-link" href={mainMenu[index].link}>
+                        <Link className="nav-link" to={mainMenu[index].link}>
                           {mainMenu[index].label}
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
