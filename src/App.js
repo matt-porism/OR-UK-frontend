@@ -4,19 +4,22 @@ import '../node_modules/jquery/dist/jquery.min.js'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
-import Card from './components/card/Card'
+import SideMenu from './components/sidemenu/SideMenu'
 import './App.css';
 
 function App() {
 
   const BASE_URL = 'http://54.78.155.180:1337'
   const LANDING_PAGE_URI = '/landing-page'
-  const EVENTS_URI = '/events'
+  const MENU_URI = '/menu-links'
+  const SUB_MENU_URI = '/sub-menus/'
 
   const [headerText, setHeaderText] = useState("");
   const [bodyText, setBodyText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [events, setEvents] = useState([]);
+  const [subMenuId, setSubMenuId] = useState("");
+  const [mainMenu, setMainMenu] = useState([]);
+  const [subMenu, setSubMenu] = useState([]); 
 
   useEffect(() => {
     // fetch from strapi
@@ -24,34 +27,48 @@ function App() {
     .then( data => {
       // set data from strapi to state vars
       setHeaderText(data.title);
-      setBodyText(data.projectOverview)
-      setImageUrl(data.logo.name)
+      setBodyText(data.projectOverview);
+	  if (data.sub_menu){
+		setSubMenuId(data.sub_menu.id);
+	  }
+	  if (data.logo){
+		setImageUrl(data.logo.name);
+	  }
     })
-
-    fetch(BASE_URL + EVENTS_URI).then(res => res.json())
-      .then(data => setEvents(data))
+	
+	fetch(BASE_URL + MENU_URI).then(res => res.json())
+    .then(data => setMainMenu(data[0].Menu))
   }, []);
-
-  const eventNodes = events.map(event => {
-    return (
-      <Card key={event.id} title={event.title} body={event.body} image={BASE_URL + event.image.url}/>
-    )
-  })
+  
+  useEffect(() => {
+	if (subMenuId){		
+		fetch(BASE_URL + SUB_MENU_URI + subMenuId).then(res => res.json())
+		.then(data => setSubMenu(data.MenuItem))
+	}	  
+  }, [subMenuId]);
+  
+  let side;
+  let mainPanelCss = "col-12";
+  
+  if (subMenu && subMenu.length > 0){
+	  mainPanelCss = "col-10";
+	  side = <SideMenu subMenu={subMenu}/>
+  }
 
   return (
     <div className="App">
-      <Header />
-      <div className="container">
-        <main>
-          <h2>{headerText} </h2>
+      <Header mainMenu={mainMenu} subMenuId={subMenuId}/>
+      <div className="container-fluid">        
+		<div className="row">
+		{side}
+		<div className={mainPanelCss}>
+		<main>
+		<h2>{headerText} </h2>
           <ReactMarkdown>{bodyText}</ReactMarkdown>
           <img className="logo" src={imageUrl} alt="logo"/>
         </main>
-        <hr></hr>
-        <h2>Upcoming events</h2>
-        <section className="cards">
-          {eventNodes}
-        </section>
+			  </div>
+		  </div>
       </div>
       <Footer className="footer" />
     </div>
