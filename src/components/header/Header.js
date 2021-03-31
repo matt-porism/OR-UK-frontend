@@ -4,19 +4,15 @@ import Logo from '../../assets/logo.png'
 
 export interface HeaderProps {
     mainMenu: array;
-	subMenuId?: number;
+	topMenuId?: number;
 }
 
 export class Header extends Component<HeaderProps> {
   render() {
-	const { mainMenu, subMenuId } = this.props;
+	const { mainMenu, topMenuId } = this.props;
     return (
       <header>
-        <div className="container">
-          <div className="title">
-            <h1>Open Referral UK Data Standard</h1>
-            <p>Setting the open standard for community data</p>
-          </div>
+        <div className="container-fluid">
           <div>
             <img src={Logo} alt="logo"/>
           </div>
@@ -27,11 +23,11 @@ export class Header extends Component<HeaderProps> {
 		{mainMenu.map(function(name, index){
 			var cssClass = 'nav-item';
 			
-			if (mainMenu[index].sub_menu != null && mainMenu[index].sub_menu.id === subMenuId)
+			if (mainMenu[index] != null && mainMenu[index].id === topMenuId)
 			{
 				cssClass += ' active';
 			}
-            return <li className={cssClass} key={mainMenu[index].Link}><a className="nav-link" href={mainMenu[index].Link}>{mainMenu[index].Label}</a></li>;
+            return <li className={cssClass} key={mainMenu[index].link}><a className="nav-link" href={mainMenu[index].link}>{mainMenu[index].label}</a></li>;
         })}
         </ul>		
     </nav>

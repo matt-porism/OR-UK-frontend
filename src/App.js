@@ -11,13 +11,14 @@ function App() {
 
   const BASE_URL = 'http://54.78.155.180:1337'
   const LANDING_PAGE_URI = '/landing-page'
-  const MENU_URI = '/menu-links'
+  const MENU_URI = '/top-menus'
   const SUB_MENU_URI = '/sub-menus/'
 
   const [headerText, setHeaderText] = useState("");
   const [bodyText, setBodyText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [subMenuId, setSubMenuId] = useState("");
+  const [topMenuId, setTopMenuId] = useState("");
   const [mainMenu, setMainMenu] = useState([]);
   const [subMenu, setSubMenu] = useState([]); 
 
@@ -31,13 +32,16 @@ function App() {
 	  if (data.sub_menu){
 		setSubMenuId(data.sub_menu.id);
 	  }
+	  if (data.top_menu){
+		setTopMenuId(data.top_menu.id);
+	  } 
 	  if (data.logo){
 		setImageUrl(data.logo.name);
 	  }
     })
 	
 	fetch(BASE_URL + MENU_URI).then(res => res.json())
-    .then(data => setMainMenu(data[0].Menu))
+    .then(data => setMainMenu(data))
   }, []);
   
   useEffect(() => {
@@ -57,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header mainMenu={mainMenu} subMenuId={subMenuId}/>
+      <Header mainMenu={mainMenu} topMenuId={topMenuId}/>
       <div className="container-fluid">        
 		<div className="row">
 		{side}

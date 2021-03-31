@@ -10,8 +10,9 @@ class componentName extends Component<SideMenuProps> {
 	if (!subMenu || subMenu.length === 0){
 	  return;
 	}
+	//TO DO select the active sub menu item probably based off the URL passed to the API
     return (
-		<div className="col-2"><ul className="nav flex-column">
+		<div className="col-2">In this section<hr></hr><ul className="nav flex-column">
 		{subMenu.map(function(name, index){
 					return <li className="nav-item" key={subMenu[index].Link}><a className="nav-link" href={subMenu[index].Link}>{subMenu[index].Label}</a></li>;
 		})}
