@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders correctly', () => {
   render(<App />);
-  const linkElement = screen.getByText(/In this section/i);
-  expect(linkElement).toBeInTheDocument();
+  const imgElement = screen.getByAltText(/Open Referral Logo/i);
+  expect(imgElement).toBeInTheDocument();
 });
