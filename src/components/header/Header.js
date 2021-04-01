@@ -4,7 +4,7 @@ import Logo from '../../assets/logo.png';
 
 const Header = ({mainMenu, topMenuId}) => {
   const menuItems = mainMenu.map(function (name, index) {
-    const cssClass = 'nav-item';
+    let cssClass = 'nav-item';
 
     // apply active class if we are on the current
     if (mainMenu[index] != null && mainMenu[index].id === topMenuId) {
