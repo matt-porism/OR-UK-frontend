@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { BrowserRouter as Router } from 'react-router-dom';
-import '../node_modules/jquery/dist/jquery.min.js';
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import SideMenu from './components/sidemenu/SideMenu';
