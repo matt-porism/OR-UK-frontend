@@ -4,10 +4,7 @@ header {
   padding-bottom:0;
   
   .container-fluid {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-
+    
     img {
       background-color: #fff;
       height: 150px;
@@ -15,8 +12,4 @@ header {
     }
 
   }
-}
-
-.container-fluid{
-	margin-top:1rem;
 }
