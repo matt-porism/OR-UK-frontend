@@ -14,7 +14,7 @@ class componentName extends Component<FooterProps> {
       <footer className="footer pt-3">
         <div className="container-fluid">
 		<div className="row mb-3">
-			<div className="col-6"><img src={Logo} alt="Open Referral Logo Footer"/></div>
+			<div className="col-6"><img src={Logo} alt="Open Referral UK Logo"/></div>
 			<div className="col-6 text-right"><a className="text-white" href="#">Documentation and Tools</a></div>
 		</div>
 		<div className="row">
