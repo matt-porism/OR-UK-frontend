@@ -14,7 +14,7 @@ export class Header extends Component<HeaderProps> {
       <header>
         <div className="container-fluid">
           <div>
-            <img src={Logo} alt="logo"/>
+            <img src={Logo} alt="Open Referral Logo"/>
           </div>
         </div>
 		<div id="main_content_wrap" className="outer">
