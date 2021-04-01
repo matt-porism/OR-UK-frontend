@@ -55,7 +55,7 @@ function App() {
   let mainPanelCss = "col-12";
   
   if (subMenu && subMenu.length > 0){
-	  mainPanelCss = "col-10";
+	  mainPanelCss = "col-9";
 	  side = <SideMenu subMenu={subMenu}/>
   }
 
@@ -74,7 +74,7 @@ function App() {
 			  </div>
 		  </div>
       </div>
-      <Footer className="footer" />
+      <Footer className="footer" mainMenu={mainMenu} />
     </div>
   );
 }
