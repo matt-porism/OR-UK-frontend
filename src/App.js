@@ -5,13 +5,9 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import SideMenu from './components/sidemenu/SideMenu';
 import './App.css';
+import { fetchLandingPageContent, fetchMainMenuItems, fetchSubMenuItems } from './helpers/ContentConsumer';
 
 function App() {
-  const BASE_URL = 'http://54.78.155.180:1337';
-  const LANDING_PAGE_URI = '/landing-page';
-  const MENU_URI = '/top-menus';
-  const SUB_MENU_URI = '/sub-menus/';
-
   const [headerText, setHeaderText] = useState('');
   const [bodyText, setBodyText] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -22,8 +18,7 @@ function App() {
 
   useEffect(() => {
     // fetch from strapi
-    fetch(BASE_URL + LANDING_PAGE_URI)
-      .then((res) => res.json())
+    fetchLandingPageContent()
       .then((data) => {
         // set data from strapi to state vars
         setHeaderText(data.title);
@@ -39,45 +34,37 @@ function App() {
         }
       });
 
-    fetch(BASE_URL + MENU_URI)
-      .then((res) => res.json())
+    fetchMainMenuItems()
       .then((data) => setMainMenu(data));
   }, []);
 
   useEffect(() => {
     if (subMenuId) {
-      fetch(BASE_URL + SUB_MENU_URI + subMenuId)
-        .then((res) => res.json())
+      fetchSubMenuItems(subMenuId)
         .then((data) => setSubMenu(data.MenuItem));
     }
   }, [subMenuId]);
 
-  let side;
-  let mainPanelCss = 'col-12';
+  let sideMenu;
 
   if (subMenu && subMenu.length > 0) {
-    mainPanelCss = 'col-10';
-    side = <SideMenu subMenu={subMenu} />;
+    sideMenu = <SideMenu subMenu={subMenu} />;
   }
 
   return (
     <Router>
       <div className="App">
         <Header mainMenu={mainMenu} topMenuId={topMenuId} />
-        <div className="container-fluid">
           <div className="row">
-            {side}
-            <div className={mainPanelCss}>
+            {sideMenu}
               <main>
                 <h2>{headerText}</h2>
                 <ReactMarkdown>{bodyText}</ReactMarkdown>
                 <img className="logo" src={imageUrl} alt="logo" />
               </main>
-            </div>
           </div>
         </div>
         <Footer className="footer" />
-      </div>
     </Router>
   );
 }
