@@ -20,7 +20,7 @@ jobs:
       - run: npm run build
   deploy:
     machine:
-      - image: ubuntu-1604:202007-01
+      image: ubuntu-1604:202007-01
     working_directory: ~/OR-UK-frontend
     steps:
       - checkout
