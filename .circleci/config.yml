@@ -3,16 +3,42 @@ jobs:
   test:
     docker:
       - image: cimg/node:15.11.0
-    working_directory: ~/OR-UK-frontend  
+    working_directory: ~/OR-UK-frontend
+
     steps:
-    - checkout
-    - run: node --version
-    - run: echo "running tests"
-    - run: npm install
-    - run: npm test 
+      - checkout
+      - run: node --version
+      - run: npm install
+  build:
+    docker:
+      - image: cimg/node:15.11.0
+    working_directory: ~/OR-UK-frontend
+    steps:
+      - run: echo "run build task"
+      - checkout
+      - run: npm install
+      - run: npm run build
+  deploy:
+    docker:
+      - image: ubuntu-1604:202007-01
+    working_directory: ~/OR-UK-frontend
+    steps:
+      - checkout
+      - run: echo "deploy project"
+      - run: ssh -i -v ${VPS_USER}@${IP} "~/client_deploy.sh"
+
 workflows:
-  build-and-test:
+  version: 2
+  test-build:
     jobs:
-      - test
-
-
+      - build
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - main
