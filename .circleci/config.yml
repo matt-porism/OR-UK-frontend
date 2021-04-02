@@ -25,7 +25,7 @@ jobs:
     steps:
       - checkout
       - run: echo "deploy project"
-      - run: ssh -i -v ${VPS_USER}@${VPS_NAME} "~/client_deploy.sh"
+      - run: ssh -v ${VPS_USER}@${VPS_NAME} "~/client_deploy.sh"
 
 workflows:
   version: 2
