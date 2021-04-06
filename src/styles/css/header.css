@@ -1,0 +1,12 @@
+header {
+  color: white;
+  padding: 2rem 0;
+  padding-bottom: 0;
+}
+
+header .container-fluid img {
+  background-color: #fff;
+  height: 150px;
+  width: 250px;
+}
+/*# sourceMappingURL=header.css.map */

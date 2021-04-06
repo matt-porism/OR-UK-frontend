@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/header/Header';
+import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
 import SideMenu from './components/sidemenu/SideMenu';
-import './App.css';
-import { fetchLandingPageContent, fetchMainMenuItems, fetchSubMenuItems } from './helpers/ContentConsumer';
+import '../src/styles/css/styles.css';
+import { fetchLandingPageContent, 
+         fetchMainMenuItems, 
+         fetchSubMenuItems } from './helpers/ContentConsumer';
 
 function App() {
   const [headerText, setHeaderText] = useState('');
@@ -32,7 +35,7 @@ function App() {
         if (data.logo) {
           setImageUrl(data.logo.name);
         }
-      });
+      }).catch(err => console.log("do something with error as required"));
 
     fetchMainMenuItems()
       .then((data) => setMainMenu(data));
@@ -53,9 +56,10 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <Header mainMenu={mainMenu} topMenuId={topMenuId} />
-          <div className="row">
+      <div className="container">
+      <Header />
+        <Navigator mainMenu={mainMenu} topMenuId={topMenuId} />
+          <div className="sidebar">
             {sideMenu}
               <main>
                 <h2>{headerText}</h2>
@@ -63,8 +67,8 @@ function App() {
                 <img className="logo" src={imageUrl} alt="logo" />
               </main>
           </div>
-        </div>
         <Footer className="footer" />
+        </div>
     </Router>
   );
 }
