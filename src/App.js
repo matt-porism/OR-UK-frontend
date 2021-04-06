@@ -10,7 +10,12 @@ import './App.css';
 
 function App() {
   const BASE_URL = 'http://54.78.155.180:1337';
-  const LANDING_PAGE_URI = '/landing-page';
+  
+  let page_uri = window.location.pathname;
+  if (page_uri == '/'){
+	  page_uri = '/landing-page';
+  }
+  
   const MENU_URI = '/top-menus';
   const SUB_MENU_URI = '/sub-menus/';
 
@@ -24,7 +29,7 @@ function App() {
 
   useEffect(() => {
     // fetch from strapi
-    fetch(BASE_URL + LANDING_PAGE_URI)
+    fetch(BASE_URL + page_uri)
       .then((res) => res.json())
       .then((data) => {
         // set data from strapi to state vars
