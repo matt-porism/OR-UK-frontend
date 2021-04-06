@@ -64,7 +64,7 @@ function App() {
               <main>
                 <h2>{headerText}</h2>
                 <ReactMarkdown>{bodyText}</ReactMarkdown>
-                <img className="logo" src={imageUrl} alt="logo" />
+                <img className="logo" src={imageUrl} alt="Open Referral logo" />
               </main>
           </div>
         <Footer className="footer" />
