@@ -61,12 +61,13 @@ function App() {
         <Navigator mainMenu={mainMenu} topMenuId={topMenuId} />
           <div className="sidebar">
             {sideMenu}
-              <main>
+            </div>
+              <main className="main">
                 <h2>{headerText}</h2>
                 <ReactMarkdown>{bodyText}</ReactMarkdown>
                 <img className="logo" src={imageUrl} alt="Open Referral logo" />
               </main>
-          </div>
+         
         <Footer className="footer" />
         </div>
     </Router>
