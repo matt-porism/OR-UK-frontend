@@ -7,10 +7,10 @@
 		//TO DO select the active sub menu item probably based off the URL passed to the API
 
 		<>
-			<div>
+			<div className="sidebar">
 				In this section
 					<hr />
-			</div>
+			
 			<ul>
 				{subMenu.map(function (name, index) {
 					return (
@@ -22,6 +22,7 @@
 					)
 				})}
 			</ul>
+			</div>
 		</>
 	)
 }

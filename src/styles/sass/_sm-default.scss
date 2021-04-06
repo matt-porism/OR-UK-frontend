@@ -11,88 +11,80 @@ body {
 	font-weight: $normalWeight;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
-  }
-
-  .header {
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    background-color: $primaryColour;
-    color: $secondaryColour;
+.header {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: $primaryColour;
+  color: $secondaryColour;
     
-    a{
-        color:$fontColor;
-    }
+  a{
+    color:$fontColour;
   }
 
-  nav {
-	
-	
-	ul { display: flex;}
-	ul li {
-		flex-basis: 16.66%;
+  }
 
-	}// end li
-	ul li a {
-		display: block;
+nav {
+  ul li a {
+    display: block;
 		text-align: center;
 		font-weight: $normalWeight;
 		padding: .5rem 0;
-		color:$fontColor;
+		color:$fontColour;
 		text-decoration: none;
-	} 
-	ul li a:hover {
-		color: $secondaryColor;
-		background-color: $primaryColor;
-	} // end hover
+  } 
+  
 } // end nav
 
-  .sidebar {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 6;
-  }
+.sidebar {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  margin: 0 0.5rem;
 
-  .footer {
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 6;
-    grid-row-end: 6;
-    background-color: $primaryColour;
-	color: $secondaryColour;
+  ul {
+    list-style-type: none;
+    
   }
+}
 
-  footer ul { 
+.main {
+  grid-column-start:2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  min-height: 400px;
+  padding: 1.5rem 0;
+  margin: 0 0.5rem;
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 6;
+  grid-row-end: 6;
+  background-color: $primaryColour;
+  color: $secondaryColour;
+  
+  ul { 
     display: flex;
     justify-content: space-between;
-}
-
-footer ul li {
-  margin-right: 15px;
-  list-style-type: none;
-}
-  
-  .content {
-    grid-column-start:1;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 6;
-    height: 400px;
-  }
- 
-  .parent {
-    display: flex;
-    padding: 0.5rem 0;
   }
 
-  .oruktools {
-    margin-left: auto;
-    order: 2;
+  ul li {
+    margin-right: 15px;
+    list-style-type: none;
   }
+}
+
+.parent {
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.oruktools {
+  margin-left: auto;
+  order: 2;
+}
