@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import './footer.scss'
 import Logo from '../../assets/logo.png'
 
-export interface FooterProps {
-    mainMenu: array;
-}
 
-class componentName extends Component<FooterProps> {
+class componentName extends Component {
   render() {
 	const { mainMenu } = this.props;
 	  
@@ -15,7 +12,7 @@ class componentName extends Component<FooterProps> {
         <div className="container-fluid">
 		<div className="row mb-3">
 			<div className="col-6"><img src={Logo} alt="Open Referral UK Logo"/></div>
-			<div className="col-6 text-right"><a className="text-white" href="#">Documentation and Tools</a></div>
+			<div className="col-6 text-right"><a className="text-white" href="/">Documentation and Tools</a></div>
 		</div>
 		<div className="row">
 			<div className="col-4">
@@ -53,8 +50,8 @@ class componentName extends Component<FooterProps> {
 		</div>
 		<div className="row mt-4 pb-3 pt-3 final-footer">
 			<div className="col-7">Copyright 2019-2021 Open Referral UK</div>
-			<div className="col-3 text-right"><a className="text-white" href="#">Terms and conditions</a></div>
-			<div className="col-2 text-right"><a className="text-white" href="#">Privacy policy</a></div>
+			<div className="col-3 text-right"><a className="text-white" href="/">Terms and conditions</a></div>
+			<div className="col-2 text-right"><a className="text-white" href="/">Privacy policy</a></div>
 			</div>
         </div>
       </footer>
