@@ -7,12 +7,10 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import SideMenu from './components/sidemenu/SideMenu';
 import './App.css';
+import { config } from './config.js';
+
 
 function App() {
-  const BASE_URL = 'http://54.78.155.180:1337';
-  
-  const MENU_URI = '/top-menus';
-  const SUB_MENU_URI = '/sub-menus/';
 
   const [headerText, setHeaderText] = useState('');
   const [bodyText, setBodyText] = useState('');
@@ -28,7 +26,7 @@ function App() {
 		pageUri = '/landing-page';
 	}
     // fetch from strapi
-    fetch(BASE_URL + pageUri)
+    fetch(config.STRAPI_BASE_URI + pageUri)
       .then((res) => res.json())
       .then((data) => {
         // set data from strapi to state vars
@@ -45,14 +43,14 @@ function App() {
         }
       });
 
-    fetch(BASE_URL + MENU_URI)
+    fetch(config.STRAPI_BASE_URI + config.MENU_URI_STUB)
       .then((res) => res.json())
       .then((data) => setMainMenu(data));
   }, []);
 
   useEffect(() => {
     if (subMenuId) {
-      fetch(BASE_URL + SUB_MENU_URI + subMenuId)
+      fetch(config.STRAPI_BASE_URI + config.SUB_MENU_URI_STUB + subMenuId)
         .then((res) => res.json())
         .then((data) => setSubMenu(data.MenuItem));
     }
