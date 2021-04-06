@@ -42,7 +42,7 @@ class componentName extends Component {
 		{mainMenu.map(function(name, index){			
 			if (!mainMenu[index].ShowOnFooter)
 			{
-				return;
+				return <li>must return a value here</li>;
 			}
             return <li key={mainMenu[index].link}><a className="text-white" href={mainMenu[index].link}>{mainMenu[index].label}</a></li>;
         })}
