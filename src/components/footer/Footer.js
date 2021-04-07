@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Header from '../header/Header';
+import Banner from '../banner';
 
 
 class componentName extends Component {
   render() {
     return (
       <footer className="footer">
-        <Header />
+        <Banner />
         <div className="footergrid">
           <div className="foot-one">
             <div className="about">General enquiries</div>
