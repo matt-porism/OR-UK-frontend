@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import './footer.scss'
 
 
-class componentName extends Component {
+class Footer extends Component {
   render() {
 	  
     return (
@@ -24,4 +24,4 @@ class componentName extends Component {
   }
 }
 
-export default componentName;
+export default Footer;
