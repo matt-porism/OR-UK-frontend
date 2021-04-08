@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Header from '../header/Header';
+import './footer.scss'
+import Logo from '../../assets/logo.png'
+
 
 class componentName extends Component {
   render() {
+	const { mainMenu } = this.props;
+	  
     return (
       <footer className="footer">
         <Header />
