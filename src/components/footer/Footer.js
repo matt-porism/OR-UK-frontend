@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Banner from '../banner';
 
 
-class componentName extends Component {
+class Footer extends Component {
   render() {
+	  
     return (
       <footer className="footer">
         <Banner />
@@ -30,4 +31,4 @@ class componentName extends Component {
   }
 }
 
-export default componentName;
+export default Footer;
