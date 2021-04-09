@@ -116,7 +116,6 @@ footer {
   grid-row-start: 6;
   grid-row-end: 6;
   background-color: #ffffff;
-  color: #faf9f9;
 }
 
 footer ul {
@@ -127,6 +126,44 @@ footer ul {
 footer ul li {
   margin-right: 15px;
   list-style-type: none;
+  padding: 0.5rem 0;
+}
+
+.foot-one {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.foot-two {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.foot-three {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.foot-three ul {
+  display: block;
+}
+
+.foot-three ul li {
+  text-align: center;
+}
+
+.copy {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
 }
 
 .parent {
@@ -145,6 +182,7 @@ footer ul li {
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 1;
+    padding: 0.5rem;
   }
   .container {
     display: grid;
@@ -158,6 +196,7 @@ footer ul li {
     grid-row-start: 2;
     grid-row-end: 2;
     background-color: #DCDCDC;
+    padding: 0.5rem;
   }
   nav ul {
     display: flex;
@@ -190,6 +229,52 @@ footer ul li {
     grid-row-end: 6;
     background-color: #DCDCDC;
     color: #000000;
+  }
+  .footergrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5em;
+    padding: 0.5rem;
+  }
+  .foot-one {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-two {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-three {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-three ul {
+    display: block;
+  }
+  .foot-three ul li {
+    text-align: left;
+  }
+  .copy {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: left;
+  }
+  .about {
+    text-align: left;
+  }
+  .terms {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
   }
 }
 /*# sourceMappingURL=styles.css.map */
