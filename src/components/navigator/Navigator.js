@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 const Navigator = ({mainMenu, topMenuId}) => {
   const menuItems = mainMenu.map(function (name, index) {
@@ -28,6 +29,10 @@ const Navigator = ({mainMenu, topMenuId}) => {
     
   
   );
+}
+Navigator.propTypes = {
+  mainMenu: PropTypes.array.isRequired,
+  topMenuId: PropTypes.string.isRequired
 }
 
 export default Navigator;

@@ -1,21 +1,20 @@
 .header {
-    grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 1;
-    padding: 0.5rem;
   }
 
 .container {
   display: grid;
   grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
   grid-column-gap: 10px;
-  grid-row-gap: 15px;
+  //grid-row-gap: 15px;
 }
 
 .nav {
-  grid-column-start: 2;
-  grid-column-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 6;
   grid-row-start: 2;
   grid-row-end: 2;
   background-color: $primaryBackgroudColour;
@@ -40,11 +39,40 @@ nav {
 }
 
 .main {
-  grid-column-start: 3;
-  grid-column-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 6;
   grid-row-start: 4;
   grid-row-end: 6;
   min-height: 400px;
+  padding-top: 1.5rem;
+}
+
+#learn {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 6;
+  padding: 1.5rem 0;
+
+
+#learngrid {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  grid-gap: 1.5em;
+}
+
+  #left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  #right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
 }
 
 
@@ -57,10 +85,10 @@ nav {
 
   
 .footer {
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 6;
-  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 7;
+  grid-row-end: 7;
   background-color: $primaryBackgroudColour;
 	color: $fontColour;
 }
@@ -68,7 +96,7 @@ nav {
 .footergrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.5em;
+  grid-gap: 2.0em;
   padding: 0.5rem;
 }
 
@@ -118,4 +146,30 @@ nav {
   grid-row-start: 2;
   grid-row-end: 2;
 
+}
+
+.headingList, .figure, .nav_link {
+  margin-left: $paddingSpace;
+}
+
+.section {
+  padding: 45px 35px;
+}
+
+h2 {
+  padding-top: $paddingSpace;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
 }

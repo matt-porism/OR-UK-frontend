@@ -14,17 +14,21 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   outline: 0;
-  font-size: 100%;
   vertical-align: baseline;
   background: transparent;
 }
 
 body {
-  line-height: 1;
+  line-height: 1.6;
 }
 
 nav ul {
   list-style: none;
+}
+
+p {
+  line-height: 1.6;
+  margin-top: 1rem;
 }
 
 a {
@@ -61,9 +65,26 @@ html {
 
 /* ------------- BODY ------------- */
 body {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
   font-weight: 300;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+blockquote::before {
+  content: "\201C";
+  display: block;
+  font-size: 80px;
+  left: -44px;
+  top: -30px;
+  position: relative;
+  height: 0;
 }
 
 .header {
@@ -71,6 +92,7 @@ body {
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 2;
+  padding: 1rem 2%;
   background-color: #ffffff;
   color: #faf9f9;
 }
@@ -85,6 +107,9 @@ nav ul li a {
   font-weight: 300;
   padding: .5rem 0;
   color: #000000;
+}
+
+nav ul li a:active {
   text-decoration: none;
 }
 
@@ -106,8 +131,7 @@ nav ul li a {
   grid-row-start: 3;
   grid-row-end: 6;
   min-height: 400px;
-  padding: 1.5rem 0;
-  margin: 0 0.5rem;
+  padding-top: 0.5rem;
 }
 
 footer {
@@ -168,7 +192,6 @@ footer ul li {
 
 .parent {
   display: flex;
-  padding: 0.5rem 0;
 }
 
 .oruktools {
@@ -176,23 +199,34 @@ footer ul li {
   order: 2;
 }
 
+.banner {
+  display: flex;
+  margin: 1.5rem;
+}
+
+.section {
+  background-color: #f2f2f2;
+}
+
+blockquote {
+  padding-top: 65px;
+}
+
 @media only screen and (min-width: 35em) {
   .header {
-    grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 1;
-    padding: 0.5rem;
   }
   .container {
     display: grid;
     grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
     grid-column-gap: 10px;
-    grid-row-gap: 15px;
   }
   .nav {
-    grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 2;
     background-color: #DCDCDC;
@@ -210,11 +244,36 @@ footer ul li {
     color: #000000;
   }
   .main {
-    grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 6;
     grid-row-start: 4;
     grid-row-end: 6;
     min-height: 400px;
+    padding-top: 1.5rem;
+  }
+  #learn {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 6;
+    padding: 1.5rem 0;
+  }
+  #learn #learngrid {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-gap: 1.5em;
+  }
+  #learn #left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  #learn #right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    background-color: #f2f2f2;
+    text-align: center;
   }
   .sidebar {
     grid-column-start: 2;
@@ -223,17 +282,17 @@ footer ul li {
     grid-row-end: 6;
   }
   .footer {
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 6;
-    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 7;
+    grid-row-end: 7;
     background-color: #DCDCDC;
     color: #000000;
   }
   .footergrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0.5em;
+    grid-gap: 2.0em;
     padding: 0.5rem;
   }
   .foot-one {
@@ -275,6 +334,160 @@ footer ul li {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
+  }
+  .headingList, .figure, .nav_link {
+    margin-left: 65px;
+  }
+  .section {
+    padding: 45px 35px;
+  }
+  h2 {
+    padding-top: 65px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .row {
+    display: flex;
+  }
+  .column {
+    flex: 50%;
+    padding: 5px;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .header {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
+    grid-column-gap: 10px;
+  }
+  .nav {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: #DCDCDC;
+    padding: 0.5rem;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav li {
+    margin-right: 15px;
+    list-style-type: none;
+  }
+  nav ul li a {
+    color: #000000;
+  }
+  .main {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    min-height: 400px;
+    padding-top: 1.5rem;
+  }
+  #learn {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 6;
+    padding: 1.5rem 0;
+  }
+  #learn #learngrid {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-gap: 1.5em;
+  }
+  #learn #left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  #learn #right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  .sidebar {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 6;
+  }
+  .footer {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 7;
+    background-color: #DCDCDC;
+    color: #000000;
+  }
+  .footergrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2.0em;
+    padding: 0.5rem;
+  }
+  .foot-one {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-two {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-three {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-three ul {
+    display: block;
+  }
+  .foot-three ul li {
+    text-align: left;
+  }
+  .copy {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: left;
+  }
+  .about {
+    text-align: left;
+  }
+  .terms {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  .headingList, .figure, .nav_link {
+    margin-left: 65px;
+  }
+  .section {
+    padding: 45px 35px;
+  }
+  h2 {
+    padding-top: 65px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

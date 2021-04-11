@@ -1,0 +1,161 @@
+.header {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+.container {
+  display: grid;
+  grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
+  grid-column-gap: 10px;
+  //grid-row-gap: 15px;
+}
+
+.nav {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  background-color: $primaryBackgroudColour;
+  padding: 0.5rem;
+}
+
+nav {
+
+  ul { 
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  li {
+    margin-right: 15px;
+    list-style-type: none;
+  }
+  
+  ul li a {
+    color:$fontColour;
+  }
+}
+
+.main {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  min-height: 400px;
+  padding-top: 1.5rem;
+}
+
+#learn {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 6;
+  padding: 1.5rem 0;
+
+
+#learngrid {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  grid-gap: 1.5em;
+}
+
+  #left {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  #right {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+}
+
+
+.sidebar {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 6;
+  }
+
+  
+.footer {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 7;
+  grid-row-end: 7;
+  background-color: $primaryBackgroudColour;
+	color: $fontColour;
+}
+
+.footergrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2.0em;
+  padding: 0.5rem;
+}
+
+.foot-one {
+  grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.foot-two {
+  grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.foot-three {
+  grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+    ul {
+      display: block;
+    }
+
+    ul li {
+      text-align: left;
+    }
+}
+
+.copy {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: left;
+}
+
+.about {
+  text-align: left;
+}
+.terms {
+  
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+
+}
+
+.headingList, .figure, .nav_link {
+  margin-left: $paddingSpace;
+}
+
+.section {
+  padding: 45px 35px;
+}
+
+h2 {
+  padding-top: $paddingSpace;
+}

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/header/Header';
 import Navigator from  './components/navigator/Navigator';
@@ -7,6 +6,7 @@ import Footer from './components/footer/Footer';
 import '../src/styles/css/styles.css';
 import { fetchLandingPageContent, 
          fetchMainMenuItems } from './helpers/ContentConsumer';
+import HomePage from "./components/home";
 
 function App() {
   const [headerText, setHeaderText] = useState('');
@@ -14,6 +14,9 @@ function App() {
   const [imageUrl, setImageUrl] = useState('');
   const [topMenuId, setTopMenuId] = useState('');
   const [mainMenu, setMainMenu] = useState([]);
+  const [anchorLink, setAnchorLink] = useState('');
+  const [anchorLabel, setAnchorLabel] = useState('');
+  const [quote, setQuote] = useState('');
 
   useEffect(() => {
     // fetch from strapi
@@ -28,6 +31,8 @@ function App() {
         if (data.logo) {
           setImageUrl(data.logo.name);
         }
+        setQuote("do not quote me")
+        setAnchorLabel("my link");
       }).catch(err => console.log("do something with error as required"));
 
     fetchMainMenuItems()
@@ -39,11 +44,8 @@ function App() {
       <div className="container">
       <Header />
         <Navigator mainMenu={mainMenu} topMenuId={topMenuId} />
-              <main className="main">
-                <h2>{headerText}</h2>
-                <ReactMarkdown>{bodyText}</ReactMarkdown>
-                <img className="logo" src={imageUrl} alt="Open Referral logo" />
-              </main>
+          <HomePage headingText={headerText} bodyText={bodyText} classname="main" quote={quote} anchorLabel={anchorLabel} anchorLink={anchorLink}
+          hIIHeading="Some heading" listItems={["one","two","threee"]}/>
          
         <Footer className="footer" />
         </div>
