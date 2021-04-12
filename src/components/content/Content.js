@@ -15,7 +15,12 @@ export class Content extends Component<ContentProps> {
 	if (!apiData){
 		return (<div></div>);
 	}
-	
+
+	let nextLink = (<></>);
+	if (apiData.article.ReadNextLink){
+		nextLink = <><hr/><div className="NextLink"><a href={apiData.article.ReadNextLink.url}>{apiData.article.ReadNextLink.TextToDisplay}</a></div></>
+	}
+						
     return (
 	 <div className="row">
         <div className="col-2">
@@ -34,7 +39,8 @@ export class Content extends Component<ContentProps> {
 					if (d.sectionHeading){
 						return (<div key={d.id}><h2 id={d.id}>{d.sectionHeading}</h2><div>{ReactHtmlParser(d.sectionBody)}</div></div>)
 					}
-					return (<div key={d.id}>{ReactHtmlParser(d.sectionBody)}</div>)})}
+					return (<div key={d.id}>{ReactHtmlParser(d.sectionBody)}</div>)})}					
+					{nextLink}
 			</main>
 		</div>
 	</div>
