@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
 import Content from './components/content/Content';
 import './App.css';
