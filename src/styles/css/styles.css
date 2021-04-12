@@ -1,0 +1,280 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+nav ul {
+  list-style: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*  apply a natural box layout model to all elements  */
+* {
+  box-sizing: border-box;
+}
+
+/* ------------- BODY ------------- */
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.header {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: #ffffff;
+  color: #faf9f9;
+}
+
+.header a {
+  color: #000000;
+}
+
+nav ul li a {
+  display: block;
+  text-align: center;
+  font-weight: 300;
+  padding: .5rem 0;
+  color: #000000;
+  text-decoration: none;
+}
+
+.sidebar {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  margin: 0 0.5rem;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.main {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  min-height: 400px;
+  padding: 1.5rem 0;
+  margin: 0 0.5rem;
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 6;
+  grid-row-end: 6;
+  background-color: #ffffff;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer ul li {
+  margin-right: 15px;
+  list-style-type: none;
+  padding: 0.5rem 0;
+}
+
+.foot-one {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.foot-two {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.foot-three {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.foot-three ul {
+  display: block;
+}
+
+.foot-three ul li {
+  text-align: center;
+}
+
+.copy {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+}
+
+.parent {
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.oruktools {
+  margin-left: auto;
+  order: 2;
+}
+
+@media only screen and (min-width: 35em) {
+  .header {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    padding: 0.5rem;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+  }
+  .nav {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: #DCDCDC;
+    padding: 0.5rem;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav li {
+    margin-right: 15px;
+    list-style-type: none;
+  }
+  nav ul li a {
+    color: #000000;
+  }
+  .main {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    min-height: 400px;
+  }
+  .sidebar {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 6;
+  }
+  .footer {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 6;
+    background-color: #DCDCDC;
+    color: #000000;
+  }
+  .footergrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5em;
+    padding: 0.5rem;
+  }
+  .foot-one {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-two {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-three {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .foot-three ul {
+    display: block;
+  }
+  .foot-three ul li {
+    text-align: left;
+  }
+  .copy {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: left;
+  }
+  .about {
+    text-align: left;
+  }
+  .terms {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

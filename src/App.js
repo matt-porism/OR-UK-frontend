@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import '../node_modules/jquery/dist/jquery.min.js';
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import Header from './components/header/Header';
+import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
 import Content from './components/content/Content';
 import './App.css';
-import { config } from './config.js';
-
+import '../src/styles/css/styles.css';
+import { fetchLandingPageContent, 
+         fetchMainMenuItems } from './helpers/ContentConsumer';
 
 function App() {
-
   const [apiData, setAPIData] = useState('');
   const [headerText, setHeaderText] = useState('');
   const [bodyText, setBodyText] = useState('');
@@ -20,13 +19,13 @@ function App() {
   const [mainMenu, setMainMenu] = useState([]);
 
   useEffect(() => {
-	var pageUri = window.location.pathname;
+	let pageUri = window.location.pathname;
 	if (pageUri === '/'){
 		pageUri = '/landing-page';
 	}
     // fetch from strapi
-    fetch(config.STRAPI_BASE_URI + pageUri)
-      .then((res) => res.json())
+
+    fetchLandingPageContent(pageUri)
       .then((data) => {
 		setAPIData(JSON.stringify(data));
         // set data from strapi to state vars
@@ -38,11 +37,10 @@ function App() {
         if (data.logo) {
           setImageUrl(data.logo.name);
         }
-      });
+      }).catch(err => console.log("do something with error as required"));
 
-    fetch(config.STRAPI_BASE_URI + config.MENU_URI_STUB)
-      .then((res) => res.json())
-      .then((data) => setMainMenu(data));
+    fetchMainMenuItems()
+    .then((data) => setMainMenu(data));
   }, []);
 
   return (

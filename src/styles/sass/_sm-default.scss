@@ -1,0 +1,126 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* ------------- BODY ------------- */
+body {
+	font-family: $defaultFont;
+	font-size: 16px;
+	font-weight: $normalWeight;
+}
+
+.header {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: $primaryColour;
+  color: $secondaryColour;
+    
+  a{
+    color:$fontColour;
+  }
+
+  }
+
+nav {
+  ul li a {
+    display: block;
+		text-align: center;
+		font-weight: $normalWeight;
+		padding: .5rem 0;
+		color:$fontColour;
+		text-decoration: none;
+  } 
+  
+} // end nav
+
+.sidebar {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  margin: 0 0.5rem;
+
+  ul {
+    list-style-type: none;
+    
+  }
+}
+
+.main {
+  grid-column-start:2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  min-height: 400px;
+  padding: 1.5rem 0;
+  margin: 0 0.5rem;
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 6;
+  grid-row-end: 6;
+  background-color: $primaryColour;
+  
+  ul { 
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul li {
+    margin-right: 15px;
+    list-style-type: none;
+    padding: 0.5rem 0;
+  }
+}
+
+.foot-one {
+  grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.foot-two {
+  grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.foot-three {
+  grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+
+    ul {
+      display: block;
+    }
+
+    ul li {
+      text-align: center;
+    }
+}
+
+.copy {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+}
+
+.parent {
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.oruktools {
+  margin-left: auto;
+  order: 2;
+}
