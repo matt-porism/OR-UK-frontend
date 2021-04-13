@@ -1,68 +1,88 @@
 import { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Content from './components/content/Content';
-import './App.css';
+import Navigator from './components/navigator/Navigator';
 import '../src/styles/css/styles.css';
 import { fetchLandingPageContent, 
          fetchMainMenuItems } from './helpers/ContentConsumer';
+import HomePage from "./components/home";
+//import About from "./components/about";
+//import HowPage from "./components/how";
+//import CommunityPage from "./components/community";
 
 function App() {
-  const [apiData, setAPIData] = useState('');
-  const [headerText, setHeaderText] = useState('');
-  const [bodyText, setBodyText] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [homeProps, setHomeProps] = useState({});
+  //const [headerText, setHeaderText] = useState('');
+  //const [bodyText, setBodyText] = useState('');
+  //const [imageUrl, setImageUrl] = useState('');
   const [topMenuId, setTopMenuId] = useState('');
   const [mainMenu, setMainMenu] = useState([]);
+  //const [anchorLink, setAnchorLink] = useState('');
+  //const [anchorLabel, setAnchorLabel] = useState('');
+  const [errors, setErrors] = useState({});  //use to confirm render component or error page
 
   useEffect(() => {
-	let pageUri = window.location.pathname;
-	if (pageUri === '/'){
-		pageUri = '/landing-page';
-	}
     // fetch from strapi
+    let pageUri = window.location.pathname;
+    console.log('URL '+pageUri);
+    if (!pageUri || pageUri === '/'){
+      pageUri = '/home-page';
+    }
 
     fetchLandingPageContent(pageUri)
       .then((data) => {
-		setAPIData(JSON.stringify(data));
         // set data from strapi to state vars
-        setHeaderText(data.title);
-        setBodyText(data.projectOverview);
+        setHomeProps((data));
+        
         if (data.top_menu) {
           setTopMenuId(data.top_menu.id);
         }
-        if (data.logo) {
-          setImageUrl(data.logo.name);
-        }
+       
       }).catch(err => console.log("do something with error as required"));
 
     fetchMainMenuItems()
-    .then((data) => setMainMenu(data));
+      .then((data) => { 
+        console.log("main menu items ", data);
+        setMainMenu(data)
+      });
   }, []);
 
-  return (
-  <Router>
-      <div className="App">
-        <Header mainMenu={mainMenu} topMenuId={topMenuId} />
-        <div className="container-fluid">
-		<Switch>
-			<Route exact path="/">
-				<main>
-					<h1>{headerText}</h1>
-					<ReactMarkdown>{bodyText}</ReactMarkdown>
-					<img className="logo" src={imageUrl} alt="logo" />
-				</main>
-			</Route>
+  const handleErrors = (target, message) => {
+    const errors = {};
+
+    errors[target] = message;
+    setErrors(errors);
+  }
+ console.log("Home page props ", errors);
+
+  return (   
+ <div className="container">
+      
+      <BrowserRouter forceRefresh={true}>
+    <Header />
+        <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
+        
+            <Route exact path="/" render={() => 
+                (
+                  <HomePage homePageProps={homeProps} classname="main" />
+                )}/>
+      {/*<Route path="/home" render={() => (
+        <HomePage headingText={headerText} bodyText={bodyText} classname="main" quote={quote} anchorLabel={anchorLabel} anchorLink={anchorLink}
+        hIIHeading="Some heading" listItems={["one","two","threee"]}/>
+
+      )}/>
+      <Route path="/about" render={() =>  <About sideMenu={subMenu} styleName="main"/> }/>
+      <Route path="/how-to" render={() =>  <HowPage headingText={headerText} bodyText={bodyText} styleName="main"/> }/>
+      <Route path="/get-started" render={() =>  <CommunityPage headingText={headerText} bodyText={bodyText} styleName="main"/> }/>*/}
 			<Route>
-				<Content data={apiData}/>
-			</Route>
-		</Switch>
-        </div>
-        <Footer className="footer" />
-      </div>
-	</Router>
+				<Content homePageProps={homeProps}/>
+			</Route>      
+      <Footer className="footer" />
+      </BrowserRouter> 
+    
+    </div>
   );
 }
 
