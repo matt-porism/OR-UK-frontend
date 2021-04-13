@@ -7,19 +7,39 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /* ------------- BODY ------------- */
 body {
 	font-family: $defaultFont;
-	font-size: 16px;
-	font-weight: $normalWeight;
+	font-size: 1em;
+  font-weight: $normalWeight;
+  font-style: normal;
 }
+
+h1 {
+  font-family: $defaultFont;
+  font-weight: 400;
+  font-size: 18px;
+}
+h2 {
+  padding-left: 1.5rem;
+}
+blockquote::before {
+  content: "\201C";
+  display: block;
+  font-size: 30px;
+  left: -10px;
+  top: -10px;
+  position: relative;
+  height: 0;
+  }
 
 .header {
   grid-column-start: 1;
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 2;
+  padding: 1rem $gutter;
   background-color: $primaryColour;
   color: $secondaryColour;
     
-  a{
+  a {
     color:$fontColour;
   }
 
@@ -32,8 +52,11 @@ nav {
 		font-weight: $normalWeight;
 		padding: .5rem 0;
 		color:$fontColour;
-		text-decoration: none;
-  } 
+  }
+  
+  ul li a:active {
+    text-decoration: none;
+  }
   
 } // end nav
 
@@ -51,13 +74,12 @@ nav {
 }
 
 .main {
-  grid-column-start:2;
+  grid-column-start:1;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 6;
   min-height: 400px;
-  padding: 1.5rem 0;
-  margin: 0 0.5rem;
+  padding-top: 0.5rem;
 }
 
 footer {
@@ -79,13 +101,29 @@ footer {
   }
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  //grid-column-gap: 10px;
+  //grid-row-gap: 15px;
+}
+.row { 
+  display: grid;
+  justify-items: center;
+}
+/*.footergrid {
+  justify-content: center;
+}
 .foot-one {
+  
   grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 .foot-two {
+  
+  
   grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -93,7 +131,8 @@ footer {
 }
 
 .foot-three {
-  grid-column-start: 1;
+  display: flex;
+    grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 3;
@@ -105,7 +144,7 @@ footer {
     ul li {
       text-align: center;
     }
-}
+}*/
 
 .copy {
   text-align: center;
@@ -117,10 +156,29 @@ footer {
 
 .parent {
   display: flex;
-  padding: 0.5rem 0;
 }
 
 .oruktools {
   margin-left: auto;
   order: 2;
+}
+
+.banner {
+  display: flex;
+  margin: 1.5rem
+}
+
+.section {
+  background-color: #f2f2f2; //need this for home doc change so not in community
+  
+    padding: 1.5rem 1.5rem;
+  
+  
+}
+.nav-link {
+  padding-left: 1.5rem;
+}
+blockquote {
+  padding-top: $paddingSpace;
+  padding-left: 1.5rem;
 }

@@ -1,5 +1,6 @@
-$defaultFont: 'Lato', sans-serif;
+$defaultFont: 'Roboto', sans-serif;
 $normalWeight: 300;
+$headWeight: 400;
 $boldWeight: 700;
 
 $primaryColour: #ffffff;
@@ -9,3 +10,5 @@ $primaryBackgroudColour: #DCDCDC;
 
 $gutter: 2%;
 $gutterdbl: (2 * $gutter);
+
+$paddingSpace: 65px;

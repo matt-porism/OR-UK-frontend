@@ -1,13 +1,26 @@
 footer {
-  background-color: #212121;
+  background-color: #373737;
   color: white;
   padding: 2rem 0;
+  padding-bottom: 0;
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-footer .container {
+footer .container-fluid {
   margin: 0 auto;
-  width: 1080px;
   display: flex;
   flex-direction: column;
+}
+
+footer .container-fluid img {
+  background-color: #fff;
+  height: 100px;
+  width: 200px;
+}
+
+footer .final-footer {
+  background-color: #212121;
 }
 /*# sourceMappingURL=footer.css.map */

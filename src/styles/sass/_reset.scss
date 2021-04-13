@@ -14,17 +14,20 @@ time, mark, audio, video {
     padding:0;
     border:0;
     outline:0;
-    font-size:100%;
     vertical-align:baseline;
     background:transparent;
 }
 
 body {
-    line-height:1;
+    line-height:1.6;
 }
 
 nav ul {
     list-style:none;
+}
+p{
+    line-height: 1.6;
+    margin-top: 1rem;
 }
 
 a {
