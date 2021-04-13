@@ -15,6 +15,11 @@ function HomePage({ homePageProps, classname }) {
     
     }
 
+    let nextLinks = (<></>);
+	if (homePageProps.ReadNextLinks){
+		nextLinks = <><hr/>{homePageProps.ReadNextLinks.map(x => (<div key={x.url} className="NextLink"><a href={x.url}>{x.TextToDisplay}</a></div>))}</>
+	}
+
     //const [headText, setHeaderText] = useState(homePageProps);
     
     //const [links, setLinks] = useState(["Learn about how it works Learn about how it works", "Find more on the data structure, API reference and developer tools"]);
@@ -29,6 +34,7 @@ function HomePage({ homePageProps, classname }) {
          {homePageProps.BenefitsAndOpportunities && <p dangerouslySetInnerHTML={{ __html: cleanMarkup(homePageProps.BenefitsAndOpportunities) }}></p>}
         
         { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
+        {nextLinks}
         {/*<Learn left={true} right={true}>
             {links.map((link, index) => {
                     <li className="aclass" key={index}>
