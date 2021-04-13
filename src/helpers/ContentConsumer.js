@@ -4,6 +4,11 @@ const LANDING_PAGE_URI = '/home-page';
 const MENU_URI = '/top-menus';
 const SUB_MENU_URI = '/sub-menus/';
 
+//const BASE_URL  = process.env.REACT_APP_BASE_URL;
+//const LANDING_PAGE_URI = process.env.REACT_APP_HOME_PAGE_URI;
+//const MENU_URI = process.env.;
+
+
 export const fetchLandingPageContent = () => {
   //consider using nlogge
   

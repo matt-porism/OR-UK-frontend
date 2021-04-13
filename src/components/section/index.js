@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown';
-import DOMPurify from 'dompurify';
 
 
 
@@ -11,7 +10,6 @@ const Section = ({headingText, bodyText, styleName}) => {
         <h1>{headingText}</h1>
         <ReactMarkdown>{bodyText}</ReactMarkdown>
         </section>
-      
         </>
    
         )

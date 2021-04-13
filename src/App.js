@@ -14,17 +14,16 @@ import HomePage from "./components/home";
 
 function App() {
   const [homeProps, setHomeProps] = useState({});
-  const [headerText, setHeaderText] = useState('');
-  const [bodyText, setBodyText] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  //const [headerText, setHeaderText] = useState('');
+  //const [bodyText, setBodyText] = useState('');
+  //const [imageUrl, setImageUrl] = useState('');
   const [topMenuId, setTopMenuId] = useState('');
   const [mainMenu, setMainMenu] = useState([]);
   const [subMenuId, setSubMenuId] = useState('');
-  const [anchorLink, setAnchorLink] = useState('');
-  const [anchorLabel, setAnchorLabel] = useState('');
-  const [quote, setQuote] = useState('');
+  //const [anchorLink, setAnchorLink] = useState('');
+  //const [anchorLabel, setAnchorLabel] = useState('');
   const [subMenu, setSubMenu] = useState([]);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});  //use to confirm render component or error page
 
   useEffect(() => {
     // fetch from strapi
@@ -34,18 +33,17 @@ function App() {
         setHomeProps((data));
         
         
-        setBodyText(data.projectOverview);
+       // setBodyText(data.projectOverview);
         if (data.sub_menu) {
           setSubMenuId(data.sub_menu.id);
         }
         if (data.top_menu) {
           setTopMenuId(data.top_menu.id);
         }
-        if (data.logo) {
+        /*if (data.logo) {
           setImageUrl(data.logo.name);
-        }
-        setQuote("do not quote me")
-        setAnchorLabel("my link");
+        }*/
+       
       }).catch(err => console.log("do something with error as required"));
 
     fetchMainMenuItems()
@@ -79,11 +77,13 @@ function App() {
     errors[target] = message;
     setErrors(errors);
   }
- console.log("Home page props ", homeProps);
+ console.log("Home page props ", errors);
 
   return (
 
-    Object.keys(homeProps).length > 0 && 
+    
+
+    Object.keys(homeProps).length > 0 &&  
     
     ( <div className="container">
       

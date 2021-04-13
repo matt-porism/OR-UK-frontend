@@ -1,10 +1,8 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import Section from '../section/index';
-import { Link } from 'react-router-dom';
-import { HeadedList } from '../list';
 import Who from './Who';
 import InjectHtml from './InjectHtml';
-import Learn from './Learn';
+//import Learn from './Learn';
 import PropTypes from 'prop-types';
 import DOMPurify from 'dompurify';
 
@@ -17,7 +15,8 @@ function HomePage({ homePageProps, classname }) {
     
     }
 
-    const [headText, setHeaderText] = useState(homePageProps);
+    //const [headText, setHeaderText] = useState(homePageProps);
+    
     //const [links, setLinks] = useState(["Learn about how it works Learn about how it works", "Find more on the data structure, API reference and developer tools"]);
     return (
         <main className={classname}>

@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 
-
-function Learn({left, right, children}) {
+const Learn = ({left, right, children}) => {
 
     return (
       
             <Fragment>
-              { /*<Section headingText={headingText} bodyText={bodyText} /> craft to go into section*/ }
+              { /*<Section headingText={headingText} bodyText={bodyText} /> to go into section*/ }
               <section id="learn">
                 <div id="learngrid">
                   {left && <section id="left">{children}</section>}
