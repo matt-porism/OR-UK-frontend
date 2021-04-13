@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 
-function Learn() {
+function Learn({left, right, children}) {
 
     return (
       
@@ -9,11 +10,9 @@ function Learn() {
               { /*<Section headingText={headingText} bodyText={bodyText} /> craft to go into section*/ }
               <section id="learn">
                 <div id="learngrid">
-                  <section id="left"><h1> Learn about how it works Learn about how it works</h1></section>
-                  <section id="right"><h1> Find more on the data structure, API reference and developer tools</h1></section>
+                  {left && <section id="left">{children}</section>}
+                  {right && <section id="right">children</section>}
                 </div>
-
-
               </section>
        
        

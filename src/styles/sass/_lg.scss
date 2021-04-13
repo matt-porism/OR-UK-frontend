@@ -25,11 +25,10 @@ nav {
 
   ul { 
     display: flex;
-    justify-content: space-between;
   }
   
   li {
-    margin-right: 15px;
+    margin-right: 35px;
     list-style-type: none;
   }
   
@@ -74,15 +73,6 @@ nav {
     text-align: center;
   }
 }
-
-
-.sidebar {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 6;
-  }
-
   
 .footer {
   grid-column-start: 2;
@@ -91,13 +81,6 @@ nav {
   grid-row-end: 7;
   background-color: $primaryBackgroudColour;
 	color: $fontColour;
-}
-
-.footergrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2.0em;
-  padding: 0.5rem;
 }
 
 .foot-one {
@@ -148,9 +131,9 @@ nav {
 
 }
 
-.headingList, .figure, .nav_link {
+/*.headingList, .figure, .nav_link {
   margin-left: $paddingSpace;
-}
+}*/
 
 .section {
   padding: 45px 35px;
@@ -159,3 +142,6 @@ nav {
 h2 {
   padding-top: $paddingSpace;
 }
+
+.flexleft { flex-basis: 20%; }
+.flexright { flex-basis: 80%;}

@@ -14,16 +14,18 @@ body {
 
 h1 {
   font-family: $defaultFont;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
 }
-
+h2 {
+  padding-left: 1.5rem;
+}
 blockquote::before {
   content: "\201C";
   display: block;
-  font-size: 80px;
-  left: -44px;
-  top: -30px;
+  font-size: 30px;
+  left: -10px;
+  top: -10px;
   position: relative;
   height: 0;
   }
@@ -72,7 +74,7 @@ nav {
 }
 
 .main {
-  grid-column-start:2;
+  grid-column-start:1;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 6;
@@ -99,13 +101,29 @@ footer {
   }
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  //grid-column-gap: 10px;
+  //grid-row-gap: 15px;
+}
+.row { 
+  display: grid;
+  justify-items: center;
+}
+/*.footergrid {
+  justify-content: center;
+}
 .foot-one {
+  
   grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 .foot-two {
+  
+  
   grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -113,6 +131,7 @@ footer {
 }
 
 .foot-three {
+  display: flex;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -125,7 +144,7 @@ footer {
     ul li {
       text-align: center;
     }
-}
+}*/
 
 .copy {
   text-align: center;
@@ -150,9 +169,16 @@ footer {
 }
 
 .section {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2; //need this for home doc change so not in community
+  
+    padding: 1.5rem 1.5rem;
+  
+  
 }
-
+.nav-link {
+  padding-left: 1.5rem;
+}
 blockquote {
   padding-top: $paddingSpace;
+  padding-left: 1.5rem;
 }

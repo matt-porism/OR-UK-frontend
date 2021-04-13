@@ -25,11 +25,10 @@ nav {
 
   ul { 
     display: flex;
-    justify-content: space-between;
   }
   
   li {
-    margin-right: 15px;
+    margin-right: 35px;
     list-style-type: none;
   }
   
@@ -149,7 +148,9 @@ nav {
 }
 
 .headingList, .figure, .nav_link {
-  margin-left: $paddingSpace;
+  //margin-left: $paddingSpace;
+  list-style-type: none;
+  padding-left: 1.75rem;
 }
 
 .section {
@@ -158,6 +159,7 @@ nav {
 
 h2 {
   padding-top: $paddingSpace;
+  padding-left: 0;
 }
 
 img {
@@ -173,3 +175,21 @@ img {
   flex: 50%;
   padding: 5px;
 }
+
+.flexcontainer {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flexitem {
+  display: flex;
+  flex-direction: column;
+
+}
+.flexleft { flex-basis: 35%; }
+.flexright { flex-basis: 65%;}
