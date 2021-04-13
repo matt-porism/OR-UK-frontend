@@ -1,4 +1,3 @@
-import ReactMarkdown from 'react-markdown';
 import InjectHtml from '../home/InjectHtml';
 
 
