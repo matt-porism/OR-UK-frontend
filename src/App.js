@@ -8,9 +8,9 @@ import { fetchLandingPageContent,
          fetchMainMenuItems,
          fetchSubMenuItems } from './helpers/ContentConsumer';
 import HomePage from "./components/home";
-import About from "./components/about";
-import HowPage from "./components/how";
-import CommunityPage from "./components/community";
+//import About from "./components/about";
+//import HowPage from "./components/how";
+//import CommunityPage from "./components/community";
 
 function App() {
   const [homeProps, setHomeProps] = useState({});
