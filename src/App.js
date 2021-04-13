@@ -49,12 +49,6 @@ function App() {
       });
   }, []);
 
-  const handleErrors = (target, message) => {
-    const errors = {};
-
-    errors[target] = message;
-    setErrors(errors);
-  }
  console.log("Home page props ", errors);
 
   return (   
