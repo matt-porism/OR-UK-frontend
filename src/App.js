@@ -21,7 +21,6 @@ function App() {
   const [mainMenu, setMainMenu] = useState([]);
   //const [anchorLink, setAnchorLink] = useState('');
   //const [anchorLabel, setAnchorLabel] = useState('');
-  const [errors, setErrors] = useState({});  //use to confirm render component or error page
 
   useEffect(() => {
     // fetch from strapi
@@ -48,8 +47,6 @@ function App() {
         setMainMenu(data)
       });
   }, []);
-
- console.log("Home page props ", errors);
 
   return (   
  <div className="container">
