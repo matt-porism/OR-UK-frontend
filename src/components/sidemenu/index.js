@@ -12,7 +12,7 @@ const SideMenu = ({ subMenu }) => {
 					<hr />
 			
 			<ul>
-				{subMenu.map(function (name, index) {
+				{subMenu.map( (name, index) => {
 					return (
 						<li key={subMenu[index].Link}>
 							<a href={subMenu[index].Link}>

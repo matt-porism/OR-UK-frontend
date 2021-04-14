@@ -10,9 +10,11 @@ import { fetchLandingPageContent,
          import useOukapi from './helpers/dataFetch';
 import HomePage from "./components/home";
 import About from "./components/about";
-//import HowPage from "./components/how";
-//import CommunityPage from "./components/community";
+import HowPage from "./components/how";
+import CommunityPage from "./components/community";
 
+//refactor
+//pull data as needed perhaps on first call of page?
 function App() {
   const [homeProps, setHomeProps] = useState({});
   //const [aboutProps, setAboutProps] = useState({});
@@ -26,10 +28,19 @@ function App() {
   //const [anchorLabel, setAnchorLabel] = useState('');
   const [subMenu, setSubMenu] = useState([]);
   const [errors, setErrors] = useState({});  //use to confirm render component or error page
-  const [{data, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
+  let [{data, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
 
- 
+  const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
+  const BASE_URL  = process.env.REACT_APP_BASE_URL;
+   console.log(errors);  //take care of on refactor
+  //if (!COMMUNITY_PAGE) return;
+  
 const aboutProps = data;
+[{data, isError}] = useOukapi("https://admin.beta.openreferraluk.org/how-it-works-page");
+const howProps = data;
+[{data, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
+const communityProps = data;
+
   useEffect(() => {
     // fetch from strapi
     fetchLandingPageContent()
@@ -53,7 +64,7 @@ const aboutProps = data;
 
     fetchMainMenuItems()
       .then((data) => { 
-        console.log("main menu items ", data);
+        
         setMainMenu(data)
       });
   }, []);
@@ -76,17 +87,6 @@ const aboutProps = data;
     console.log("no submenus set ");
   
   }
-
-  
-
-
-
-
-
-  
-
-
-  console.log("fetch hook data", aboutProps)
   
   //console.log("about props set", aboutProps )
   //aboutProps.sideMenu = subMenu;
@@ -99,11 +99,9 @@ const aboutProps = data;
     errors[target] = message;
     setErrors(errors);
   }
- console.log("Home page props ", errors, aboutProps);
 
+  //now can use iserror instead of object keys
   return (
-  
-
     Object.keys(homeProps).length > 0 &&  
     
     
@@ -113,19 +111,10 @@ const aboutProps = data;
     <Header />
         <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         <Switch>
-            <Route exact path="/" render={() => 
-                (
-                  <HomePage homePageProps={homeProps} classname="main" />
-                )}/>
-                 <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
-      {/*<Route path="/home" render={() => (
-        <HomePage headingText={headerText} bodyText={bodyText} classname="main" quote={quote} anchorLabel={anchorLabel} anchorLink={anchorLink}
-        hIIHeading="Some heading" listItems={["one","two","threee"]}/>
-
-      )}/>
-
-      <Route path="/how-to" render={() =>  <HowPage headingText={headerText} bodyText={bodyText} styleName="main"/> }/>
-      <Route path="/get-started" render={() =>  <CommunityPage headingText={headerText} bodyText={bodyText} styleName="main"/> }/>*/}
+            <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
+            <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
+            <Route path="/how-to" render={() =>  <HowPage howProps={howProps} styleName="main"/> }/>
+            <Route path="/get-started" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
       </Switch> 
       <Footer className="footer" />
     

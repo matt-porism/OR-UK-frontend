@@ -1,7 +1,9 @@
 import '../../styles/css/styles.css';
 import SideMenu from '../sidemenu';
-import Learn from '../home/Learn';
+//import Learn from '../home/Learn';
 import HtmlSection from '../htmlsection';
+//import LeftRight from '../container/';
+import LinksList from '../links/LinksList';
    
 const About = ({aboutProps, sideMenu, styleName}) => {
     const {article: {sections }} = aboutProps;
@@ -17,7 +19,8 @@ const About = ({aboutProps, sideMenu, styleName}) => {
             <HtmlSection sections={sections} /> 
                 
                 <hr/>
-                <Learn linkText={["How Open Referral UK works"]} left={true}/>
+        {/*pass to Leftright */}
+                <LinksList list={[{id:1, url:"/apage", TextToDisplay:"How Open Referral UK works"}]} />
             </div>
             </div>     
         </main>
