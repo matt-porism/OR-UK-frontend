@@ -1,6 +1,6 @@
 const SideMenu = ({ subMenu }) => {
 	if (!subMenu || subMenu.length === 0) {
-		return;
+		return null;
 	}
 
 	return (

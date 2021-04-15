@@ -20,7 +20,7 @@ const About = ({aboutProps, styleName}) => {
        <>
         <main className={styleName}>
             <div className="flexcontainer">
-            {sectionHeadings.length > 0 &&  (<SideMenu subMenu={sectionHeadings} />) }
+            <SideMenu subMenu={sectionHeadings} />
           
             <div className="flexright">     
             <HtmlSection sections={sections} /> 
