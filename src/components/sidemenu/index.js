@@ -15,7 +15,7 @@ const SideMenu = ({ subMenu }) => {
 				{subMenu.map( (menuItem, index) => {
 					return (
 						<li key={index}>
-							<a href="/#">
+							<a href={`#section-${index+1}-heading`}>
 								{menuItem}
 							</a>
 						</li>
