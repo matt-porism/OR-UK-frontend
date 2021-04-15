@@ -12,8 +12,9 @@ const InjectHtml = ({paragraphText}, key) => {
         return sanitizedParam;
     }
     return(
-    
-         <div key={key} className="format" dangerouslySetInnerHTML={{ __html: cleanMarkup(paragraphText) }}></div>
+        <>
+          <div key={key} className="format" dangerouslySetInnerHTML={{ __html: cleanMarkup(paragraphText) }}></div>
+        </>
     
     )
 }
