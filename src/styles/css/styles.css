@@ -443,8 +443,9 @@ footer a {
     padding-left: 0;
   }
   img {
-    width: 100%;
+    width: 30%;
     height: auto;
+    padding: 0.5rem;
   }
   .row {
     display: flex;

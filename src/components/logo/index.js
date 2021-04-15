@@ -1,19 +1,20 @@
 import React from 'react';
 
-const Logo = ({companyLogo}) => {
 
+const Logo = ({logoList}) => {
+    const BASE_URL = process.env.REACT_APP_BASE_URL
     return (
        
         <div className="Logos">
-         <strong>Some of the organisations you'll be joining by adopting Open Referral UK</strong>
-       {CompanyLogo.map(d => {if (d.link){
-         return <div key={d.id} className="Logo"><a href={d.link}><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></a></div>
-}
-return <div key={d.id} className="Logo"><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></div>
-})}            
+        <p> <strong>Some of the organisations you'll be joining by adopting Open Referral UK</strong></p>
+       { logoList && logoList.map(d => {
+         
+         if (d.link) {
+              return <a key={d.id} className="Logo" href={d.link}><img alt="company logo" src={`${BASE_URL}${d.CompanyLogo.formats.thumbnail.url}`}/></a>
+          }
+              return <div key={d.id} className="Logo"><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></div>
+        })}            
        </div>
-     
-  
     )
 }
 
