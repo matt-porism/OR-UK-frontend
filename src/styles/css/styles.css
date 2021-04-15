@@ -207,6 +207,10 @@ footer a {
   margin-top: 0;
 }
 
+.who img {
+  width: auto;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr;
@@ -443,9 +447,8 @@ footer a {
     padding-left: 0;
   }
   img {
-    width: 30%;
+    width: 100%;
     height: auto;
-    padding: 0.5rem;
   }
   .row {
     display: flex;
@@ -508,6 +511,9 @@ footer a {
     color: #000000;
     margin-bottom: 1.5rem;
     min-height: 430px;
+  }
+  .who img {
+    width: auto;
   }
   .whogrid {
     display: grid;
