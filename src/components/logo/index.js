@@ -1,16 +1,19 @@
 import React from 'react';
 
-const Logo = ({logoList}) => {
+const Logo = ({companyLogo}) => {
 
     return (
-        <>
-        <div className="row">
-            <img src="/OpenReferralUK.png" alt="ORUK logo"></img>
-        </div>
-         <div className="row">
-         <img src="/openactive.png" aria-label="ORUK logo"></img>
-     </div>
-     </>
+       
+        <div className="Logos">
+         <strong>Some of the organisations you'll be joining by adopting Open Referral UK</strong>
+       {CompanyLogo.map(d => {if (d.link){
+         return <div key={d.id} className="Logo"><a href={d.link}><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></a></div>
+}
+return <div key={d.id} className="Logo"><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></div>
+})}            
+       </div>
+     
+  
     )
 }
 
