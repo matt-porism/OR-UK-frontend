@@ -12,6 +12,7 @@ import HomePage from "./components/home";
 import About from "./components/about";
 import HowPage from "./components/how";
 import CommunityPage from "./components/community";
+import Contact from "./components/contact";
 
 //refactor
 //pull data as needed perhaps on first call of page?
@@ -32,7 +33,8 @@ function App() {
 
   const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
-   
+  const CONTACT_PAGE = process.env.REACT_APP_CONTACT_PAGE;
+   console.log(errors);  //take care of on refactor
   //if (!COMMUNITY_PAGE) return;
   
 const aboutProps = data;
@@ -41,6 +43,8 @@ const howProps = data;
 [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
 console.log("how props", howProps);  //take care of on refactor
 const communityProps = data;
+[{ data, isError }] = useOukapi(`${BASE_URL}${CONTACT_PAGE}`)
+const contactProps = data;
 
   useEffect(() => {
     // fetch from strapi
@@ -110,6 +114,7 @@ const communityProps = data;
             <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
             <Route path="/how-to" render={() =>  <HowPage howProps={howProps} styleName="main"/> }/>
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
+            <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
       <Footer className="footer" />
     
