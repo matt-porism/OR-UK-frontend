@@ -12,11 +12,11 @@ const SideMenu = ({ subMenu }) => {
 					<hr />
 			
 			<ul>
-				{subMenu.map( (name, index) => {
+				{subMenu.map( (menuItem, index) => {
 					return (
-						<li key={subMenu[index].Link}>
-							<a href={subMenu[index].Link}>
-								{subMenu[index].Label}
+						<li key={index}>
+							<a href="/#">
+								{menuItem}
 							</a>
 						</li>
 					)

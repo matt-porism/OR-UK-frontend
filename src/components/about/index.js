@@ -1,19 +1,26 @@
 import '../../styles/css/styles.css';
+import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
 //import Learn from '../home/Learn';
 import HtmlSection from '../htmlsection';
 //import LeftRight from '../container/';
 import LinksList from '../links/LinksList';
    
-const About = ({aboutProps, sideMenu, styleName}) => {
+const About = ({aboutProps, styleName}) => {
     const {article: {sections }} = aboutProps;
+    
+    const [sectionHeadings, setSectionHeadings] = useState([]);
+    useEffect(() => {
+        setSectionHeadings(sections.map(section => section.sectionHeading));
+    }, [sections]);
+
     
    return (
        
        <>
         <main className={styleName}>
             <div className="flexcontainer">
-            {sideMenu.length > 0 &&  (<SideMenu subMenu={sideMenu} />) }
+            {sectionHeadings.length > 0 &&  (<SideMenu subMenu={sectionHeadings} />) }
           
             <div className="flexright">     
             <HtmlSection sections={sections} /> 
