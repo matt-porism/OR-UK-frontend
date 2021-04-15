@@ -7,6 +7,12 @@ import PropTypes from 'prop-types';
 
 function HomePage({ homePageProps, classname }) {
 
+
+    let nextLinks = (<></>);
+	if (homePageProps.ReadNextLinks){
+		nextLinks = <><hr/>{homePageProps.ReadNextLinks.map(x => (<div key={x.url} className="NextLink"><a href={x.url}>{x.TextToDisplay}</a></div>))}</>
+	}
+
     //const [headText, setHeaderText] = useState(homePageProps);
     
     const [links] = useState([{TextToDisplay: "Learn about how it works Learn about how it works", url:"/go", id:"1"}]);
