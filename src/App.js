@@ -29,7 +29,7 @@ function App() {
   //const [anchorLabel, setAnchorLabel] = useState('');
   const [subMenu, setSubMenu] = useState([]);
   const [errors, setErrors] = useState({});  //use to confirm render component or error page
-  let [{data, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
+  let [{data, isFetching, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
 
   const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
@@ -40,7 +40,8 @@ function App() {
 const aboutProps = data;
 [{data, isError}] = useOukapi("https://admin.beta.openreferraluk.org/how-it-works-page");
 const howProps = data;
-[{data, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
+[{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
+console.log("how props", howProps);  //take care of on refactor
 const communityProps = data;
 [{ data, isError }] = useOukapi(`${BASE_URL}${CONTACT_PAGE}`)
 const contactProps = data;
@@ -85,40 +86,34 @@ const contactProps = data;
   }, [subMenuId]);
 
   if (subMenu && subMenu.length > 0) {
-    console.log(`submenu set ${subMenu}`, isError );
+    console.log(`submenu set ${subMenu}`, isError, isFetching );
    
   } else {
     console.log("no submenus set ");
-  
   }
-  
-  //console.log("about props set", aboutProps )
-  //aboutProps.sideMenu = subMenu;
-  //aboutProps.styleName = "main";
-
 
   const handleErrors = (target, message) => {
     const errors = {};
 
     errors[target] = message;
     setErrors(errors);
+    
   }
+  console.log("ERRORS", errors, isError, homeProps.CommunityStatsBox);
 
   //now can use iserror instead of object keys
   return (
-    Object.keys(homeProps).length > 0 &&  
-    
+     !isFetching && !isError  && Object.keys(homeProps).length > 0 &&  
     
     ( <div className="container">
       
-    
     <Header />
         <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
             <Route path="/how-to" render={() =>  <HowPage howProps={howProps} styleName="main"/> }/>
-            <Route path="/get-started" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
+            <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
       <Footer className="footer" />

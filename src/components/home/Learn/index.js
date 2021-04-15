@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import LinksList from '../../links/LinksList';
 
 
-const Learn = ({left, right, leftList}) => {
-console.log("left", left, right)
+const Learn = ({left, right, leftList, rightList}) => {
+//think this through and refactor
     return (
       
             <Fragment>
@@ -11,7 +11,7 @@ console.log("left", left, right)
               <section id="learn">
                 <div id="learngrid">
                   {left && <section id="left"><ul><LinksList list={leftList} /></ul></section>}
-                  {right && <section id="right"><LinksList list={right}/></section>}
+                  {right && <section id="right"><ul><LinksList list={rightList}/></ul></section>}
                 </div>
               </section>
        

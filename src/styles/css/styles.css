@@ -81,14 +81,31 @@ h2 {
   padding-left: 1.5rem;
 }
 
-blockquote::before {
-  content: "\201C";
+blockquote {
+  border: none;
+  quotes: "\201C" "\201D" "\2018" "\2019";
   display: block;
+  background-color: #E5E5E5;
+  padding: 2.0rem;
+  line-height: 1.6;
+}
+
+a {
+  color: black;
+}
+
+blockquote::before {
+  content: open-quote;
+  /*display: block;
   font-size: 30px;
   left: -10px;
   top: -10px;
   position: relative;
-  height: 0;
+  height: 0;*/
+}
+
+blockquote::after {
+  content: close-quote;
 }
 
 .header {
@@ -155,6 +172,39 @@ footer ul li {
   margin-right: 15px;
   list-style-type: none;
   padding: 0.5rem 0;
+}
+
+footer ul li a {
+  color: black;
+  font-weight: bold;
+}
+
+footer a {
+  color: black;
+}
+
+.who {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 5;
+  background-color: #e6e6e6;
+  padding-left: 2%;
+}
+
+.who ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.who ul li {
+  margin-right: 15px;
+  list-style-type: none;
+  padding: 0.5rem 0;
+}
+
+.who p {
+  margin-top: 0;
 }
 
 .container {
@@ -232,9 +282,17 @@ footer ul li {
   padding-left: 1.5rem;
 }
 
-blockquote {
-  padding-top: 65px;
-  padding-left: 1.5rem;
+.format {
+  padding-left: 2%;
+}
+
+.format h3 {
+  margin-top: 55px;
+  margin-bottom: 1.2rem;
+}
+
+.format ul {
+  margin-left: 3.0rem;
 }
 
 @media only screen and (min-width: 35em) {
@@ -254,7 +312,7 @@ blockquote {
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 2;
-    background-color: #DCDCDC;
+    background-color: #e6e6e6;
     padding: 0.5rem;
   }
   nav ul {
@@ -290,16 +348,29 @@ blockquote {
   #learn #left {
     grid-column-start: 1;
     grid-column-end: 1;
-    background-color: #f2f2f2;
-    text-align: center;
+    background-color: #e6e6e6;
     list-style-type: none;
+    min-height: 150px;
+    padding: 30px;
+  }
+  #learn #left ul {
+    list-style-type: none;
+  }
+  #learn #left ul li a {
+    color: black;
   }
   #learn #right {
     grid-column-start: 2;
     grid-column-end: 2;
-    background-color: #f2f2f2;
-    text-align: center;
+    background-color: #e6e6e6;
+    min-height: 150px;
+    padding: 30px;
+  }
+  #learn #right ul {
     list-style-type: none;
+  }
+  #learn #right ul li a {
+    color: black;
   }
   .sidebar {
     grid-column-start: 2;
@@ -312,7 +383,7 @@ blockquote {
     grid-column-end: 6;
     grid-row-start: 7;
     grid-row-end: 7;
-    background-color: #DCDCDC;
+    background-color: #e6e6e6;
     color: #000000;
   }
   .footergrid {
@@ -363,13 +434,12 @@ blockquote {
   }
   .headingList, .figure, .nav_link {
     list-style-type: none;
-    padding-left: 1.75rem;
   }
   .section {
     padding: 45px 35px;
   }
   h2 {
-    padding-top: 65px;
+    padding-top: 15px;
     padding-left: 0;
   }
   img {
@@ -413,16 +483,75 @@ blockquote {
   .linkbox .left {
     grid-column-start: 1;
     grid-column-end: 1;
-    background-color: #f2f2f2;
+    background-color: #e6e6e6;
     text-align: center;
     list-style-type: none;
+    min-height: 150px;
+    padding: 30px;
   }
   .linkbox .right {
     grid-column-start: 2;
     grid-column-end: 2;
-    background-color: #f2f2f2;
+    background-color: #e6e6e6;
     text-align: center;
     list-style-type: none;
+    min-height: 150px;
+    padding: 30px;
+  }
+  .who {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 6;
+    background-color: #e6e6e6;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    min-height: 430px;
+  }
+  .whogrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2.0em;
+    padding: 0.5rem;
+  }
+  .whogrid img {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
+  .who-one {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .who-two {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .who-three {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .who-three ul {
+    display: block;
+  }
+  .who-three ul li {
+    text-align: left;
+  }
+  .who-four {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .who-four ul {
+    display: block;
+  }
+  .who-four ul li {
+    text-align: left;
   }
 }
 
@@ -443,7 +572,7 @@ blockquote {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 2;
-    background-color: #DCDCDC;
+    background-color: #e6e6e6;
     padding: 0.5rem;
   }
   nav ul {
@@ -481,7 +610,7 @@ blockquote {
     grid-column-end: 5;
     grid-row-start: 7;
     grid-row-end: 7;
-    background-color: #DCDCDC;
+    background-color: #e6e6e6;
     color: #000000;
   }
   .foot-one {
@@ -531,7 +660,7 @@ blockquote {
     padding: 45px 35px;
   }
   h2 {
-    padding-top: 65px;
+    padding-top: 15px;
   }
   .flexleft {
     flex-basis: 20%;

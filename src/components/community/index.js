@@ -16,26 +16,22 @@ function CommunityPage({ communityProps, styleName }) {
            <ContentPage title={title} introParagraph={introParagraph}/>
            <LeftRight
           left={
-            <section className="left">Open Referral UK is a community-led data standard, our community can help you to adopt the standard</section>
+            <section className="left">Who is using Open Referral UK?</section>
           }
           right={
-            <section className="right">Open Referral UK is a community-led data standard, our community can help you to adopt the standard</section>
+            <section className="right">Community forum</section>
           } />
-           <LeftRight
+          <LeftRight
           left={
-            <section className="left">Open Referral UK is a community-led data standard, our community can help you to adopt the standard</section>
+            <section className="left">Case Studies</section>
           }
           right={
-            <section className="right">Open Referral UK is a community-led data standard, our community can help you to adopt the standard</section>
+            <section className="right">Who we are</section>
           } />
-           <LeftRight
+            <LeftRight
           left={
-            <section className="left">Open Referral UK is a community-led data standard, our community can help you to adopt the standard</section>
-          }
-          right={
-            <section className="right">Open Referral UK is a community-led data standard, our community can help you to adopt the standard</section>
+            <section className="left">Join Our community</section>
           } />
-       
         </main>
 
     );
