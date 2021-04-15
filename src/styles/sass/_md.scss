@@ -256,6 +256,10 @@ img {
   color: $fontColour;
   margin-bottom: 1.5rem;
   min-height: 430px;
+  
+  img {
+    width: auto;
+  }
 }
 
 .whogrid {
