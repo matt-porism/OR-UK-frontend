@@ -5,33 +5,39 @@ import ContentPage from "../page";
 function CommunityPage({ communityProps, styleName }) {
     
     //loops to write links
-    const { title, introParagraph, link } = communityProps.communityPage;
+      const { title, introParagraph, links } = communityProps.communityPage;
     const data = [{sectionHeading: title, sectionBody: introParagraph}];
-    let linkLeft = link;
-    console.log(data, linkLeft);
- 
+
+    let linkElements = [];
+    for (let i=0; i< links.length; i+=2) {
+      const leftSection = (
+        <section className="left">
+          {links[i].TextToDisplay}
+        </section>
+      )
+
+      const rightSection = links[i + 1] ? (
+        <section className="right">
+          {links[i+1].TextToDisplay}
+        </section>
+      ) : null;
+      
+      linkElements.push(
+        (
+          <LeftRight
+            left={ leftSection }
+            right={
+              <section className="right">Community forum</section>
+            } />
+        )
+      )
+    }
+
     return (
        
         <main className={styleName}>
            <ContentPage title={title} introParagraph={introParagraph}/>
-           <LeftRight
-          left={
-            <section className="left">Who is using Open Referral UK?</section>
-          }
-          right={
-            <section className="right">Community forum</section>
-          } />
-          <LeftRight
-          left={
-            <section className="left">Case Studies</section>
-          }
-          right={
-            <section className="right">Who we are</section>
-          } />
-            <LeftRight
-          left={
-            <section className="left">Join Our community</section>
-          } />
+           {linkElements}
         </main>
 
     );

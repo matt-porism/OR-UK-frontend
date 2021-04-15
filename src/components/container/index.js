@@ -1,16 +1,23 @@
-const LeftRight = (props) => {
+const LeftRight = ({left, right}) => {
+  const leftPane=(
+    <div className="leftpane">
+      {left}
+    </div>
+  )
 
-    return (
-      <section className="linkbox">
-          <div className="linkgrid">
-        <div className="leftpane">
-          {props.left}
-        </div>
-        <div className="rightpane">
-          {props.right}
-        </div>
-        </div>
-      </section>
-    );
-  }
-  export default LeftRight
+  const rightPane = right ? (
+    <div className="rightpane">
+      {right}
+    </div>
+  ) : null;
+
+  return (
+    <section className="linkbox">
+      <div className="linkgrid">
+        {leftPane}
+        {rightPane}
+      </div>
+    </section>
+  );
+}
+export default LeftRight
