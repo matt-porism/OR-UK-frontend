@@ -31,9 +31,9 @@ const useOukapi = (urlParam) => {
     }
         fetchContent();
 
-    }, [url]);
+    }, [url, urlParam]);
     console.log("any data? ", data)
-    return[{data, isFetching, isError},  setUrl]
+    return[{data, isError}, isFetching, setUrl]
     };
 
     export default useOukapi;
