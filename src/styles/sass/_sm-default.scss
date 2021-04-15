@@ -20,14 +20,34 @@ h1 {
 h2 {
   padding-left: 1.5rem;
 }
-blockquote::before {
-  content: "\201C";
+
+blockquote {
+  border: none;
+  quotes: "\201C" "\201D" "\2018" "\2019";
   display: block;
+  background-color: #E5E5E5;
+  padding: 2.0rem;
+  line-height: 1.6;
+}
+
+a {
+  color: black;
+}
+
+
+
+blockquote::before {
+  content: open-quote;
+  /*display: block;
   font-size: 30px;
   left: -10px;
   top: -10px;
   position: relative;
-  height: 0;
+  height: 0;*/
+  }
+
+  blockquote::after {
+    content: close-quote;
   }
 
 .header {
@@ -98,6 +118,39 @@ footer {
     margin-right: 15px;
     list-style-type: none;
     padding: 0.5rem 0;
+
+    a {
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  a {
+    color: black;
+  }
+}
+
+.who {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 5;
+  background-color: $primaryBackgroudColour;
+  padding-left: $gutter;
+  
+  ul { 
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul li {
+    margin-right: 15px;
+    list-style-type: none;
+    padding: 0.5rem 0;
+  }
+
+  p{
+    margin-top: 0;
   }
 }
 
@@ -170,15 +223,21 @@ footer {
 
 .section {
   background-color: #f2f2f2; //need this for home doc change so not in community
-  
-    padding: 1.5rem 1.5rem;
-  
-  
+  padding: 1.5rem 1.5rem;
 }
 .nav-link {
   padding-left: 1.5rem;
 }
-blockquote {
-  padding-top: $paddingSpace;
-  padding-left: 1.5rem;
+
+.format {
+  padding-left: $gutter;
+
+  h3 {
+    margin-top: 55px;
+    margin-bottom: 1.2rem;
+  }
+  ul {
+    margin-left: 3.0rem;
+
+  }
 }

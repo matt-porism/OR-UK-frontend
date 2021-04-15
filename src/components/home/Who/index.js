@@ -1,20 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import Badge from "../badges/"
 
 
 function Who({ CompanyLogo, OrganisationsIntroText, numbers, title, linkTitle }) {
 
     return (
       
-            <Fragment>
+            <div className="who">
+               <h2> {title}</h2>
+              <div className="whogrid">
               { /*<Section headingText={headingText} bodyText={bodyText} /> craft to go into section*/ }
-            <h1> {title}</h1>
-           
-            {linkTitle =true && <Link className="nav-link" to="view or orgs">
+              <Badge numbers={numbers}/>
+
+         
+        </div>
+        {linkTitle =true && <Link className="nav-link" to="view or orgs">
           "View all of the orgnaisations in our community"
         </Link>}
-       
-     </Fragment>
+     </div>
 
     );
 }
