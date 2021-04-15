@@ -8,7 +8,7 @@ const Logo = ({logoList}) => {
             <img src="/OpenReferralUK.png" alt="ORUK logo"></img>
         </div>
          <div className="row">
-         <img src="/Openactive.png" aria-label="ORUK logo"></img>
+         <img src="/openactive.png" aria-label="ORUK logo"></img>
      </div>
      </>
     )
