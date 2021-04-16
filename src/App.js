@@ -13,6 +13,7 @@ import About from "./components/about";
 import HowPage from "./components/how";
 import CommunityPage from "./components/community";
 import Contact from "./components/contact";
+import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 
 //refactor
 //pull data as needed perhaps on first call of page?
@@ -112,6 +113,7 @@ const contactProps = data;
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
+            <Route path="/how-to/:slugField" render={routeProps => <GenericContentPage {...routeProps}/>}/>
             <Route path="/how-to" render={() =>  <HowPage howProps={howProps} styleName="main"/> }/>
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
