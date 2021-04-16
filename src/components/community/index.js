@@ -26,9 +26,7 @@ function CommunityPage({ communityProps, styleName }) {
         (
           <LeftRight
             left={ leftSection }
-            right={
-              <section className="right">Community forum</section>
-            } />
+            right={ rightSection } />
         )
       )
     }
