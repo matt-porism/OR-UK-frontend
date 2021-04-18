@@ -169,6 +169,10 @@ footer {
 .row { 
   display: grid;
   justify-items: center;
+
+  ul {
+    list-style-type: none;
+  }
 }
 /*.footergrid {
   justify-content: center;
@@ -247,3 +251,4 @@ footer {
 
   }
 }
+

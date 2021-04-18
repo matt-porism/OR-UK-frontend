@@ -7,8 +7,8 @@ const HtmlSection = ({sections}) => {
     return ( <div>
     {sections.map((item, index) => {
        return <>
-             <InjectHtml key={`${index}head`} paragraphText={item.sectionHeading}/>
-             <InjectHtml key={`${index}body`} paragraphText={item.sectionBody}/>
+             <InjectHtml fix={`${index}head`} paragraphText={item.sectionHeading}/>
+             <InjectHtml fix={`${index}body`} paragraphText={item.sectionBody}/>
          </>
     })}
    
