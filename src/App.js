@@ -34,26 +34,25 @@ function App() {
   const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
   const CONTACT_PAGE = process.env.REACT_APP_CONTACT_PAGE;
+  const REACT_APP_FOOTER = process.env.REACT_APP_FOOTER
    console.log(errors);  //take care of on refactor
-  //if (!COMMUNITY_PAGE) return;
   
 const aboutProps = data;
-[{data, isError}] = useOukapi("https://admin.beta.openreferraluk.org/how-it-works-page");
-const howProps = data;
+
 [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
-console.log("how props", howProps);  //take care of on refactor
+
 const communityProps = data;
 [{ data, isError }] = useOukapi(`${BASE_URL}${CONTACT_PAGE}`)
 const contactProps = data;
+[{data, isFetching, isError}] = useOukapi(`${BASE_URL}${REACT_APP_FOOTER}`)
 
   useEffect(() => {
     // fetch from strapi
     fetchLandingPageContent()
       .then((data) => {
         // set data from strapi to state vars
+        console.log("homeprops", data)
         setHomeProps((data));
-        
-        
        // setBodyText(data.projectOverview);
         if (data.sub_menu) {
           setSubMenuId(data.sub_menu.id);
@@ -69,7 +68,6 @@ const contactProps = data;
 
     fetchMainMenuItems()
       .then((data) => { 
-        
         setMainMenu(data)
       });
   }, []);
@@ -85,13 +83,6 @@ const contactProps = data;
     }
   }, [subMenuId]);
 
-  if (subMenu && subMenu.length > 0) {
-    console.log(`submenu set ${subMenu}`, isError, isFetching );
-   
-  } else {
-    console.log("no submenus set ");
-  }
-
   const handleErrors = (target, message) => {
     const errors = {};
 
@@ -99,7 +90,6 @@ const contactProps = data;
     setErrors(errors);
     
   }
-  console.log("ERRORS", errors, isError, homeProps.CommunityStatsBox);
 
   //now can use iserror instead of object keys
   return (
@@ -112,7 +102,7 @@ const contactProps = data;
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
-            <Route path="/how-to" render={() =>  <HowPage howProps={howProps} styleName="main"/> }/>
+            <Route path="/how-to" render={() =>  <HowPage styleName="main"/> }/>
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 

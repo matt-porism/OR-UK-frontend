@@ -1,40 +1,58 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Section from '../section/index';
 import Who from './Who';
 import InjectHtml from './InjectHtml';
 import Learn from './Learn';
 import PropTypes from 'prop-types';
 
-function HomePage({ homePageProps, classname }) {
-
-
-    /*let nextLinks = (<></>);
-	if (homePageProps.ReadNextLinks){
-		nextLinks = <><hr/>{homePageProps.ReadNextLinks.map(x => (<div key={x.url} className="NextLink"><a href={x.url}>{x.TextToDisplay}</a></div>))}</>
-	}*/
+function HomePage( {homePageProps, classname }) {
 
     //const [headText, setHeaderText] = useState(homePageProps);
+    const  { ReadNextLinks,  
+        heroBanner: {body, introParagraph, title}, 
+        PullQuote: { quote},
+       BenefitsAndOpportunities,
+         }  = homePageProps;
+
+    const [splitArray, setSplit] = useState([]);
+    const [links] = useState(ReadNextLinks)
+    console.log("the links", links);
+    useEffect(() => {
+        console.log("effect ", links);
+
+        let rowItems = [];
+        while(links.length) {
+            rowItems.push(links.splice(0,2))
+        }
     
-    const [links] = useState([{TextToDisplay: "Learn about how it works Learn about how it works", url:"/go", id:"1"}]);
-    const [rightBox] = useState([{TextToDisplay:"Find more on the data structure, API reference and developer tools", url:"/home", id: 2}]);
+        setSplit(rowItems)
+
+    },[links]);
+    let styleName;
+    
     return (
+       
         <main className={classname}>
-            <Section headingText={homePageProps.heroBanner.title} bodyText={homePageProps.heroBanner.body} styleName="section" />
-            <InjectHtml paragraphText={homePageProps.introParagraph}/>
+            <Section headingText={title} bodyText={body} styleName="section" />
+            <InjectHtml paragraphText={introParagraph}/>
              {/*{anchorLabel && <Link className="nav-link" to={anchorLink}>
           {anchorLabel}        </Link>}*/}
            
-            {homePageProps.PullQuote.quote && <figure className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
-           
-
-         {homePageProps.BenefitsAndOpportunities &&  <InjectHtml paragraphText={homePageProps.BenefitsAndOpportunities}/>}
+            { quote && <figure className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
+            { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
         { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
-        <Learn left={true} leftList={links} right={true} rightList={rightBox}/>
+        
+        { splitArray.map ((array, index) => {
+             styleName = splitArray[index].length === 2 ?  "listbox" : "listboxsingle";
+           return  <div className={styleName} key={index}>
+            <Learn list={array} />
+            </div>
+        })}
         </main>
-
     );
 }
+
 HomePage.propTypes = {
     links: PropTypes.array
 }
