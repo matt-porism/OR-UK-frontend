@@ -317,3 +317,12 @@ img {
         text-align: left;
       }
     }
+
+    .footerwrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footerwrapper > div {
+      display: grid;
+    }

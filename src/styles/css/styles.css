@@ -562,6 +562,13 @@ footer a {
   .who-four ul li {
     text-align: left;
   }
+  .footerwrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footerwrapper > div {
+    display: grid;
+  }
 }
 
 @media only screen and (min-width: 64em) {

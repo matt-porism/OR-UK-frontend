@@ -34,6 +34,7 @@ function App() {
   const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
   const CONTACT_PAGE = process.env.REACT_APP_CONTACT_PAGE;
+  const REACT_APP_FOOTER = process.env.REACT_APP_FOOTER
    console.log(errors);  //take care of on refactor
   //if (!COMMUNITY_PAGE) return;
   
@@ -45,6 +46,8 @@ console.log("how props", howProps);  //take care of on refactor
 const communityProps = data;
 [{ data, isError }] = useOukapi(`${BASE_URL}${CONTACT_PAGE}`)
 const contactProps = data;
+[{data, isFetching, isError}] = useOukapi(`${BASE_URL}${REACT_APP_FOOTER}`)
+const footerProps = data;
 
   useEffect(() => {
     // fetch from strapi
@@ -85,12 +88,6 @@ const contactProps = data;
     }
   }, [subMenuId]);
 
-  if (subMenu && subMenu.length > 0) {
-    console.log(`submenu set ${subMenu}`, isError, isFetching );
-   
-  } else {
-    console.log("no submenus set ");
-  }
 
   const handleErrors = (target, message) => {
     const errors = {};
@@ -99,7 +96,7 @@ const contactProps = data;
     setErrors(errors);
     
   }
-  console.log("ERRORS", errors, isError, homeProps.CommunityStatsBox);
+  console.log("footer", footerProps);
 
   //now can use iserror instead of object keys
   return (
@@ -116,7 +113,7 @@ const contactProps = data;
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
-      <Footer className="footer" />
+      <Footer footerProps={footerProps} className="footer" />
     
     
     </div>)
