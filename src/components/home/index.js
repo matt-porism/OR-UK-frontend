@@ -9,9 +9,10 @@ function HomePage( {homePageProps, classname }) {
 
     //const [headText, setHeaderText] = useState(homePageProps);
     const  { ReadNextLinks,  
-        heroBanner: {body, introParagraph, title}, 
+        heroBanner: {body, title}, 
         PullQuote: { quote},
        BenefitsAndOpportunities,
+       introParagraph,
          }  = homePageProps;
 
     const [splitArray, setSplit] = useState([]);
