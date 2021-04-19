@@ -5,13 +5,14 @@ import InjectHtml from '../home/InjectHtml';
 const HtmlSection = ({sections}) => {
 
     return ( <div>
-    {sections.map((item, index) => {
-       return <>
-             <InjectHtml fix={`${index}head`} paragraphText={item.sectionHeading}/>
-             <InjectHtml fix={`${index}body`} paragraphText={item.sectionBody}/>
+
+    {   
+        sections.map((item, index) => {
+        return <>
+             <InjectHtml itemKey={`${index}head`} paragraphText={item.sectionHeading}/>
+             <InjectHtml itemKey={`${index}body`} paragraphText={item.sectionBody}/>
          </>
-    })}
-   
+        })}
    </div>
    
         )
