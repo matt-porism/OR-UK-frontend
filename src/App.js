@@ -103,8 +103,8 @@ const footerProps = data;
         <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
-            <Route path="/about-page" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
-            <Route path="/how-to" render={() =>  <HowPage styleName="main"/> }/>
+            <Route path="/about-open-referral" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
+            <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
