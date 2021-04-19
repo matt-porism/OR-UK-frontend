@@ -1,20 +1,16 @@
+import { Fragment } from 'react';
 import InjectHtml from '../home/InjectHtml';
-
-
 
 const HtmlSection = ({sections}) => {
 
-    return ( <div>
+    return ( 
 
-    {   
         sections.map((item, index) => {
-        return <>
+        return <Fragment key="itemkey">
              <InjectHtml itemKey={`${index}head`} paragraphText={item.sectionHeading}/>
              <InjectHtml itemKey={`${index}body`} paragraphText={item.sectionBody}/>
-         </>
-        })}
-   </div>
-   
+         </Fragment>
+        })
         )
     }
     export default HtmlSection;
