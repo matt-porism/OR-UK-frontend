@@ -5,20 +5,24 @@ import { useEffect, useState} from "react";
 
 function CommunityPage({ communityProps, styleName }) {
     
-    //loops to write links
-    const { title, id, introParagraph, links } = communityProps.communityPage;
-    const data = [{sectionHeading: title, sectionBody: introParagraph}];
-    let linkLeft = links;
-    console.log("In community links ", links)
-
   const [splitArray, setSplitArray] = useState([]);
-  const [nextLinks] = useState(links);
+  
+  const [headerText, setHeaderText] = useState("");
+  const [bodyText, setBodyText] = useState("");
+
+ 
 
   let style;
    let itemCount = 2;
   useEffect(() => {
+    const { title, introParagraph, links } = communityProps.communityPage;
+    //we have an id do we need it?
+    //structure looks same as how check out api
 
-    const listBoxLinks = [...links];
+    setHeaderText(title);
+    setBodyText(introParagraph);
+
+    let listBoxLinks = [...links];
 
     let rowItems = [];
     while(listBoxLinks.length) {
@@ -27,13 +31,13 @@ function CommunityPage({ communityProps, styleName }) {
 
     setSplitArray(rowItems)
 
-},[links]);
+},[communityProps]);
   
  
     return (
        
         <main className={styleName}>
-           <ContentPage title={title} introParagraph={introParagraph}/>
+           <ContentPage title={`<h1>${headerText}</h1>`} introParagraph={bodyText}/>
            {/* should form part of content page so can be reused with props */}
            { splitArray && splitArray.length > 0 && splitArray.map ((array, index) => {
              style = splitArray[index].length === itemCount ?  "listbox" : "listboxsingle";
@@ -42,7 +46,6 @@ function CommunityPage({ communityProps, styleName }) {
                 </div>
               }) 
           }
-         
         </main>
 
     );
