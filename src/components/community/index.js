@@ -17,7 +17,7 @@ function CommunityPage({ communityProps, styleName }) {
   let style;
    let itemCount = 2;
   useEffect(() => {
-    console.log("effect ", nextLinks);
+
     const listBoxLinks = [...links];
 
     let rowItems = [];
