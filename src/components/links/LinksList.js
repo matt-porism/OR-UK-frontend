@@ -2,17 +2,25 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const LinksList = ({list}) => {
-return (
-				list.map( (link, index) => {
-					return (
-						<li key={list[index].id}>
-							<Link to={link.url}>
-								{link.TextToDisplay}
+
+	return (
+			
+					<>
+					{list.id  !== "" ?
+						<li key={list.id}>
+							<Link to={list.url}>
+								{list.TextToDisplay}
 							</Link>
-						</li>
-					)
-				})
-                )
+						</li> :
+						<li key="er">
+						<Link to='/jh'></Link>
+					</li>
+}
+						</>
+					
+)
+				
+                
 			}
 
             export default LinksList;

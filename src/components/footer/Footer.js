@@ -2,7 +2,7 @@
 import Banner from '../banner';
 import Title from './tiles';
 import { Link } from 'react-router-dom';
-
+//review refactor
 
 const list=  ["/OpenReferralUK.png","/snook.svg" ]
 
@@ -15,7 +15,7 @@ const CreateImgTag = () => {
    hold.push(<div key={i} className="row"><div className="column"><img key="1" src={list[i]} aria-label="open refferral logo" /></div><div className="column"><img key="2" src={list[i+1]} alt="open refferral logo" /></div></div>);
 
  } else {
-   console.log("array length", hold.length)
+   //console.log("array length", hold.length)
   hold.push(<div key={i} className="row"><div className="column"><img key="3" src={list[i]} aria-label="open refferral logo" /></div></div>);
  }
  }
@@ -25,7 +25,7 @@ const CreateImgTag = () => {
  const Footer =  ({ footerProps }) => {
 
   const { aboutLinks: { title, id, links}, howItWorksLinks, communityLinks, getInvolved, contact } = footerProps
-  console.log(getInvolved.TextToDisplay)
+  console.log(getInvolved.TextToDisplay, id)
     return (
       <footer className="footer">
         <Banner />
