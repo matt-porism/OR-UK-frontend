@@ -16,13 +16,14 @@ function HomePage( {homePageProps, classname }) {
 
     const [splitArray, setSplit] = useState([]);
     const [links] = useState(ReadNextLinks)
-    console.log("the links", links);
+   
     useEffect(() => {
         console.log("effect ", links);
+        const listBoxLinks = [...links];
 
         let rowItems = [];
-        while(links.length) {
-            rowItems.push(links.splice(0,2))
+        while(listBoxLinks.length) {
+            rowItems.push(listBoxLinks.splice(0,2))
         }
     
         setSplit(rowItems)

@@ -14,12 +14,12 @@ const HowPage =  ({ styleName}) => {
     const itemCount = 2;
     let style;
     //const [splitArray, setSplit] = useState([]);
-    let myStruct;
+    let arrayStruct;
     //const [data, setData] = useState({});
 
-    const used = (locallinks) => {
+    const used = (linksList) => {
         let rowItems = [];
-        const local = [...locallinks];
+        const local = [...linksList];
         while(local.length) {
             rowItems.push(local.splice(0,itemCount))
         }
@@ -33,19 +33,16 @@ const HowPage =  ({ styleName}) => {
         if ( Object.keys(data).length > 0)
         {
             const { HowItWorks: { title, introParagraph, links }  } = data;
-            myStruct = [{sectionHeading: title, sectionBody: introParagraph}];
+            arrayStruct = [{sectionHeading: title, sectionBody: introParagraph}];
           splitArray = used(links);
             
       }
 
     return ( 
         isError ? null :
-      
        (
-          
         <main className={styleName}> 
-        
-        { myStruct && <HtmlSection sections={myStruct} /> }
+        { arrayStruct && <HtmlSection sections={arrayStruct} /> }
 
             { splitArray && splitArray.length > 0 && splitArray.map ((array, index) => {
              style = splitArray[index].length === itemCount ?  "listbox" : "listboxsingle";
