@@ -317,6 +317,16 @@ img {
         text-align: left;
       }
     }
+
+    .footerwrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 1.5rem;;
+    }
+
+    .footerwrapper > div {
+      display: grid;
+    }
     .listbox {
       display: flex;
       flex-wrap: wrap;
@@ -326,7 +336,7 @@ img {
       list-style-type: none;
       }
     }
-
+  
     .listboxsingle {
       display: flex;
       flex-wrap: wrap;

@@ -45,6 +45,7 @@ const communityProps = data;
 [{ data, isError }] = useOukapi(`${BASE_URL}${CONTACT_PAGE}`)
 const contactProps = data;
 [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${REACT_APP_FOOTER}`)
+const footerProps = data;
 
   useEffect(() => {
     // fetch from strapi
@@ -90,6 +91,7 @@ const contactProps = data;
     setErrors(errors);
     
   }
+  console.log("footer", footerProps);
 
   //now can use iserror instead of object keys
   return (
@@ -106,7 +108,7 @@ const contactProps = data;
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
-      <Footer className="footer" />
+      <Footer footerProps={footerProps} className="footer" />
     
     
     </div>)
