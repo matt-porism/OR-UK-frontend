@@ -223,6 +223,10 @@ footer a {
   justify-items: center;
 }
 
+.row ul {
+  list-style-type: none;
+}
+
 /*.footergrid {
   justify-content: center;
 }
@@ -282,6 +286,7 @@ footer a {
 .section {
   background-color: #f2f2f2;
   padding: 1.5rem 1.5rem;
+  margin-bottom: 35px;
 }
 
 .nav-link {
@@ -457,7 +462,7 @@ footer a {
   }
   .column {
     flex: 50%;
-    padding: 5px;
+    padding: 25px;
   }
   .flexcontainer {
     -ms-box-orient: horizontal;
@@ -561,6 +566,46 @@ footer a {
   }
   .who-four ul li {
     text-align: left;
+  }
+  .footerwrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1.5rem;
+  }
+  .footerwrapper > div {
+    display: grid;
+  }
+  .listbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+  }
+  .listbox ul {
+    list-style-type: none;
+  }
+  .listboxsingle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    width: 49%;
+  }
+  .listboxsingle ul {
+    list-style-type: none;
+  }
+  /* width on last child */
+  .listbox > section {
+    background-color: #e6e6e6;
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+    width: 25%;
+    padding: 30px;
+  }
+  .listboxsingle > section {
+    background-color: #e6e6e6;
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+    width: 25%;
+    padding: 30px;
   }
 }
 

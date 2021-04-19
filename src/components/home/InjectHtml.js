@@ -4,7 +4,7 @@ import DOMPurify from 'dompurify';
 
 
 
-const InjectHtml = ({paragraphText}, key) => {
+const InjectHtml = ({paragraphText, itemKey } ) => {
   
 
     const cleanMarkup = (dirtyUnsafe) => {
@@ -12,8 +12,8 @@ const InjectHtml = ({paragraphText}, key) => {
         return sanitizedParam;
     }
     return(
-    
-         <div key={key} className="format" dangerouslySetInnerHTML={{ __html: cleanMarkup(paragraphText) }}></div>
+   
+         <div key={itemKey} className="format" dangerouslySetInnerHTML={{ __html: cleanMarkup(paragraphText) }}></div>
     
     )
 }
