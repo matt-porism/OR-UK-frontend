@@ -5,8 +5,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const GenericContentPage = ({match}) => {
   const {slugField} = match.params;
-
-  const [{ data, isError }] = useOukapi(`${BASE_URL}pages?slugfield=${slugField}`);
+console.log(BASE_URL);
+  const [{ data, isError }] = useOukapi(new URL('/pages?slugfield='+slugField, BASE_URL).href);
 
   if (isError || !data[0]) return <h1>404 - content not found!</h1>;
   const {page} = data[0];
