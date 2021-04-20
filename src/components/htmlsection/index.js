@@ -9,7 +9,7 @@ const HtmlSection = ({sections}) => {
 
         let header = <></>
         if (item.sectionHeading){
-            header = <><h2 id={`section-${index+1}-heading`><InjectHtml itemKey={`${index}head`} paragraphText={item.sectionHeading}/></h2></>
+            header = <><h2 id={`section-${index+1}-heading`}><InjectHtml itemKey={`${index}head`} paragraphText={item.sectionHeading}/></h2></>
         }
         return <Fragment key="itemkey">
              {header}  
