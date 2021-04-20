@@ -1,14 +1,25 @@
+import { useState, useEffect } from 'react';
 import HtmlSection from '../htmlsection';
 import LinksList from '../links/LinksList'
+import SideMenu from '../sidemenu';
 
 const Contact = ({contactProps, styleName}) => {
   const {contactUs: { sections, ReadNextLink }} = contactProps;
+  const [sectionHeadings, setSectionHeadings] = useState([]);
+
+  useEffect(() => {
+    setSectionHeadings(sections.map(section => section.sectionHeading));
+  }, [sections]);
 
   return (
     <>
       <main className={styleName}>
         <div className="flexcontainer">
+          
+          <SideMenu subMenu={sectionHeadings} />
+
           <div className="flexright">
+
             <HtmlSection sections={sections} />
 
             <hr/>

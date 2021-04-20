@@ -1,6 +1,6 @@
 const SideMenu = ({ subMenu }) => {
 	if (!subMenu || subMenu.length === 0) {
-		return;
+		return null;
 	}
 
 	return (
@@ -12,11 +12,11 @@ const SideMenu = ({ subMenu }) => {
 					<hr />
 			
 			<ul>
-				{subMenu.map( (name, index) => {
+				{subMenu.map( (menuItem, index) => {
 					return (
-						<li key={subMenu[index].Link}>
-							<a href={subMenu[index].Link}>
-								{subMenu[index].Label}
+						<li key={index}>
+							<a href={`#section-${index+1}-heading`}>
+								{menuItem}
 							</a>
 						</li>
 					)
