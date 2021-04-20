@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
             </div>
           <div className="foot-three">
           <Title title={contact.title} />
-          <Link key={contact.id} to="/">{contact.link.TextToDisplay}</Link>
+          <Link key={contact.id} to={contact.link.url}>{contact.link.TextToDisplay}</Link>
           </div>  
       
           
