@@ -192,7 +192,7 @@ img {
 
 .column {
   flex: 50%;
-  padding: 5px;
+  padding: 25px;
 }
 
 .flexcontainer {
@@ -256,6 +256,10 @@ img {
   color: $fontColour;
   margin-bottom: 1.5rem;
   min-height: 430px;
+  
+  img {
+    width: auto;
+  }
 }
 
 .whogrid {
@@ -312,4 +316,50 @@ img {
       ul li {
         text-align: left;
       }
+    }
+
+    .footerwrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 1.5rem;;
+    }
+
+    .footerwrapper > div {
+      display: grid;
+    }
+    .listbox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 20px;
+      
+      ul {
+      list-style-type: none;
+      }
+    }
+  
+    .listboxsingle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 20px;
+      width: 49%;
+      
+      ul {
+      list-style-type: none;
+      }
+    }
+   /* width on last child */
+    .listbox > section {
+      background-color: $primaryBackgroudColour;
+      flex: 1 1 auto;
+      margin-bottom: 20px;
+      width: 25%;
+      padding: 30px;
+    }
+
+    .listboxsingle > section {
+      background-color: $primaryBackgroudColour;
+      flex: 1 1 auto;
+      margin-bottom: 20px;
+      width: 25%;
+      padding: 30px;
     }

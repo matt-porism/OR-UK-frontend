@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 const useOukapi = (urlParam) => {
 
     const [data, setData] = useState({});
-    const [url, setUrl] = useState(urlParam);
     const [isError, setIsError] = useState(false);
     const [isFetching, setIsFetching] = useState(true);
+    const [url, setUrl] = useState(urlParam);
 
     useEffect(() => {
         const fetchContent = async() => {
@@ -36,4 +36,4 @@ const useOukapi = (urlParam) => {
     return[{data, isError}, isFetching, setUrl]
     };
 
-    export default useOukapi;
+    export default useOukapi; 
