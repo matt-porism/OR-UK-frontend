@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: node --version
       - run: yarn install
+      - run: yarn test
   build:
     docker:
       - image: cimg/node:15.11.0
