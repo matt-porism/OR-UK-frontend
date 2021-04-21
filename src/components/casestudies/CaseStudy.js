@@ -21,7 +21,7 @@ const CaseStudy = ({match}) => {
     <main className="main">
       <h1>{title}</h1>
       <HtmlSection sections={sections} />
-      {ReadNextLink}
+      {readNextLink}
     </main>
   )
 }
