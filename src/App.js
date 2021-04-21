@@ -14,6 +14,8 @@ import HowPage from "./components/how";
 import CommunityPage from "./components/community";
 import Contact from "./components/contact";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
+import CaseStudiesLandingPage from './components/casestudies/LandingPage';
+import CaseStudy from "./components/casestudies/CaseStudy";
 
 //refactor
 //pull data as needed perhaps on first call of page?
@@ -100,8 +102,10 @@ const footerProps = data;
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-open-referral" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
-			<Route path="/how-it-works/:slugField" render={routeProps => <GenericContentPage {...routeProps}/>}/>
-            <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>			
+            <Route path="/how-it-works/:slugField" render={routeProps => <GenericContentPage {...routeProps}/>}/>
+            <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>
+            <Route path="/community/case-studies/:slugField" render={routeProps => <CaseStudy {...routeProps} /> } />
+            <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
