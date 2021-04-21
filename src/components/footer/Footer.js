@@ -1,69 +1,78 @@
 
 import Banner from '../banner';
 import Title from './tiles';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import LinkExternal from './LinkExternal';
+import LinksList from "../links/LinksList";
 //review refactor
+//todo - terms and conditions policy to got into grid
 
-const list=  ["/OpenReferralUK.png","/snook.svg" ]
+const Footer =  ({ footerProps, styleName }) => {
+ 
+const [about, setAboutLinks] = useState({});
+const [howItWorks, setHowItWorksLinks] = useState({});
+const [community, setCommunityLinks] = useState({});
+const [involved, setInvolvedLinks] = useState({});
+const [contactUs, setContactLink] = useState({});
 
-const CreateImgTag = () => {
 
- let hold = [];
- for(let i=0; i<=list.length; i=i+2) {
+useEffect(() => {
+ 
+  if (footerProps) {
+    if (footerProps.aboutLinks) setAboutLinks(footerProps.aboutLinks);
+    if (footerProps.howItWorksLinks) setHowItWorksLinks(footerProps.howItWorksLinks);
+    if (footerProps.communityLinks) setCommunityLinks(footerProps.communityLinks);
+    if (footerProps.getInvolved) setInvolvedLinks(footerProps.getInvolved);
+    if (footerProps.contact) setContactLink(footerProps.contact);
+
+  }
+}, [footerProps]);
+
+  // there is an id property if needed when refactored
   
-   if (i < list.length-1) {
-   hold.push(<div key={i} className="row"><div className="column"><img key="1" src={list[i]} aria-label="open refferral logo" /></div><div className="column"><img key="2" src={list[i+1]} alt="open refferral logo" /></div></div>);
-
- } else {
-   //console.log("array length", hold.length)
-  hold.push(<div key={i} className="row"><div className="column"><img key="3" src={list[i]} aria-label="open refferral logo" /></div></div>);
- }
- }
- return hold;
-}
-
- const Footer =  ({ footerProps }) => {
-
-  const { aboutLinks: { title, id, links}, howItWorksLinks, communityLinks, getInvolved, contact } = footerProps
-  console.log(getInvolved.TextToDisplay, id)
     return (
-      <footer className="footer">
+      Object.keys(about).length > 0 &&
+      (<footer className={styleName}>
         <Banner />
         <div className="footergrid">
           <div className="foot-one">
             <Title title="Governance board"/>
            
-              <CreateImgTag/>
+              {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
            
             </div>
           <div className="foot-two">
-          <Title title={getInvolved.title}/>
-          <Link key={getInvolved.id} to="/">{getInvolved.link.TextToDisplay}</Link>
+          <Title title={involved.title}/>
+          <LinkExternal link={involved.link} rel="noreferrer" target="_blank" />
             </div>
           <div className="foot-three">
-          <Title title={contact.title} />
-          <Link key={contact.id} to="/">{contact.link.TextToDisplay}</Link>
+          <Title title={contactUs.title} />
+          <ul key={contactUs.id}><LinksList list={contactUs.link}/></ul>
           </div>  
-      
-          
         </div>
+
         <div className="footerwrapper">
             <div>
-              {title}
-              { links.map( link => {
-                return <div key={link.id}><Link to={link.url}>{link.TextToDisplay}</Link> </div>
+              
+                <>{about.title} </>
+               
+                            { about.links && about.links.map( link => {
+                              return <ul key={link.id}><LinksList list={link}/></ul>
+                            })
+                          }
+             
+            </div>
+            <div>
+              <>{howItWorks.title}</>
+            { 
+              howItWorks.links.map(link => {
+                return <ul key={link.id}><LinksList list={link}/></ul>
               })}
             </div>
-            <div>{howItWorksLinks.title}
+            <div>{community.title}
             { 
-              howItWorksLinks.links.map(link => {
-                return <div key={link.id}><Link to={link.url}>{link.TextToDisplay}</Link> </div>
-              })}
-            </div>
-            <div>{communityLinks.title}
-            { 
-              communityLinks.links.map(link => {
-                return <div key={link.id}><Link to={link.url}>{link.TextToDisplay}</Link> </div>
+              community.links.map(link => {
+                return <ul key={link.id}><LinksList list={link}/></ul>
               })}
             </div>
           </div>
@@ -72,7 +81,7 @@ const CreateImgTag = () => {
               <li key="1"> Terms &amp; Conditions</li>
               <li key="2">Privacy Policy</li>
             </ul></div>
-      </footer>
+      </footer>)
     );
   
 }
