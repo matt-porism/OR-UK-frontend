@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom';
 
 const LinksList = ({list}) => {
 
+	/* when no id what do we want? */
+	
 	return (
-			
 					<>
 					{list.id  !== "" ?
 						<li key={list.id}>
@@ -12,15 +13,11 @@ const LinksList = ({list}) => {
 								{list.TextToDisplay}
 							</Link>
 						</li> :
-						<li key="er">
-						<Link to='/jh'></Link>
-					</li>
-}
-						</>
+						null 
 					
-)
-				
-                
-			}
+					}
+						</>
+			)
+}
 
             export default LinksList;

@@ -19,15 +19,11 @@ import GenericContentPage from './components/genericcontentpage/GenericContentPa
 //pull data as needed perhaps on first call of page?
 function App() {
   const [homeProps, setHomeProps] = useState({});
-  //const [aboutProps, setAboutProps] = useState({});
-  //const [headerText, setHeaderText] = useState('');
-  //const [bodyText, setBodyText] = useState('');
-  //const [imageUrl, setImageUrl] = useState('');
+
   const [topMenuId, setTopMenuId] = useState('');
   const [mainMenu, setMainMenu] = useState([]);
   const [subMenuId, setSubMenuId] = useState('');
-  //const [anchorLink, setAnchorLink] = useState('');
-  //const [anchorLabel, setAnchorLabel] = useState('');
+
   const [subMenu, setSubMenu] = useState([]);
   const [errors, setErrors] = useState({});  //use to confirm render component or error page
   let [{data, isFetching, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
@@ -92,11 +88,10 @@ const footerProps = data;
     setErrors(errors);
     
   }
-  console.log("footer", footerProps);
 
   //now can use iserror instead of object keys
   return (
-     !isFetching && !isError  && Object.keys(homeProps).length > 0 &&  
+     !isFetching && !isError  && Object.keys(homeProps).length > 0 &&
     
     ( <div className="container">
       
@@ -110,7 +105,7 @@ const footerProps = data;
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
       </Switch> 
-      <Footer footerProps={footerProps} className="footer" />
+      <Footer footerProps={footerProps} styleName="footer" />
     
     
     </div>)
