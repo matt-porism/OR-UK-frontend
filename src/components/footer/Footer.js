@@ -1,52 +1,78 @@
 
 import Banner from '../banner';
 import Title from './tiles';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import LinkExternal from './LinkExternal';
+import LinksList from "../links/LinksList";
 //review refactor
-//need new component for these links
+//todo - terms and conditions policy to got into grid
 
- const Footer =  ({ footerProps }) => {
+const Footer =  ({ footerProps, styleName }) => {
+ 
+const [about, setAboutLinks] = useState({});
+const [howItWorks, setHowItWorksLinks] = useState({});
+const [community, setCommunityLinks] = useState({});
+const [involved, setInvolvedLinks] = useState({});
+const [contactUs, setContactLink] = useState({});
 
-  const { aboutLinks: { title, links}, howItWorksLinks, communityLinks, getInvolved, contact } = footerProps
+
+useEffect(() => {
+ 
+  if (footerProps) {
+    if (footerProps.aboutLinks) setAboutLinks(footerProps.aboutLinks);
+    if (footerProps.howItWorksLinks) setHowItWorksLinks(footerProps.howItWorksLinks);
+    if (footerProps.communityLinks) setCommunityLinks(footerProps.communityLinks);
+    if (footerProps.getInvolved) setInvolvedLinks(footerProps.getInvolved);
+    if (footerProps.contact) setContactLink(footerProps.contact);
+
+  }
+}, [footerProps]);
+
   // there is an id property if needed when refactored
+  
     return (
-      <footer className="footer">
+      Object.keys(about).length > 0 &&
+      (<footer className={styleName}>
         <Banner />
         <div className="footergrid">
           <div className="foot-one">
             <Title title="Governance board"/>
            
-              {/*<CreateImgTag/>*/}
+              {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
            
             </div>
           <div className="foot-two">
-          <Title title={getInvolved.title}/>
-          <a href={getInvolved.link.url} rel="noreferrer" target="_blank">{getInvolved.link.TextToDisplay}</a>
+          <Title title={involved.title}/>
+          <LinkExternal link={involved.link} rel="noreferrer" target="_blank" />
             </div>
           <div className="foot-three">
-          <Title title={contact.title} />
-          <Link key={contact.id} to={contact.link.url}>{contact.link.TextToDisplay}</Link>
+          <Title title={contactUs.title} />
+          <ul key={contactUs.id}><LinksList list={contactUs.link}/></ul>
           </div>  
-      
-          
         </div>
+
         <div className="footerwrapper">
             <div>
-              {title}
-              { links.map( link => {
-                return <div key={link.id}><Link to={link.url}>{link.TextToDisplay}</Link> </div>
+              
+                <>{about.title} </>
+               
+                            { about.links && about.links.map( link => {
+                              return <ul key={link.id}><LinksList list={link}/></ul>
+                            })
+                          }
+             
+            </div>
+            <div>
+              <>{howItWorks.title}</>
+            { 
+              howItWorks.links.map(link => {
+                return <ul key={link.id}><LinksList list={link}/></ul>
               })}
             </div>
-            <div>{howItWorksLinks.title}
+            <div>{community.title}
             { 
-              howItWorksLinks.links.map(link => {
-                return <div key={link.id}><Link to={link.url}>{link.TextToDisplay}</Link> </div>
-              })}
-            </div>
-            <div>{communityLinks.title}
-            { 
-              communityLinks.links.map(link => {
-                return <div key={link.id}><Link to={link.url}>{link.TextToDisplay}</Link> </div>
+              community.links.map(link => {
+                return <ul key={link.id}><LinksList list={link}/></ul>
               })}
             </div>
           </div>
@@ -55,7 +81,7 @@ import { Link } from 'react-router-dom';
               <li key="1"> Terms &amp; Conditions</li>
               <li key="2">Privacy Policy</li>
             </ul></div>
-      </footer>
+      </footer>)
     );
   
 }
