@@ -1,12 +1,26 @@
 $defaultFont: 'Inter', sans-serif;
-$normalWeight: 300;
-$headWeight: 400;
-$boldWeight: 700;
+$normalWeight: 400;
+$midWeight: 500;
+$boldWeight: 600;
 
-$primaryColour: #ffffff;
-$secondaryColour:#faf9f9;
-$fontColour: #000000;
-$primaryBackgroudColour: #e6e6e6;
+// $primaryColour: #ffffff;
+// $secondaryColour:#faf9f9;
+// $fontColour: #000000;
+// $primaryBackgroudColour: #e6e6e6;
+
+$color-brand: #5AC09E;
+$color-brand-dark: #418F76;
+$color-brand-darker: #28614F; // AA on page-bg
+$color-text: #2A3834; // body text // AAA on page-bg
+$color-text-muted: #4F5956; // muted text // AA on page-bg
+$color-highlight: #FFD152; 
+$color-blue-dark: #135E75; // interactive // AAA on page-bg
+$color-blue-light: #197A99; // AA on page-bg
+$color-purple: #6426B3; // visited links // AAA on page-bg
+$color-red-light: #DD400F;
+$color-red-dark: #A61E00; // AAA on page-bg
+$color-page-bg: #FCF9F5;
+
 
 $gutter: 2%;
 $gutterdbl: (2 * $gutter);
