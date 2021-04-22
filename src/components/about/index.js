@@ -1,4 +1,3 @@
-import '../../styles/css/styles.css';
 import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
 //import Learn from '../home/Learn';
