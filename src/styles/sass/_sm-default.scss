@@ -88,23 +88,28 @@ a {
     cursor: pointer;
     color: $color-text;
     background-color: $color-highlight;
+    box-shadow: 0px 0px 0px 1px $color-highlight;
     text-decoration: none;
   }
   &:focus {
     outline: 0;
     text-decoration: none;
     color: $color-text;
-    box-shadow: 0px 2px 0px 0px $color-text;
+    box-shadow: 0px 2px 0px 0px $color-text, 0px 0px 0px 1px $color-highlight;
     background-color: $color-highlight;
   }
   &:active {
     text-decoration: none;
     background: none;
-    box-shadow: none;
+    box-shadow: 0px 2px 0px 0px $color-text;
   }
 }
 a:visited {
   color: $color-purple;
+}
+
+li {
+  margin-bottom: 0.8em;
 }
 
 
