@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header';
 import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
-import '../src/styles/css/styles.css';
+import '../src/styles/sass/styles.scss';
 import { fetchLandingPageContent, 
          fetchMainMenuItems,
          fetchSubMenuItems } from './helpers/ContentConsumer';
-         import useOukapi from './helpers/dataFetch';
+import useOukapi from './helpers/dataFetch';
 import HomePage from "./components/home";
 import About from "./components/about";
 import HowPage from "./components/how";
