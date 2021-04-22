@@ -1,4 +1,3 @@
-import '../../styles/css/styles.css';
 import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
 //import Learn from '../home/Learn';
@@ -22,13 +21,13 @@ const About = ({aboutProps, styleName}) => {
             <div className="flexcontainer">
             <SideMenu subMenu={sectionHeadings} />
           
-            <div className="flexright">     
+            <article className="flexright">     
             <HtmlSection sections={sections} /> 
                 
                 <hr/>
         {/*pass to Leftright */}
                 <LinksList list={[{id:1, url:"/apage", TextToDisplay:"How Open Referral UK works"}]} />
-            </div>
+            </article>
             </div>     
         </main>
        </>
