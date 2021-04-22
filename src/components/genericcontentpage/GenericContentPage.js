@@ -38,10 +38,10 @@ const GenericContentPage = ({ match }) => {
       <h1>{page.title}</h1>
       <div className="flexcontainer">
         <SideMenu subMenu={sectionHeadings} />
-        <div className="flexright">
+        <article className="flexright">
           <HtmlSection sections={page.sections} />
           {readNextLink}
-        </div>
+        </article>
       </div>
     </main>
   )

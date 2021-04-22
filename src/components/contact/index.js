@@ -18,14 +18,14 @@ const Contact = ({contactProps, styleName}) => {
           
           <SideMenu subMenu={sectionHeadings} />
 
-          <div className="flexright">
+          <article className="flexright">
 
             <HtmlSection sections={sections} />
 
             <hr/>
 
             <LinksList list={[{ id: 1, url: ReadNextLink.url, TextToDisplay:ReadNextLink.TextToDisplay }]} />
-          </div>
+          </article>
         </div>
       </main>
     </>
