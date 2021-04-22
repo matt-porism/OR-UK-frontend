@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,gBAAgB,EAAE,OAAO;EAC1B,IAAI,EAAE,OAAO;EACZ,MAAM,EAAE,iBAAiB;EACzB,aAAa,EAAE,GAAG;EAClB,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,IAAI;CAWpB;;AAjBD,AAQE,KARG,CAQH,GAAG,CAAC;EACF,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,OAAO;CACpB;;AAXH,AAaE,KAbG,CAaH,KAAK,CAAC;EACJ,WAAW,EAAE,IAAI;EACjB,UAAU,EAAE,KAAK;CAClB",
-    "sources": [
-        "../../components/card/card.scss"
-    ],
-    "names": [],
-    "file": "card.css"
-}
