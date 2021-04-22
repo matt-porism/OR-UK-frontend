@@ -31,9 +31,8 @@ blockquote {
 }
 
 a {
-  color: black;
+  color: $fontColour
 }
-
 
 
 blockquote::before {
@@ -91,6 +90,10 @@ nav {
     list-style-type: none;
     
   }
+}
+
+.listnostyle {
+  list-style-type: none;
 }
 
 .main {
@@ -250,5 +253,28 @@ footer {
     margin-left: 3.0rem;
 
   }
+
+
 }
+button  {
+  line-height: 3em;
+  padding: 0 1em;
+  border-radius: 0.125em;
+  color: #ffffff;
+  background: #28614f;
+  margin-bottom:  2rem;
+  margin-top:  2rem;
+  margin-left: 0.5rem;
+  width: 250px;
+}
+
+.tempstyle {
+  /*out of time today*/
+  padding-left: 0.5rem;
+  padding-bottom: 1rem;
+
+}
+
+
+
 
