@@ -14,6 +14,7 @@ const useOukapi = (urlParam) => {
             setIsError(false);
         
             console.log(urlParam)
+            //value not set checks call error page
 
         try {
             const response = await fetch(url);

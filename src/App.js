@@ -13,6 +13,7 @@ import About from "./components/about";
 import HowPage from "./components/how";
 import CommunityPage from "./components/community";
 import Contact from "./components/contact";
+import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
 import CaseStudy from "./components/casestudies/CaseStudy";
@@ -60,9 +61,6 @@ const footerProps = data;
         if (data.top_menu) {
           setTopMenuId(data.top_menu.id);
         }
-        /*if (data.logo) {
-          setImageUrl(data.logo.name);
-        }*/
        
       }).catch(err => console.log("do something with error as required"));
 
@@ -108,6 +106,7 @@ const footerProps = data;
             <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
+            <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
       </Switch> 
       <Footer footerProps={footerProps} styleName="footer" />
     
