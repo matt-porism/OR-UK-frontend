@@ -4,7 +4,8 @@ const Banner = () => {
 
 return (
 <div className="banner">
-    <Link to="/">Openreferral UK</Link>
+    {/* TODO: this Link should be an image instead of text */}
+    <Link to="/">Open Referral UK</Link>
     <a href="/documentation-and-tools" className="oruktools">
         Document &amp; Tools
     </a>
