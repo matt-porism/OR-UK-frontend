@@ -4,7 +4,7 @@ import LinksList from '../links/LinksList'
 import SideMenu from '../sidemenu';
 
 const Contact = ({contactProps, styleName}) => {
-  const {contactUs: { sections, ReadNextLink }} = contactProps;
+  const {contactUs: { title, sections, ReadNextLink }} = contactProps;
   const [sectionHeadings, setSectionHeadings] = useState([]);
 
   useEffect(() => {
@@ -14,6 +14,7 @@ const Contact = ({contactProps, styleName}) => {
   return (
     <>
       <main className={styleName}>
+        <h1>{title}</h1>
         <div className="flexcontainer">
           
           <SideMenu subMenu={sectionHeadings} />
