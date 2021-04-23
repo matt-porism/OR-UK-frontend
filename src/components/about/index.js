@@ -6,7 +6,7 @@ import HtmlSection from '../htmlsection';
 import LinksList from '../links/LinksList';
    
 const About = ({aboutProps, styleName}) => {
-    const {article: {sections }} = aboutProps;
+    const {article: { title, sections }} = aboutProps;
     
     const [sectionHeadings, setSectionHeadings] = useState([]);
     useEffect(() => {
@@ -18,6 +18,7 @@ const About = ({aboutProps, styleName}) => {
        
        <>
         <main className={styleName}>
+            <h1>{title}</h1>
             <div className="flexcontainer">
             <SideMenu subMenu={sectionHeadings} />
           

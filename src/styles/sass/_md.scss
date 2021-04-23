@@ -260,7 +260,11 @@ img {
 
 }
 .flexleft { flex-basis: 35%; }
-.flexright { flex-basis: 65%;}
+.flexright { flex-basis: 65%;
+
+h1 {
+  margin-left: 0.5rem;
+}}
 
 .linkbox {
   grid-column-start: 2;
@@ -323,12 +327,24 @@ img {
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
+
+    ul li {
+      display: inline;
+      
+      padding-right: 80px;
+    }
 }
 .who-two {
-  grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
+  grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    ul li {
+      display: inline;
+      padding-right: 80px;
+      color: blue;
+    }
 }
 
 .who-three {
@@ -406,3 +422,74 @@ img {
       width: 25%;
       padding: 30px;
     }
+
+    .usingcolumns {
+      flex: 50%;
+      padding: 0 0.5rem;
+    }
+
+    .cardgrid {
+      display: grid;
+      flex-wrap: wrap;
+      column-gap: 1.2rem;
+      padding: 0.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      //justify-items: center;
+    }
+
+
+.card {
+  padding: 10px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: $blackOther;
+  min-width: 100vw;
+  border-radius: 4px;
+  overflow: scroll;
+  margin: 0;
+  
+
+  div,
+  p,
+  a {
+    background-color: $primaryColour;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+      color: purple;
+    }
+    .icon:hover {
+      color: purple
+    }
+  }
+
+  p.label {
+    color: brown;
+  }
+
+  
+}
+
+.card-content {
+  @include cardbox;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-height: 25rem; /*play with this as u build out */
+  overflow: hidden;
+  position: relative;
+  
+}
+
+.addlargefont {
+  font-size: 3vw;
+  font-weight: 600;
+}
+
+  
+
+    

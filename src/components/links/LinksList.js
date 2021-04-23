@@ -14,7 +14,6 @@ const LinksList = ({list}) => {
 							</Link>
 						</li> :
 						null 
-					
 					}
 						</>
 			)

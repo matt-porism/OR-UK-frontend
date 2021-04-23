@@ -8,7 +8,7 @@ const SideMenu = ({ subMenu }) => {
 
 		<>
 			<div className="sidebar flexitem flexleft">
-				In this section
+				<h3>On this page</h3>
 					<hr />
 			
 			<ul>
