@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header';
-import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
 import '../src/styles/sass/styles.scss';
 import { fetchLandingPageContent, 
@@ -95,8 +94,8 @@ const footerProps = data;
     
     ( <div className="container">
       
-    <Header />
-        <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
+    <Header mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
+        
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-open-referral" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>

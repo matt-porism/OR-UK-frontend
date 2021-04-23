@@ -21,10 +21,13 @@ const Navigator = ({mainMenu, topMenuId}) => {
 
   return (
   
-        <nav className="nav">
-            <ul>
-                {menuItems}
-            </ul>
+        <nav className="global-nav">
+          <a href="/developers" className="button-header">
+            For developers
+          </a>
+          <ul>
+              {menuItems}
+          </ul>
         </nav>     
     
   
