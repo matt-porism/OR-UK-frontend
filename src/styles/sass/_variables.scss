@@ -3,12 +3,8 @@ $normalWeight: 400;
 $midWeight: 500;
 $boldWeight: 600;
 
-// $primaryColour: #ffffff;
-// $secondaryColour:#faf9f9;
-// $fontColour: #000000;
-// $primaryBackgroudColour: #e6e6e6;
-
 $color-brand: #5AC09E;
+$color-brand-20: rgba(90, 192, 158, 0.2); // brand at 20% opacity
 $color-brand-dark: #418F76;
 $color-brand-darker: #28614F; // AA on page-bg
 $color-text: #2A3834; // body text // AAA on page-bg
@@ -20,13 +16,6 @@ $color-purple: #6426B3; // visited links // AAA on page-bg
 $color-red-light: #DD400F;
 $color-red-dark: #A61E00; // AAA on page-bg
 $color-page-bg: #FCF9F5;
-
-$primaryColour: #ffffff;
-$secondaryColour:#faf9f9;
-$fontColour: #000000;
-$primaryBackgroudColour: #e6e6e6;
-$blackOther: #000000;
-$lightGreen: #c2dbb6;
 
 $gutter: 2%;
 $gutterdbl: (2 * $gutter);

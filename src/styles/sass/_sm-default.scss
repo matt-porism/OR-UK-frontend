@@ -42,26 +42,12 @@ h3 {
   line-height: 1.65;
 }
 
-a {
-  color: $fontColour
-}
-
 small {
   font-size: 0.875rem;
 }
 
-blockquote::before {
-  content: open-quote;
-  /*display: block;
-  font-size: 30px;
-  left: -10px;
-  top: -10px;
-  position: relative;
-  height: 0;*/
-  }
-
 blockquote {
-    color: $color-brand-darker;
+  color: $color-brand-darker;
   font-size: 1.25rem;
   line-height: 1.8;
   quotes: "\201C" "\201D" "\2018" "\2019";
