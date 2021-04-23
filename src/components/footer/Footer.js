@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import LinkExternal from './LinkExternal';
 import LinksList from "../links/LinksList";
 //review refactor
-//todo - terms and conditions policy to got into grid
+//todo - terms and conditions policy to go into grid
 
 const Footer =  ({ footerProps, styleName }) => {
  
@@ -19,6 +19,7 @@ const [contactUs, setContactLink] = useState({});
 useEffect(() => {
  
   if (footerProps) {
+
     if (footerProps.aboutLinks) setAboutLinks(footerProps.aboutLinks);
     if (footerProps.howItWorksLinks) setHowItWorksLinks(footerProps.howItWorksLinks);
     if (footerProps.communityLinks) setCommunityLinks(footerProps.communityLinks);
@@ -53,14 +54,12 @@ useEffect(() => {
 
         <div className="footerwrapper">
             <div>
-              
                 <>{about.title} </>
                
                             { about.links && about.links.map( link => {
                               return <ul key={link.id}><LinksList list={link}/></ul>
                             })
                           }
-             
             </div>
             <div>
               <>{howItWorks.title}</>

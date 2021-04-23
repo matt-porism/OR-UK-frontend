@@ -17,7 +17,7 @@ const HowPage =  ({ styleName}) => {
     let arrayStruct;
     //const [data, setData] = useState({});
 
-    const used = (linksList) => {
+    const chunkTheList = (linksList) => {
         let rowItems = [];
         const local = [...linksList];
         while(local.length) {
@@ -34,7 +34,7 @@ const HowPage =  ({ styleName}) => {
         {
             const { HowItWorks: { title, introParagraph, links }  } = data;
             arrayStruct = [{sectionHeading: title, sectionBody: introParagraph}];
-          splitArray = used(links);
+          splitArray = chunkTheList(links);
             
       }
 

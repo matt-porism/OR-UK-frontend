@@ -4,37 +4,51 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /*  apply a natural box layout model to all elements  */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+/*  font rendering applied to all elements  */
+* { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+
 /* ------------- BODY ------------- */
 body {
 	font-family: $defaultFont;
-	font-size: 1em;
   font-weight: $normalWeight;
   font-style: normal;
+  font-feature-settings: 'ss02' on;
+  color: $color-text;
+  background-color: $color-page-bg;
+}
+
+p, a, li {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  font-feature-settings: 'ss02' on;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $boldWeight;
 }
 
 h1 {
-  font-family: $defaultFont;
-  font-weight: 400;
-  font-size: 18px;
-}
-h2 {
-  padding-left: 1.5rem;
+  font-size: 1.75rem;
+  line-height: 1.3;
 }
 
-blockquote {
-  border: none;
-  quotes: "\201C" "\201D" "\2018" "\2019";
-  display: block;
-  background-color: #E5E5E5;
-  padding: 2.0rem;
-  line-height: 1.6;
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.65;
 }
 
 a {
-  color: black;
+  color: $fontColour
 }
 
-
+small {
+  font-size: 0.875rem;
+}
 
 blockquote::before {
   content: open-quote;
@@ -46,9 +60,56 @@ blockquote::before {
   height: 0;*/
   }
 
-  blockquote::after {
+blockquote {
+    color: $color-brand-darker;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+    &:before {
+    content: open-quote;
+  }
+  &:after {
     content: close-quote;
   }
+}
+
+blockquote small {
+  color: $color-text-muted;
+  display: block;
+  margin-top: 1rem;
+}
+
+a {
+  color: $color-blue-dark;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+    color: $color-text;
+    background-color: $color-highlight;
+    box-shadow: 0px 0px 0px 1px $color-highlight;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: 0;
+    text-decoration: none;
+    color: $color-text;
+    box-shadow: 0px 2px 0px 0px $color-text, 0px 0px 0px 1px $color-highlight;
+    background-color: $color-highlight;
+  }
+  &:active {
+    text-decoration: none;
+    background: none;
+    box-shadow: 0px 2px 0px 0px $color-text;
+  }
+}
+a:visited {
+  color: $color-purple;
+}
+
+li {
+  margin-bottom: 0.8em;
+}
+
 
 .header {
   grid-column-start: 1;
@@ -56,22 +117,17 @@ blockquote::before {
   grid-row-start: 1;
   grid-row-end: 2;
   padding: 1rem $gutter;
-  background-color: $primaryColour;
-  color: $secondaryColour;
-    
-  a {
-    color:$fontColour;
-  }
-
+  background-color: white;
   }
 
 nav {
+  background-color: white;
+
   ul li a {
     display: block;
 		text-align: center;
 		font-weight: $normalWeight;
-		padding: .5rem 0;
-		color:$fontColour;
+		// padding: .5rem 0;
   }
   
   ul li a:active {
@@ -93,6 +149,10 @@ nav {
   }
 }
 
+.listnostyle {
+  list-style-type: none;
+}
+
 .main {
   grid-column-start:1;
   grid-column-end: 5;
@@ -107,7 +167,7 @@ footer {
   grid-column-end: 6;
   grid-row-start: 6;
   grid-row-end: 6;
-  background-color: $primaryColour;
+  background-color: $color-brand-darker;
   
   ul { 
     display: flex;
@@ -134,7 +194,7 @@ footer {
   grid-column-end: 6;
   grid-row-start: 5;
   grid-row-end: 5;
-  background-color: $primaryBackgroudColour;
+  background-color: white;
   padding-left: $gutter;
   
   ul { 
@@ -235,9 +295,6 @@ footer {
   padding: 1.5rem 1.5rem;
   margin-bottom: 35px;
 }
-.nav-link {
-  padding-left: 1.5rem;
-}
 
 .format {
   padding-left: $gutter;
@@ -250,5 +307,28 @@ footer {
     margin-left: 3.0rem;
 
   }
+
+
 }
+button  {
+  line-height: 3em;
+  padding: 0 1em;
+  border-radius: 0.125em;
+  color: #ffffff;
+  background: #28614f;
+  margin-bottom:  2rem;
+  margin-top:  2rem;
+  margin-left: 0.5rem;
+  width: 250px;
+}
+
+.tempstyle {
+  /*out of time today*/
+  padding-left: 0.5rem;
+  padding-bottom: 1rem;
+
+}
+
+
+
 
