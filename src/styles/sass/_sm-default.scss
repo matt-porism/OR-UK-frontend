@@ -141,21 +141,18 @@ li {
     cursor: pointer;
     box-shadow: 0px 0px 0px 4px $color-highlight;
     text-decoration: none;
-    font-weight: 500;
   }    
   &:focus {
     color: $color-text;
     background-color: $color-highlight;
     outline: 0;
     text-decoration: none;
-    font-weight: 500;
     box-shadow: 0px 0px 0px 3px $color-blue-darker;
   }
   &:active {
     background-color: $color-highlight;
     box-shadow: none;
     text-decoration: none;
-    font-weight: 500;
     box-shadow:  0px 0px 0px 4px $color-highlight, inset 0px 0px 0px 3px $color-blue-darker;
   }
 }
@@ -171,7 +168,11 @@ li {
   grid-row-end: 2;
   padding: 1rem $gutter;
   background-color: white;
+
+  .header__logo {
+    width: 150px;
   }
+}
 
 nav {
   background-color: white;
