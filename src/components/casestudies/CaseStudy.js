@@ -30,13 +30,13 @@ const CaseStudy = ({ match }) => {
 
   return (
     <main className="main">
-      <h1>{title}</h1>
       <div className="flexcontainer">
         <SideMenu subMenu={sectionHeadings} />
-        <div className="flexright">
+        <article className="flexright">
+          <h1>{title}</h1>
           <HtmlSection sections={sections} />
           {readNextLink}
-        </div>
+        </article>
       </div>
     </main>
   )
