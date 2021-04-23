@@ -7,7 +7,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /*  font rendering applied to all elements  */
 * { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 
-/* ------------- BODY ------------- */
+/* ------------- BASE ------------- */
 body {
 	font-family: $defaultFont;
   font-weight: $normalWeight;
@@ -96,6 +96,73 @@ li {
   margin-bottom: 0.8em;
 }
 
+
+.button {
+  padding: 0.7em 1.5em;
+  border-radius: 0.2em;
+  font-size: 1.125rem;
+  border: 0;
+}
+
+.button-primary {
+  border: 0;
+  background-color: $color-blue-dark;
+  color: white;
+  font-weight: $midWeight;
+}
+
+.button-secondary {
+  box-shadow: inset 0px 0px 0px 3px $color-blue-light;
+  background-color: white;
+  color: $color-blue-dark;
+  font-weight: $midWeight;
+}
+
+.button-small {
+  padding: 0.5em 1.5em;
+}
+
+.button-header {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: $boldWeight;
+  box-shadow: inset 0px 0px 0px 2px $color-blue-light;
+  padding: 0.625em 1.25em;
+  color: $color-blue-dark;
+  border-radius: 0.2em;
+  background-color: white;
+}
+
+.button-primary,
+.button-secondary {
+  &:hover {
+    background-color: $color-blue-darker;
+    color: $color-highlight;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 4px $color-highlight;
+    text-decoration: none;
+    font-weight: 500;
+  }    
+  &:focus {
+    color: $color-text;
+    background-color: $color-highlight;
+    outline: 0;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0px 0px 0px 3px $color-blue-darker;
+  }
+  &:active {
+    background-color: $color-highlight;
+    box-shadow: none;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow:  0px 0px 0px 4px $color-highlight, inset 0px 0px 0px 3px $color-blue-darker;
+  }
+}
+
+
+
+/* ------------- COMPONENTS ------------- */
 
 .header {
   grid-column-start: 1;
@@ -266,16 +333,6 @@ footer {
   display: flex;
 }
 
-.oruktools {
-  margin-left: auto;
-  order: 2;
-}
-
-.banner {
-  display: flex;
-  margin: 1.5rem
-}
-
 .section {
   background-color: #f2f2f2; //need this for home doc change so not in community
   padding: 1.5rem 1.5rem;
@@ -295,17 +352,6 @@ footer {
   }
 
 
-}
-button  {
-  line-height: 3em;
-  padding: 0 1em;
-  border-radius: 0.125em;
-  color: #ffffff;
-  background: #28614f;
-  margin-bottom:  2rem;
-  margin-top:  2rem;
-  margin-left: 0.5rem;
-  width: 250px;
 }
 
 .tempstyle {
