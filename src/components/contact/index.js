@@ -14,12 +14,12 @@ const Contact = ({contactProps, styleName}) => {
   return (
     <>
       <main className={styleName}>
-        <h1>{title}</h1>
         <div className="flexcontainer">
           
           <SideMenu subMenu={sectionHeadings} />
 
           <article className="flexright">
+            <h1>{title}</h1>
 
             <HtmlSection sections={sections} />
 
