@@ -1,6 +1,5 @@
 @mixin cardbox {
-    background-color: $primaryColour;
-    border: 2px solid $lightGreen;
+    border: 2px solid $color-brand-20;
     border-radius: 4px;
     padding: 1.0rem;
   }
