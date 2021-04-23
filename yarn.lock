@@ -6442,6 +6442,11 @@ ini@^1.3.5, ini@~1.3.0:
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
 
+inter-ui@^3.18.0:
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/inter-ui/-/inter-ui-3.18.0.tgz#7e231bd09c3d0cf949645ad42e4a6375abe294e9"
+  integrity sha512-3Q1saEINwBSkgsA2ZzyQGbWoOZeIC9DHlNzC8qdDmZJpj6v21gJwewaC2hcO45AYnz5K5HgBN1jAvoIVW+GhGQ==
+
 internal-ip@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-4.3.0.tgz#845452baad9d2ca3b69c635a137acb9a0dad0907"

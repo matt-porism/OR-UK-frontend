@@ -9,6 +9,7 @@
     "dompurify": "^2.2.7",
     "enzyme": "^3.11.0",
     "express": "^4.17.1",
+    "inter-ui": "^3.18.0",
     "jest-enzyme": "^7.1.2",
     "jquery": "^3.6.0",
     "json-server": "^0.16.3",

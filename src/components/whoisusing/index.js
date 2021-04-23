@@ -6,9 +6,9 @@ import Card from './Card';
 import LinksList from '../links/LinksList';
 
 //build picture
- const WhoIsUsing= ({ styleName, disabled }) => {
+ const WhoIsUsing= ({ styles, disabled }) => {
 
- 
+ //use styles prop
     const sectionHeadings= ["api ready?"];
 
 
@@ -34,7 +34,7 @@ import LinksList from '../links/LinksList';
             <SideMenu subMenu={sectionHeadings} />
             <div className="flexright">
         <h1>{pageTitle}</h1>
-        <p>{underNumbersText}</p>
+        <p className="tempstyle">{underNumbersText}</p>
       
        <Numbers  numbers={numbers} />
        

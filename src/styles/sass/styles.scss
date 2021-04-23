@@ -1,3 +1,12 @@
+@use "~inter-ui/default" as inter-ui with (
+	$inter-font-display: swap,
+	$inter-font-path: "~inter-ui/Inter (web latin)"
+);
+@include inter-ui.weight-400;
+@include inter-ui.weight-500;
+@include inter-ui.weight-600;
+
+
 @import "reset";
 
 @import "mixins";
