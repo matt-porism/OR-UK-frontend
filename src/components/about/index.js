@@ -16,15 +16,15 @@ const About = ({aboutProps, styleName}) => {
        
        <>
         <main className={styleName}>
-            <h1>{title}</h1>
             <div className="flexcontainer">
             <SideMenu subMenu={sectionHeadings} />
           
             <article className="flexright">     
-            <HtmlSection sections={sections} /> 
+                <h1>{title}</h1>
+                <HtmlSection sections={sections} /> 
                 
                 <hr/>
-        {/*pass to Leftright */}
+                {/*pass to Leftright */}
                 <LinksList list={[{id:1, url:"/apage", TextToDisplay:"How Open Referral UK works"}]} />
             </article>
             </div>     
