@@ -2,14 +2,31 @@ import Button from '../shared/button';
 import Numbers from './badge/'
 import SideMenu from "../sidemenu/";
 import useOukapi from '../../helpers/dataFetch';
-import Card from './Card';
+import CardList from '../cardlist/';
 import LinksList from '../links/LinksList';
+import { Fragment } from 'react';
+import Title from '../shared/title';
 
-//build picture
+//build a picture
  const WhoIsUsing= ({ styles, disabled }) => {
 
  //use styles prop
-    const sectionHeadings= ["api ready?"];
+
+    const getObjects = (orgSections) => {
+       
+        let titles = orgSections.filter(org => org.title);
+       
+        return titles.map(title => {
+            return title.title
+        });
+    }
+
+    const getGroups = (orgSections) => {
+
+        let orgTitles = orgSections.filter(org => org.title);
+        return orgTitles;
+
+    }
 
 
     const handleClick = (event) => {
@@ -20,21 +37,24 @@ import LinksList from '../links/LinksList';
     const REACT_APP_WHO_IS_USING_PAGE = process.env.REACT_APP_WHO_IS_USING_PAGE;
 
     const [{data, isError}, isFetching] = useOukapi(`${BASE_URL}${REACT_APP_WHO_IS_USING_PAGE}`);
+    const {pageTitle, numbers, id, orgSections, caseStudiesLink, underNumbersText } = data
 
 
     const label = "Register your organisation"; //check if comes through from backend
     console.log("data", data) //check no unnecessary update
-    const {pageTitle, numbers, id, orgSections, caseStudiesLink, underNumbersText } = data
+  
     //need id make sure all keys set
     console.log(id);
-
+ 
     return (
         !isFetching && !isError &&  (<main className="main">
+            
+          
               <div className="flexcontainer">
-            <SideMenu subMenu={sectionHeadings} />
+            <SideMenu subMenu={getObjects(orgSections)} />
             <div className="flexright">
         <h1>{pageTitle}</h1>
-        <p className="tempstyle">{underNumbersText}</p>
+        <p>{underNumbersText}</p>
       
        <Numbers  numbers={numbers} />
        
@@ -42,19 +62,20 @@ import LinksList from '../links/LinksList';
        
         { caseStudiesLink && <ul className="listnostyle tempstyle"><LinksList list={caseStudiesLink} /></ul> }
 
-          <div className="cardgrid">
-
-                { orgSections && orgSections.map(organisation => 
+         
+         
+                { orgSections &&  getGroups(orgSections).map(organisation => 
                     {
-                  
-                        return  organisation.Organisation.map(org => {
-                       
-                                return <Card key={org.id} organisation={org}  styleName="card-content"/>
-                            });
+                        return <Fragment key={`${organisation.id}grouptitle}`}> 
+                            <Title title={organisation.title}/>  
+                         <div id={`${organisation.id}_title`} className="cardgrid">
+                        <CardList key={organisation.id} organisationList={organisation.Organisation} />
+                        </div>
+                        </Fragment>
+                      
                     })
             }
-            </div>
-        
+            
          </div>
 
     </div>

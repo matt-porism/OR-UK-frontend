@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
-//import Learn from '../home/Learn';
 import HtmlSection from '../htmlsection';
-//import LeftRight from '../container/';
 import LinksList from '../links/LinksList';
    
 const About = ({aboutProps, styleName}) => {
