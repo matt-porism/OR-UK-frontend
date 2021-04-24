@@ -230,11 +230,6 @@ h2 {
   padding-left: 0;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 .row {
   display: flex;
 }
@@ -252,6 +247,7 @@ img {
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
+  padding: 0.5rem;
 }
 
 .flexitem {
@@ -262,9 +258,7 @@ img {
 .flexleft { flex-basis: 35%; }
 .flexright { flex-basis: 65%;
 
-h1 {
-  margin-left: 0.5rem;
-}}
+}
 
 .linkbox {
   grid-column-start: 2;
@@ -432,7 +426,6 @@ h1 {
       display: grid;
       flex-wrap: wrap;
       column-gap: 1.2rem;
-      padding: 0.5rem;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       //justify-items: center;
