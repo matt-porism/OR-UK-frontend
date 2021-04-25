@@ -96,22 +96,12 @@ li {
   margin-bottom: 0.8em;
 }
 
-
-.header {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  padding: 1rem $gutter;
-  background-color: white;
-  }
-
 nav {
   background-color: white;
 
   ul li a {
     display: block;
-		text-align: center;
+		//text-align: center;
 		font-weight: $normalWeight;
 		// padding: .5rem 0;
   }
@@ -154,6 +144,7 @@ footer {
   grid-row-start: 6;
   grid-row-end: 6;
   background-color: $color-brand-darker;
+  color: $color-white;
   
   ul { 
     display: flex;
@@ -163,15 +154,14 @@ footer {
   ul li {
     margin-right: 15px;
     list-style-type: none;
-    padding: 0.5rem 0;
 
     a {
-      color: black;
+      color: $color-white;
     }
   }
 
   a {
-    color: black;
+    color:$color-white;
   }
 }
 
@@ -205,12 +195,6 @@ footer {
   }
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-  //grid-column-gap: 10px;
-  //grid-row-gap: 15px;
-}
 .row { 
   display: grid;
   justify-items: center;
@@ -262,18 +246,14 @@ footer {
   text-align: center;
 }
 
-.parent {
-  display: flex;
-}
+
 
 .oruktools {
-  margin-left: auto;
-  order: 2;
+  display: block;
 }
 
 .banner {
   display: flex;
-  margin: 1.5rem
 }
 
 .section {
@@ -315,6 +295,15 @@ button  {
 
 }
 
+.card-content {
+  @include cardbox;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-height: 25rem; /*play with this as u build out */
+  overflow: hidden;
+  position: relative;
+  
+}
 
 
 
