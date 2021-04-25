@@ -30,10 +30,7 @@ nav {
     margin-right: 35px;
     list-style-type: none;
   }
-  
-  ul li a {
 
-  }
 }
 
 .main {
@@ -60,32 +57,25 @@ nav {
 }
 
 }
-  
-.footer {
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 7;
-  grid-row-end: 7;
-}
 
 .foot-one {
   grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 .foot-two {
-  grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
+  grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 .foot-three {
-  grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 1;
+  grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row-start: 2;
+    grid-row-end: 2;
 
     ul {
       display: block;
@@ -94,14 +84,6 @@ nav {
     ul li {
       text-align: left;
     }
-}
-
-.copy {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    text-align: left;
 }
 
 .about {
@@ -130,3 +112,64 @@ h2 {
 
 .flexleft { flex-basis: 35%; }
 .flexright { flex-basis: 65%;}
+
+.flexcontainer {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0.5rem;
+}
+
+.flexitem {
+  display: flex;
+  flex-direction: column;
+
+}
+.flexleft { flex-basis: 35%; }
+.flexright { flex-basis: 65%;
+
+}
+
+.footer {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+.banner {
+  display: flex;
+  grid-column: 2/span 4;
+  grid-row: 1;
+}
+
+.footergrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2.0em;
+  padding: 0.5rem;
+}
+
+.footnotegrid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 2.0em;
+  padding: 0.5rem;
+}
+
+.footerwrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  margin: 1.5rem;;
+}
+
+.footerwrapper > div {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-template-columns: 1fr 1fr 1fr;
+}
