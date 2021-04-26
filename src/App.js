@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/header/Header';
 import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
+import NotFound from './components/errorpage/'
 import '../src/styles/sass/styles.scss';
 import { fetchLandingPageContent, 
          fetchMainMenuItems,
@@ -107,6 +108,9 @@ const footerProps = data;
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
             <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
+            <Route path="/404"  component={NotFound} />
+            <Redirect to="/404" />
+
       </Switch> 
       <Footer footerProps={footerProps} styleName="footer" />
     

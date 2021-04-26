@@ -21,7 +21,7 @@ const Navigator = ({mainMenu, topMenuId}) => {
 
   return (
   
-        <nav className="nav">
+        <nav className="nav" role="navigation" aria-label="main navigation">
             <ul>
                 {menuItems}
             </ul>
