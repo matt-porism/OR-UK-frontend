@@ -1,36 +1,29 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import Section from '../section/index';
 import Who from './Who';
 import InjectHtml from './InjectHtml';
-import Learn from './Learn';
+//import Learn from './Learn';
 import PropTypes from 'prop-types';
+
+//refactoring
+//look at structure of api response for page
 
 function HomePage( {homePageProps, classname }) {
 
     //const [headText, setHeaderText] = useState(homePageProps);
-    const  { ReadNextLinks,  
+    const  {  
         heroBanner: {body, title}, 
         PullQuote: { quote},
        BenefitsAndOpportunities,
        introParagraph,
          }  = homePageProps;
 
-    const [splitArray, setSplit] = useState([]);
-    const [links] = useState(ReadNextLinks)
-   
-    useEffect(() => {
-        console.log("effect ", links);
-        const listBoxLinks = [...links];
-
-        let rowItems = [];
-        while(listBoxLinks.length) {
-            rowItems.push(listBoxLinks.splice(0,2))
-        }
+    //const [splitArray, setSplit] = useState([]);
+  
     
-        setSplit(rowItems)
-
-    },[links]);
+   
     let styleName;
+    console.log(styleName)
     
     return (
        
@@ -45,12 +38,7 @@ function HomePage( {homePageProps, classname }) {
         
         { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
         
-        { splitArray.map ((array, index) => {
-             styleName = splitArray[index].length === 2 ?  "listbox" : "listboxsingle";
-           return  <div className={styleName} key={index}>
-            <Learn list={array} />
-            </div>
-        })}
+        
         </main>
     );
 }
