@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
 import HtmlSection from '../htmlsection';
-import LinksList from '../links/LinksList';
    
 const About = ({aboutProps, styleName}) => {
     const {article: { title, sections }} = aboutProps;
@@ -15,7 +14,7 @@ const About = ({aboutProps, styleName}) => {
    return (
        
        <>
-        <main className={styleName}>
+        <main className={styleName} role="main" aria-label="main">
             <div className="flexcontainer">
             <SideMenu subMenu={sectionHeadings} />
           
@@ -24,8 +23,7 @@ const About = ({aboutProps, styleName}) => {
                 <HtmlSection sections={sections} /> 
                 
                 <hr/>
-                {/*pass to Leftright */}
-                <LinksList list={[{id:1, url:"/apage", TextToDisplay:"How Open Referral UK works"}]} />
+                {/*<LinksList list={} />*/}
             </article>
             </div>     
         </main>

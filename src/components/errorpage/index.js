@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 const NotFound = () => {
     return (
-        <main className="main">
+        <main className="main" role="main" aria-label="main">
         <p>Page not found</p>
     </main>
     )

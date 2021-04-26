@@ -34,7 +34,7 @@ useEffect(() => {
   
     return (
       Object.keys(about).length > 0 &&
-      (<footer className={styleName}>
+      (<footer className={styleName} role="contentinfo" aria-label="footer">
        
         <div className="footergrid">
         <Banner />
