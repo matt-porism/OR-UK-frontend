@@ -1,3 +1,5 @@
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
 const SideMenu = ({ subMenu }) => {
 	if (!subMenu || subMenu.length === 0) {
 		return null;
@@ -15,9 +17,9 @@ const SideMenu = ({ subMenu }) => {
 				{subMenu.map( (menuItem, index) => {
 					return (
 						<li key={index}>
-							<a href={`#section-${index+1}-heading`}>
+							<AnchorLink href={`#section-${index+1}-heading`}>
 								{menuItem}
-							</a>
+							</AnchorLink>
 						</li>
 					)
 				})}

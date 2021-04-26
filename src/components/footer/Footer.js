@@ -4,6 +4,7 @@ import Title from './tiles';
 import { useEffect, useState } from 'react';
 import LinkExternal from './LinkExternal';
 import LinksList from "../links/LinksList";
+import FooterColumn from './column';
 //review refactor
 //todo - terms and conditions policy to go into grid
 
@@ -33,53 +34,62 @@ useEffect(() => {
   
     return (
       Object.keys(about).length > 0 &&
-      (<footer className={styleName}>
-        <Banner />
+      (<footer className={styleName} role="contentinfo" aria-label="footer">
+       
         <div className="footergrid">
-          <div className="foot-one">
+        <Banner />
+          
+        </div>
+        <div className="footerwrapper">
+
+        <div>
             <Title title="Governance board"/>
            
               {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
-           
-            </div>
-          <div className="foot-two">
+          
           <Title title={involved.title}/>
-          <LinkExternal link={involved.link} rel="noreferrer" target="_blank" />
-            </div>
-          <div className="foot-three">
+          
           <Title title={contactUs.title} />
+           
+          <div>logos</div>
+          <div> <LinkExternal link={involved.link} rel="noreferrer" target="_blank" /></div>
           <ul key={contactUs.id}><LinksList list={contactUs.link}/></ul>
-          </div>  
+    
         </div>
-
+        </div>
+        
         <div className="footerwrapper">
             <div>
-                <>{about.title} </>
+            <Title title={about.title}/>
+                <Title title={howItWorks.title}/>
+                <Title title={community.title}/>
                
-                            { about.links && about.links.map( link => {
+                          <div>  { about.links && about.links.map( link => {
                               return <ul key={link.id}><LinksList list={link}/></ul>
                             })
-                          }
+                          }</div>
+                            <div>
+              <FooterColumn links={howItWorks.links}/>
+             
             </div>
             <div>
-              <>{howItWorks.title}</>
-            { 
-              howItWorks.links.map(link => {
-                return <ul key={link.id}><LinksList list={link}/></ul>
-              })}
-            </div>
-            <div>{community.title}
             { 
               community.links.map(link => {
                 return <ul key={link.id}><LinksList list={link}/></ul>
               })}
             </div>
+            </div>
+          
+           
           </div>
+          <div className="footnotegrid">
           <div className="copy">&copy; 2019-2021 Open Referral UK</div>
           <div> <ul>
               <li key="1"> Terms &amp; Conditions</li>
               <li key="2">Privacy Policy</li>
             </ul></div>
+            </div>
+
       </footer>)
     );
   
