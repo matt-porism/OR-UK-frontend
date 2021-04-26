@@ -174,6 +174,12 @@ li {
   }
 }
 
+.page-container {
+  max-width: 1100px;
+  padding: 0 $gutter;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* ------------- COMPONENTS ------------- */
@@ -188,21 +194,31 @@ li {
 
   .global-header__logo {
     max-width: 150px;
+    font-size: 0; // removes white space below logo
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .global-header__top-container {
     display: flex;
     justify-content: space-between;
-    padding: $gutter;
     align-items: center;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
     border-bottom: 2px solid $color-brand-20;
   }
 
 }
 
 .global-nav {
+
+  display: none; // hidden before shown via menu button
+
   background-color: white;
-  padding: $gutterdbl $gutter;
+  padding-top: 2em;
+  padding-bottom: 2em;
   border-bottom: 2px solid $color-brand-20;
 
   li {
@@ -217,6 +233,9 @@ li {
     display: block;
 		font-weight: $normalWeight;
   }
+  li a:visited {
+    color: $color-blue-dark; // prevents :visited colour applying from to main nav
+  }
   
   li a:active {
     text-decoration: none;
@@ -228,6 +247,9 @@ li {
   }
   
 } // end nav
+.global-nav.open {
+  display: block;
+}
 
 .sidebar {
   grid-column-start: 1;
