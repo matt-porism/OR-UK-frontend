@@ -40,7 +40,7 @@ function HomePage( {homePageProps, classname }) {
              {/*{anchorLabel && <Link className="nav-link" to={anchorLink}>
           {anchorLabel}        </Link>}*/}
            
-            { quote && <figure className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
+            { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
         { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }

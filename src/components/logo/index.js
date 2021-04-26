@@ -10,9 +10,9 @@ const Logo = ({logoList}) => {
        { logoList && logoList.map(d => {
          
          if (d.link) {
-              return <a key={d.id} className="Logo" href={d.link}><img alt="company logo" src={`${BASE_URL}${d.CompanyLogo.formats.thumbnail.url}`}/></a>
+              return <a key={d.id} className="Logo" href={d.link} aria-label={d.id}><img alt="company logo" src={`${BASE_URL}${d.CompanyLogo.formats.thumbnail.url}`}/></a>
           }
-              return <div key={d.id} className="Logo"><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></div>
+              return <div key={d.id} className="Logo" aria-label={d.id}><img alt="company logo" src={d.CompanyLogo.formats.thumbnail.url}/></div>
         })}            
        </div>
     )
