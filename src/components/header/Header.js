@@ -7,8 +7,10 @@ const Header = ({mainMenu,topMenuId}) => {
 
   return (
     <header className="header">
-        <Link to="/"><img src={logo} alt="Open Referral UK" className="header__logo" /></Link>
-        <button className="button button-secondary button-header"> <img src={iconMenu} alt=""></img> Menu</button>
+        <div className="header__top-container">
+          <Link to="/"><img src={logo} alt="Open Referral UK" className="header__logo" /></Link>
+          <button className="button button-secondary button-header"> <img src={iconMenu} alt=""></img> Menu</button>
+        </div>
         <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
     </header>
   );

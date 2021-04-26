@@ -172,6 +172,13 @@ li {
   .header__logo {
     width: 150px;
   }
+
+  .header__top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
 }
 
 nav {
