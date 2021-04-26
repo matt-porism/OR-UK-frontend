@@ -126,11 +126,28 @@ li {
   text-decoration: none;
   font-size: 1rem;
   font-weight: $boldWeight;
+  letter-spacing: 0.0125rem;
   box-shadow: inset 0px 0px 0px 2px $color-blue-light;
-  padding: 0.625em 1.25em;
+  padding: 0.875em 1.25em;
   color: $color-blue-dark;
   border-radius: 0.2em;
   background-color: white;
+  display: inline-block;
+  line-height: 1;
+
+  svg { // button icon
+    height: 0.75em;
+    margin-right: 0.25em;
+  }
+}
+.button-header.active {
+  background-color: $color-blue-dark;
+  color: white;
+  box-shadow: none;
+
+  svg path { // button icon
+    fill: white;
+  }
 }
 
 .button-primary,
@@ -161,38 +178,53 @@ li {
 
 /* ------------- COMPONENTS ------------- */
 
-.header {
+.global-header {
   grid-column-start: 1;
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 2;
-  padding: 1rem $gutter;
   background-color: white;
+  text-align: center;
 
-  .header__logo {
-    width: 150px;
+  .global-header__logo {
+    max-width: 150px;
   }
 
-  .header__top-container {
+  .global-header__top-container {
     display: flex;
     justify-content: space-between;
+    padding: $gutter;
     align-items: center;
+    border-bottom: 2px solid $color-brand-20;
   }
 
 }
 
-nav {
+.global-nav {
   background-color: white;
+  padding: $gutterdbl $gutter;
+  border-bottom: 2px solid $color-brand-20;
 
-  ul li a {
+  li {
+    margin-bottom: 1.25em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li a {
     display: block;
-		//text-align: center;
 		font-weight: $normalWeight;
-		// padding: .5rem 0;
   }
   
-  ul li a:active {
+  li a:active {
     text-decoration: none;
+    color: $color-text-muted;
+  }
+
+  .button-header {
+    margin-bottom: 1.5em;
   }
   
 } // end nav
@@ -220,7 +252,7 @@ nav {
   grid-row-start: 3;
   grid-row-end: 6;
   min-height: 400px;
-  padding-top: 0.5rem;
+  padding-top: $padMedium;
 }
 
 footer {
@@ -373,3 +405,12 @@ footer {
 
 
 
+/* ------------- HELPER CLASSES ------------- */
+
+.show-md {
+  display: none;
+}
+
+.show-md-only {
+  display: none;
+}

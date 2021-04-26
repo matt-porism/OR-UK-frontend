@@ -22,7 +22,7 @@ const Navigator = ({mainMenu, topMenuId}) => {
   return (
   
         <nav className="global-nav">
-          <a href="/developers" className="button-header">
+          <a href="/developers" className="button button-secondary button-header hide-md">
             For developers
           </a>
           <ul>

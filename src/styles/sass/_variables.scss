@@ -19,7 +19,12 @@ $color-red-dark: #A61E00; // AAA on page-bg
 $color-page-bg: #FCF9F5;
 $color-white: #FFFFFF;
 
-$gutter: 2%;
+// need media queries for spacing
+$gutter: 10px;
 $gutterdbl: (2 * $gutter);
 
 $paddingSpace: 15px;
+
+$padSmall: 20px;
+$padMedium: 40px;
+$padLarge: 60px;
