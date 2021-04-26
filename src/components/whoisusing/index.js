@@ -35,7 +35,7 @@ import Title from '../shared/title';
 
     const BASE_URL = process.env.REACT_APP_BASE_URL;
     const REACT_APP_WHO_IS_USING_PAGE = process.env.REACT_APP_WHO_IS_USING_PAGE;
-
+    //usereducer
     const [{data, isError}, isFetching] = useOukapi(`${BASE_URL}${REACT_APP_WHO_IS_USING_PAGE}`);
     const {pageTitle, numbers, id, orgSections, caseStudiesLink, underNumbersText } = data
 
