@@ -2,8 +2,9 @@ import React from 'react';
 import Section from '../section/index';
 import Who from './Who';
 import InjectHtml from './InjectHtml';
-//import Learn from './Learn';
 import PropTypes from 'prop-types';
+import CardList from '../cardlist/';
+import Title from '../shared/title';
 
 //refactoring
 //look at structure of api response for page
@@ -16,14 +17,17 @@ function HomePage( {homePageProps, classname }) {
         PullQuote: { quote},
        BenefitsAndOpportunities,
        introParagraph,
+       caseStudiesLink,
+       benefitsSection
          }  = homePageProps;
-
-    //const [splitArray, setSplit] = useState([]);
   
-    
    
     let styleName;
-    console.log(styleName)
+    console.log(styleName, caseStudiesLink)
+    let caseStudyLinks = [];
+    caseStudyLinks.push(caseStudiesLink);
+    //convert to array will be array anyway
+   
     
     return (
        
@@ -37,6 +41,25 @@ function HomePage( {homePageProps, classname }) {
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
         { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
+
+        {benefitsSection && <Title title={benefitsSection.title}/>}
+        {benefitsSection.introParagraph && <p>{benefitsSection.introParagraph}</p>}
+        {benefitsSection && benefitsSection.benefits &&
+                         <div id={`${benefitsSection.id}_title`} className="cardgrid">
+                             
+                        <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon}/>
+                        </div>
+        }
+
+     
+        
+    <hr/>
+        {caseStudiesLink &&
+                         <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
+                              <CardList key={caseStudiesLink.id} itemList={caseStudyLinks} />
+                        
+                        </div>
+        }
         
         
         </main>

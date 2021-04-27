@@ -1,14 +1,15 @@
 import Card from "../whoisusing/Card"
-
-const CardList = ({ organisationList, id, styles }) => {
+const CardList = ({  title, bodyText,  contentImage, id, itemList, paragraphTextList, styles }) => {
 
     return (
-       
-            organisationList && organisationList.length > 0 && organisationList.map(organisation => 
+        
+            itemList && itemList.length > 0 ? itemList.map(item => 
                 {
-           
-                    return <Card key={organisation.id} organisation={organisation}  styleName="card-content"/>
-               
+                    return <Card key={`${id}_itemcard`}  id={item.id}  cardImage={contentImage} itemLinks={itemList}  styleName="card-content"/>
+                })   :
+
+                paragraphTextList && paragraphTextList.length > 0 && paragraphTextList.map(benefit => {
+                    return <Card key={`${benefit.id}_card`} title={title} bodyText={bodyText} paragraphText={benefit} styleName="card-content" />
                 })
     )
     

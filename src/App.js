@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import NotFound from './components/errorpage/'
+import GenericErrorPage from './components/shared/errorpage/errorpagegeneric';
 import '../src/styles/sass/styles.scss';
 import { fetchLandingPageContent, 
          fetchMainMenuItems,
@@ -107,6 +108,7 @@ const footerProps = data;
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
             <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
+            <Route path="/show-error"  component={GenericErrorPage} />
             <Route path="/404"  component={NotFound} />
             <Redirect to="/404" />
 
