@@ -6,7 +6,8 @@ const Header = () => {
    const link = {
      url:"https://developers.openreferraluk.org",
      TextToDisplay: "For developers",
-     labelText: "For developers"
+     labelText: "For developers",
+     external: true
    }
   return (
     <header className="header" role="banner" aria-label="Header">
