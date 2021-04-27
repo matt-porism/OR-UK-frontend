@@ -42,14 +42,14 @@ function HomePage( {homePageProps, classname }) {
         
         { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
 
-        {benefitsSection && <Title title={benefitsSection.title}/>}
+        {/*benefitsSection && <Title title={benefitsSection.title}/>}
         {benefitsSection.introParagraph && <p>{benefitsSection.introParagraph}</p>}
         {benefitsSection && benefitsSection.benefits &&
                          <div id={`${benefitsSection.id}_title`} className="cardgrid">
                              
                         <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon}/>
                         </div>
-        }
+        */}
 
      
         
