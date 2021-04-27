@@ -6,7 +6,7 @@ import Title from '../../shared/title/';
 //use generic
 
 const Card = ({organisation, styleName}) => {
-    /* return one org a single card */
+    /* return one  single card */
  
  const { id, orgTitle, organisationLogo, orgLinks} = organisation
  
