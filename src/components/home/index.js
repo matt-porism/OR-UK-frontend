@@ -4,7 +4,7 @@ import Who from './Who';
 import InjectHtml from './InjectHtml';
 import PropTypes from 'prop-types';
 import CardList from '../cardlist/';
-import Title from '../shared/title';
+
 
 //refactoring
 //look at structure of api response for page
@@ -18,7 +18,6 @@ function HomePage( {homePageProps, classname }) {
        BenefitsAndOpportunities,
        introParagraph,
        caseStudiesLink,
-       benefitsSection
          }  = homePageProps;
   
    
