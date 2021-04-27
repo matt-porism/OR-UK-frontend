@@ -39,7 +39,7 @@ useEffect(() => {
              
           {links.length > 0 &&  <div id={"cd_title"} className="cardgrid">
                   { links.map(link => {
-                    return  <LinkCard key={`${link.id}_card`} linkItem={link} styleName="card-content" />
+                    return  <LinkCard key={`${link.id}_card`} linkItem={link} styleName="card-link" />
 
                   })  }       
                
