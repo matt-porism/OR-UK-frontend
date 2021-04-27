@@ -42,6 +42,11 @@ h3 {
   line-height: 1.65;
 }
 
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
 small {
   font-size: 0.875rem;
 }
@@ -117,11 +122,22 @@ nav {
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 6;
-  margin: 0 0.5rem;
+
+  .sidebar__heading {
+    font-size: 0.875rem;
+  }
 
   ul {
     list-style-type: none;
-    
+    margin: 1em 0;
+  }
+
+  li {
+    line-height: 1.5;
+  }
+
+  li a {
+    font-size: 1rem;
   }
 }
 
@@ -135,7 +151,7 @@ nav {
   grid-row-start: 3;
   grid-row-end: 6;
   min-height: 400px;
-  padding-top: 0.5rem;
+  padding-top: 1.5rem;
 }
 
 footer {
