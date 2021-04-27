@@ -68,9 +68,7 @@ blockquote small {
 a {
   color: $color-blue-dark;
   text-decoration: underline;
-  &:visited {
-    color: $color-purple;
-  }
+
   &:hover {
     cursor: pointer;
     text-decoration: none;
@@ -87,6 +85,10 @@ a {
     background: none;
     box-shadow: 0px 2px 0px 0px $color-text;
   }
+}
+
+article a:visited {
+  color: $color-purple;
 }
 
 li {
