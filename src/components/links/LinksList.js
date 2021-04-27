@@ -9,11 +9,11 @@ const LinksList = ({list}) => {
 					<>
 					{list.id  !== "" ?
 						<li key={list.id}>
-							<Link to={list.url}>
+						 <Link aria-label="findsuitabletext" to={list.url}>
 								{list.TextToDisplay}
 							</Link>
-						</li> :
-						null 
+						</li> 
+						:null
 					}
 						</>
 			)

@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
 import HtmlSection from '../htmlsection';
+//import  ErrorBoundary  from '../errorboundary/'
    
 const About = ({aboutProps, styleName}) => {
-    const {article: { title, sections }} = aboutProps;
-    
+    const { about: { title, sections} } = aboutProps;
+  
     const [sectionHeadings, setSectionHeadings] = useState([]);
-    useEffect(() => {
+  useEffect(() => {
         setSectionHeadings(sections.map(section => section.sectionHeading));
     }, [sections]);
 
-    
-   return (
+    return (
        
-       <>
+    <>
+   
         <main className={styleName} role="main" aria-label="main">
             <div className="flexcontainer">
             <SideMenu subMenu={sectionHeadings} />
@@ -27,7 +28,9 @@ const About = ({aboutProps, styleName}) => {
             </article>
             </div>     
         </main>
+       
        </>
-)
+      
+    )
 }
 export default About;
