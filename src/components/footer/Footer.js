@@ -36,10 +36,10 @@ useEffect(() => {
       Object.keys(about).length > 0 &&
       (<footer className={styleName} role="contentinfo" aria-label="footer">
        
-        <div className="footergrid">
-        <Banner />
-          
+        <div className="footer__top page-container">
+          <Banner />
         </div>
+
         <div className="footerwrapper">
 
         <div>
@@ -82,13 +82,15 @@ useEffect(() => {
           
            
           </div>
-          <div className="footnotegrid">
-          <div className="copy">&copy; 2019-2021 Open Referral UK</div>
-          <div> <ul>
-              <li key="1"> Terms &amp; Conditions</li>
-              <li key="2">Privacy Policy</li>
-            </ul></div>
-            </div>
+        <div className="footnotegrid">
+          <small>&copy; 2019-2021 Open Referral UK</small>
+          <div>
+            <ul>
+              <li key="1"><small>Terms &amp; Conditions</small></li>
+              <li key="2"><small>Privacy Policy</small></li>
+            </ul>
+          </div>
+        </div>
 
       </footer>)
     );

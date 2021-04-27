@@ -5,8 +5,8 @@ const Banner = () => {
 
 return (
 <div className="banner">
-    <Link to="/"><img src={logo} alt="Open referral logo" /></Link>
-    <a href="/developers" className="oruktools">
+    <Link to="/" className="footer__logo"><img src={logo} alt="Open Referral UK" /></Link>
+    <a href="/developers" className="button button-primary button-small button-light">
         For developers
     </a>
 </div>
