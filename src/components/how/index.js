@@ -1,7 +1,9 @@
 import Learn from '../home/Learn';
 import HtmlSection from '../htmlsection';
-// import { useState } from 'react'; refactor
+ import { useEffect, useState } from 'react'; 
 import useFetch from '../../helpers/dataFetch';
+
+import LinkCard from '../home/card/LinkCard';
 
 const HowPage =  ({ styleName}) => {
 
@@ -13,44 +15,37 @@ const HowPage =  ({ styleName}) => {
     //refactor for state use reducer
     const itemCount = 2;
     let style;
-    //const [splitArray, setSplit] = useState([]);
-    let arrayStruct;
-    //const [data, setData] = useState({});
+    const [links, setLinks] = useState([]);
+    
+    const [arrayStruct, setStruct] = useState([]);
 
-    const chunkTheList = (linksList) => {
-        let rowItems = [];
-        const local = [...linksList];
-        while(local.length) {
-            rowItems.push(local.splice(0,itemCount))
-        }
-        return rowItems;
-    }
+
+        const [{data, isError, isFetching}] = useFetch("https://admin.beta.openreferraluk.org/how-it-works-page");
+useEffect(() => {
+    if (Object.keys(data).length > 0) {
        
-       let splitArray;
+        const { HowItWorks  } = data;
+        const { title, introParagraph, links } = HowItWorks;
+        setStruct([{sectionHeading: title, sectionBody: introParagraph}]);
+        setLinks(links);
+       
+    }
 
-        const [{data, isError}] = useFetch("https://admin.beta.openreferraluk.org/how-it-works-page");
-
-        if ( Object.keys(data).length > 0)
-        {
-            const { HowItWorks: { title, introParagraph, links }  } = data;
-            arrayStruct = [{sectionHeading: title, sectionBody: introParagraph}];
-          splitArray = chunkTheList(links);
-            
-      }
-
+},[data])
+        
     return ( 
-        isError ? null :
-       (
+        isError  ? null :
+       ( 
         <main className={styleName}> 
-        { arrayStruct && <HtmlSection sections={arrayStruct} /> }
+          <HtmlSection sections={arrayStruct} /> 
+             
+          {links.length > 0 &&  <div id={"cd_title"} className="cardgrid">
+                  { links.map(link => {
+                    return  <LinkCard key={`${link.id}_card`} linkItem={link} styleName="card-content" />
 
-            { splitArray && splitArray.length > 0 && splitArray.map ((array, index) => {
-             style = splitArray[index].length === itemCount ?  "listbox" : "listboxsingle";
-                return  <div className={style} key={index}>
-                <Learn styleName={style} list={array}/>
-                </div>
-              }) 
-          }
+                  })  }       
+               
+            </div>}
         </main>
         )
     );
