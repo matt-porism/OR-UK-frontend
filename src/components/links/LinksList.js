@@ -13,7 +13,7 @@ const LinksList = ({list}) => {
 					{ 
 					
 					list.id  !== "" ?
-					   list.TextToDisplay.startsWith('/') ?
+					   list.TextToDisplay && list.TextToDisplay.startsWith('/') ?
 						( <li key={list.id}>
 						 <Link aria-label={list.labelText} to={list.url}>
 								{list.TextToDisplay}
