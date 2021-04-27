@@ -1,4 +1,3 @@
-import Learn from '../home/Learn';
 import HtmlSection from '../htmlsection';
  import { useEffect, useState } from 'react'; 
 import useFetch from '../../helpers/dataFetch';
@@ -13,8 +12,7 @@ const HowPage =  ({ styleName}) => {
     //add error handling when not url's
 
     //refactor for state use reducer
-    const itemCount = 2;
-    let style;
+  
     const [links, setLinks] = useState([]);
     
     const [arrayStruct, setStruct] = useState([]);
@@ -35,7 +33,7 @@ useEffect(() => {
         
     return ( 
         isError  ? null :
-       ( 
+       ( !isFetching &&
         <main className={styleName}> 
           <HtmlSection sections={arrayStruct} /> 
              

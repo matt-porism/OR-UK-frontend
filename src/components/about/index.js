@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import SideMenu from '../sidemenu';
 import HtmlSection from '../htmlsection';
-import  ErrorBoundary  from '../errorboundary/'
+//import  ErrorBoundary  from '../errorboundary/'
    
 const About = ({aboutProps, styleName}) => {
-    console.log("about props ", aboutProps)
     const { about: { title, sections} } = aboutProps;
   
     const [sectionHeadings, setSectionHeadings] = useState([]);
