@@ -20,12 +20,6 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
 
     } );
 
-    const keyAray =  keyArray.map(x => {
-       
-        return <li className="usingcolumns" key={x}>{x}</li>
-
-    } );
-
     return (
         
        numbers && 
