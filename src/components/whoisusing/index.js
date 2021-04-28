@@ -2,7 +2,7 @@ import Button from '../shared/button';
 import Numbers from './badge/'
 import SideMenu from "../sidemenu/";
 import useOukapi from '../../helpers/dataFetch';
-import CardList from '../cardlist/';
+import CardList from './Cards/CardList';
 import LinksList from '../links/LinksList';
 import { Fragment } from 'react';
 import Title from '../shared/title';
@@ -58,7 +58,7 @@ import Title from '../shared/title';
       
        <Numbers  numbers={numbers} />
        
-        <Button label={label} disabled={disabled} onClick={handleClick} styles="style" role="button" icon="label"/>
+        <Button label={label} disabled={disabled} onClick={handleClick} styles="style" role="button" icon="label" />
        
         { caseStudiesLink && <ul className="listnostyle tempstyle"><LinksList list={caseStudiesLink} /></ul> }
 
@@ -69,7 +69,7 @@ import Title from '../shared/title';
                         return <Fragment key={`${organisation.id}grouptitle}`}> 
                             <Title title={organisation.title}/>  
                          <div id={`${organisation.id}_title`} className="cardgrid">
-                        <CardList key={organisation.id} organisationList={organisation.Organisation} />
+                        <CardList key={organisation.id} organisationList={organisation.Organisation} type="org" />
                         </div>
                         </Fragment>
                       
@@ -82,7 +82,6 @@ import Title from '../shared/title';
 
 </main>)
 )
-   
 
 }
 export default WhoIsUsing;
