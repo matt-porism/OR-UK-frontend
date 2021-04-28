@@ -35,7 +35,7 @@ const Header = ({ mainMenu, topMenuId }) => {
         </a> */}
         <LinkExternal link={link} rel="noreferrer" styleName="button button-secondary button-header show-md" />
       </div>
-      <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} menuButton={isActive} />
+      <Navigator onClick={toggleClass} mainMenu={mainMenu} topMenuId={topMenuId.toString()} menuButton={isActive} />
     </header>
   );
 }

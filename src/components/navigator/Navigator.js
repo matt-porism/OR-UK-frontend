@@ -1,14 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 
-const Navigator = ({mainMenu, topMenuId, menuButton}) => {
-  const [isActive, setActive] = useState(false);
-
-  const toggleClass = () => {
-    setActive(!isActive);
-  };
-
+const Navigator = ({mainMenu, topMenuId, menuButton, onClick}) => {
   const isLongestMatch = (mainMenu, index) => {
     if (window.location.href.indexOf(mainMenu[index].link) === -1)
     {
@@ -42,7 +35,7 @@ const Navigator = ({mainMenu, topMenuId, menuButton}) => {
 
   return (
     
-    <nav onClick={toggleClass} className={menuButton ? 'global-nav--open global-nav': "global-nav"}>
+    <nav onClick={onClick} className={menuButton ? 'global-nav--open global-nav': "global-nav"}>
       <div className="page-container">
         <a href="/developers" className="button button-secondary button-header hide-md">
           For developers
@@ -58,7 +51,8 @@ const Navigator = ({mainMenu, topMenuId, menuButton}) => {
 Navigator.propTypes = {
   mainMenu: PropTypes.array.isRequired,
   topMenuId: PropTypes.string.isRequired,
-  menuButton: PropTypes.bool
+  menuButton: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default Navigator;
