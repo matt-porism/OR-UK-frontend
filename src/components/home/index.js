@@ -38,7 +38,7 @@ function HomePage( {homePageProps, classname }) {
             { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
-        { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
+        { homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
 
         {benefitsSection && benefitsSection.title && <Title title={benefitsSection.title}/>}
         {benefitsSection && benefitsSection.introParagraph &&  benefitsSection.benefits && <p>{benefitsSection.introParagraph}</p>}
@@ -48,8 +48,6 @@ function HomePage( {homePageProps, classname }) {
                         <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon}/>
                         </div>
         }
-
-     
         
     <hr/>
         {caseStudiesLink && caseStudiesLink.id > 0 &&

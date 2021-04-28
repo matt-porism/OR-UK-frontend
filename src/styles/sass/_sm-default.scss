@@ -158,10 +158,14 @@ footer {
     a {
       color: $color-white;
     }
+    
   }
 
   a {
     color:$color-white;
+    &:visited {
+      color: $color-white;
+    }
   }
 }
 
@@ -299,10 +303,20 @@ button  {
   @include cardbox;
   margin-bottom: 0.5rem;
   width: 100%;
-  max-height: 25rem; /*play with this as u build out */
+  max-height: 25rem;
   overflow: hidden;
   position: relative;
   
+}
+
+.home-card-content {
+  @include cardbox;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-height: 25rem;
+  overflow: hidden;
+  position: relative;
+
 }
 
 

@@ -16,7 +16,7 @@ return (
 <div className="banner">
     <Link to="/"><img src={logo} alt="Open referral logo" /></Link>
     {/**extract to small component for header and footer */}
-    <div className="oruktools"><LinkExternal link={link} rel="noreferrer" styleName="oruktools" /></div>
+    <div className="oruktools"><LinkExternal link={link} rel="noreferrer" target="_blank" styleName="oruktools" /></div>
 </div>
     )
 }
