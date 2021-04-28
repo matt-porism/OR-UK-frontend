@@ -22,8 +22,7 @@ function HomePage( {homePageProps, classname }) {
          }  = homePageProps;
   
    
-    let styleName;
-    console.log(styleName, caseStudiesLink)
+    //let styleName;
     let caseStudyLinks = [];
     caseStudyLinks.push(caseStudiesLink);
     //convert to array will be array anyway
@@ -34,31 +33,28 @@ function HomePage( {homePageProps, classname }) {
         <main className={classname}>
             <Section headingText={title} bodyText={body} styleName="section" />
             <InjectHtml paragraphText={introParagraph}/>
-             {/*{anchorLabel && <Link className="nav-link" to={anchorLink}>
-          {anchorLabel}        </Link>}*/}
+             {/*<p>Read our case studies</p>*/}
            
             { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
-        { homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
+        { homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
 
-        {benefitsSection && <Title title={benefitsSection.title}/>}
-        {benefitsSection.introParagraph && <p>{benefitsSection.introParagraph}</p>}
+        {benefitsSection && benefitsSection.title && <Title title={benefitsSection.title}/>}
+        {benefitsSection && benefitsSection.introParagraph &&  benefitsSection.benefits && <p>{benefitsSection.introParagraph}</p>}
         {benefitsSection && benefitsSection.benefits &&
                          <div id={`${benefitsSection.id}_title`} className="cardgrid">
                              
                         <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon}/>
                         </div>
         }
-
-     
         
     <hr/>
-        {caseStudiesLink &&
-                         <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
+        {caseStudiesLink && caseStudiesLink.id > 0 &&
+                        ( <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
                               <CardList key={caseStudiesLink.id} itemList={caseStudyLinks} />
                         
-                        </div>
+                        </div>)
         }
         
         
