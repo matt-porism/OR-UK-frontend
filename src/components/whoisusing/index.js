@@ -58,7 +58,7 @@ import Title from '../shared/title';
       
        <Numbers  numbers={numbers} />
        
-        <Button label={label} disabled={disabled} onClick={handleClick} styles="style" role="button" icon="label"/>
+        <Button label={label} disabled={disabled} onClick={handleClick} styles="style" role="button" icon="label" label="Register your organisation"/>
        
         { caseStudiesLink && <ul className="listnostyle tempstyle"><LinksList list={caseStudiesLink} /></ul> }
 
@@ -82,7 +82,6 @@ import Title from '../shared/title';
 
 </main>)
 )
-   
 
 }
 export default WhoIsUsing;

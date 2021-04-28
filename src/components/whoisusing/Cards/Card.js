@@ -13,7 +13,7 @@ const Card = ({organisation, styleName}) => {
  
     return (
         <div key={id} className={styleName}>
-            {organisationLogo && <CompanyLogo logo={organisationLogo.CompanyLogo}/>}
+            {organisationLogo && organisationLogo.CompanyLogo && <CompanyLogo logo={organisationLogo.CompanyLogo}/>}
         <Title title={orgTitle}/>
         <ul className="listnostyle">
 
