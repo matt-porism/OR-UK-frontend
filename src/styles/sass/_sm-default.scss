@@ -247,7 +247,6 @@ li {
   }
 
   li a {
-    display: block;
 		font-weight: $normalWeight;
   }
   li a:visited {
@@ -257,6 +256,19 @@ li {
   li a.active {
     text-decoration: none;
     color: $color-text-muted;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 100%;
+      position: absolute;
+      background-color: $color-brand;
+      bottom: -0.5em;
+      left: 0;
+      border-radius: 4px;
+    }
   }
 
   .button-header {
