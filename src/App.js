@@ -6,11 +6,9 @@ import NotFound from './components/errorpage/'
 import GenericErrorPage from './components/shared/errorpage/errorpagegeneric';
 import '../src/styles/sass/styles.scss';
 import { fetchLandingPageContent, 
-         fetchMainMenuItems,
-         fetchSubMenuItems } from './helpers/ContentConsumer';
+         fetchMainMenuItems } from './helpers/ContentConsumer';
 import useOukapi from './helpers/dataFetch';
 import HomePage from "./components/home";
-import About from "./components/about";
 import HowPage from "./components/how";
 import CommunityPage from "./components/community";
 import Contact from "./components/contact";
@@ -26,19 +24,17 @@ function App() {
 
   const [topMenuId, setTopMenuId] = useState('');
   const [mainMenu, setMainMenu] = useState([]);
-  const [subMenuId, setSubMenuId] = useState('');
 
-  const [subMenu, setSubMenu] = useState([]);
-  const [errors, setErrors] = useState({});  //use to confirm render component or error page
+  const [errors] = useState({});  //use to confirm render component or error page
   let [{data, isFetching, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
 
   const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
+  const ABOUT_PAGE = process.env.REACT_APP_ABOUT_PAGE_URI;
   const CONTACT_PAGE = process.env.REACT_APP_CONTACT_PAGE;
   const REACT_APP_FOOTER = process.env.REACT_APP_FOOTER
    console.log(errors);  //take care of on refactor
   
-const aboutProps = data;
 
 [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
 
@@ -56,9 +52,6 @@ const footerProps = data;
         console.log("homeprops", data)
         setHomeProps((data));
        // setBodyText(data.projectOverview);
-        if (data.sub_menu) {
-          setSubMenuId(data.sub_menu.id);
-        }
         if (data.top_menu) {
           setTopMenuId(data.top_menu.id);
         }
@@ -71,25 +64,6 @@ const footerProps = data;
       });
   }, []);
 
-  useEffect(() => {
-    
-    if (subMenuId) {
-      
-      fetchSubMenuItems(subMenuId)
-        .then((data) => { setSubMenu(data.MenuItem)}).catch(err => {
-          handleErrors("menu",err.message);
-        });
-    }
-  }, [subMenuId]);
-
-  const handleErrors = (target, message) => {
-    const errors = {};
-
-    errors[target] = message;
-    setErrors(errors);
-    
-  }
-
   //now can use iserror instead of object keys
   return (
      !isFetching && !isError  && Object.keys(homeProps).length > 0 &&
@@ -100,8 +74,8 @@ const footerProps = data;
         
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
-            <Route path="/about-open-referral" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>
-            <Route path="/how-it-works/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/pages?slugfield=${match.params.slugField}`} />}/>
+            <Route path="/about-open-referral" render={({match}) => <GenericContentPage cmsLocation={ABOUT_PAGE} articleType="about" />}/>
+            <Route path="/how-it-works/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/pages?slugfield=${match.params.slugField}`} articleType="page" />}/>
             <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>
             <Route path="/community/case-studies/:slugField" render={routeProps => <CaseStudy {...routeProps} /> } />
             <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
