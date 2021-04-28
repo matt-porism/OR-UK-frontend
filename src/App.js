@@ -14,7 +14,6 @@ import CommunityPage from "./components/community";
 import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
-import CaseStudy from "./components/casestudies/CaseStudy";
 
 //refactor
 //pull data as needed perhaps on first call of page?
@@ -73,7 +72,7 @@ const footerProps = data;
             <Route path="/about-open-referral" render={() => <GenericContentPage cmsLocation={ABOUT_PAGE} articleType="about" />}/>
             <Route path="/how-it-works/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/pages?slugfield=${match.params.slugField}`} articleType="page" />}/>
             <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>
-            <Route path="/community/case-studies/:slugField" render={routeProps => <CaseStudy {...routeProps} /> } />
+            <Route path="/community/case-studies/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/case-studies?slugfield=${match.params.slugField}`} articleType="CaseStudy" />} />
             <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
             <Route path="/contact-us" render={() => <GenericContentPage cmsLocation={CONTACT_PAGE} articleType="contactUs" />} />
