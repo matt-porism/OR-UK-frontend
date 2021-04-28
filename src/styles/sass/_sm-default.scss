@@ -106,6 +106,9 @@ li {
   border-radius: 0.2em;
   font-size: 1.125rem;
   border: 0;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.2;
 }
 
 .button-primary {
@@ -122,8 +125,13 @@ li {
   font-weight: $midWeight;
 }
 
+.button-light {
+  background-color: white;
+  color: $color-blue-dark;
+}
+
 .button-small {
-  padding: 0.5em 1.5em;
+  padding: 0.6395em 1.5em;
 }
 
 .button-header {
@@ -256,6 +264,25 @@ li {
 } // end nav
 .global-nav.open {
   display: block;
+}
+
+footer {
+  .footer__top {
+    padding-top: $padSmall;
+    padding-bottom: $padSmall;
+  }
+
+  .footer__logo {
+    display: block;
+    max-width: 150px;
+    font-size: 0; // removes white space below logo
+    margin-bottom: $padSmall;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
 }
 
 .sidebar {
