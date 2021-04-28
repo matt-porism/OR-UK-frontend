@@ -11,6 +11,7 @@ $color-text: #2A3834; // body text // AAA on page-bg
 $color-text-muted: #4F5956; // muted text // AA on page-bg
 $color-highlight: #FFD152; 
 $color-blue-dark: #135E75; // interactive // AAA on page-bg
+$color-blue-darker: #0F4C5E; // interactive:hover // AAA on page-bg
 $color-blue-light: #197A99; // AA on page-bg
 $color-purple: #6426B3; // visited links // AAA on page-bg
 $color-red-light: #DD400F;
@@ -18,7 +19,13 @@ $color-red-dark: #A61E00; // AAA on page-bg
 $color-page-bg: #FCF9F5;
 $color-white: #FFFFFF;
 
-$gutter: 2%;
+// need media queries for spacing
+$gutter: 10px;
 $gutterdbl: (2 * $gutter);
 
 $paddingSpace: 15px;
+
+$padSmaller: 20px;
+$padSmall: 30px;
+$padMedium: 40px;
+$padLarge: 60px;

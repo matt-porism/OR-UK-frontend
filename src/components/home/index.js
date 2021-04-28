@@ -30,34 +30,36 @@ function HomePage( {homePageProps, classname }) {
     
     return (
        
-        <main id="content" className={classname}>
-            <Section headingText={title} bodyText={body} styleName="section" />
-            <InjectHtml paragraphText={introParagraph}/>
-             {/*<p>Read our case studies</p>*/}
-           
-            { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
-            { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
-        
-        { homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
+        <main id="content" className="main-container">
+            <div className="page-container">
+                <Section headingText={title} bodyText={body} styleName="section" />
+                <InjectHtml paragraphText={introParagraph} />
+                {/*<p>Read our case studies</p>*/}
 
-        {benefitsSection && benefitsSection.title && <Title title={benefitsSection.title}/>}
-        {benefitsSection && benefitsSection.introParagraph &&  benefitsSection.benefits && <p>{benefitsSection.introParagraph}</p>}
-        {benefitsSection && benefitsSection.benefits &&
-                         <div id={`${benefitsSection.id}_title`} className="cardgrid">
-                             
-                        <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon}/>
-                        </div>
-        }
-        
-    <hr/>
-        {caseStudiesLink && caseStudiesLink.id > 0 &&
-                        ( <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
-                              <CardList key={caseStudiesLink.id} itemList={caseStudyLinks} />
-                        
-                        </div>)
-        }
-        
-        
+                {quote && <figure role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
+                {BenefitsAndOpportunities && <InjectHtml paragraphText={BenefitsAndOpportunities} />}
+
+                {homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox} />}
+
+                {benefitsSection && benefitsSection.title && <Title title={benefitsSection.title} />}
+                {benefitsSection && benefitsSection.introParagraph && benefitsSection.benefits && <p>{benefitsSection.introParagraph}</p>}
+                {benefitsSection && benefitsSection.benefits &&
+                    <div id={`${benefitsSection.id}_title`} className="cardgrid">
+
+                        <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon} />
+                    </div>
+                }
+
+                <hr />
+                {caseStudiesLink && caseStudiesLink.id > 0 &&
+                    (<div id={`${caseStudiesLink.id}_title`} className="cardgrid">
+                        <CardList key={caseStudiesLink.id} itemList={caseStudyLinks} />
+
+                    </div>)
+                }
+
+
+            </div>
         </main>
     );
 }

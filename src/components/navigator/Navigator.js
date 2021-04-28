@@ -20,14 +20,18 @@ const Navigator = ({mainMenu, topMenuId}) => {
   })
 
   return (
-  
-        <nav className="nav" role="navigation" aria-label="main navigation">
-            <ul>
-                {menuItems}
-            </ul>
-        </nav>     
     
-  
+    <nav className="global-nav">
+      <div className="page-container">
+        <a href="/developers" className="button button-secondary button-header hide-md">
+          For developers
+        </a>
+        <ul>
+            {menuItems}
+        </ul>
+      </div>
+    </nav>   
+
   );
 }
 Navigator.propTypes = {
