@@ -7,7 +7,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /*  font rendering applied to all elements  */
 * { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 
-/* ------------- BODY ------------- */
+/* ------------- BASE ------------- */
 body {
 	font-family: $defaultFont;
   font-weight: $normalWeight;
@@ -68,11 +68,9 @@ blockquote small {
 a {
   color: $color-blue-dark;
   text-decoration: underline;
+
   &:hover {
     cursor: pointer;
-    color: $color-text;
-    background-color: $color-highlight;
-    box-shadow: 0px 0px 0px 1px $color-highlight;
     text-decoration: none;
   }
   &:focus {
@@ -88,7 +86,8 @@ a {
     box-shadow: 0px 2px 0px 0px $color-text;
   }
 }
-a:visited {
+
+article a:visited {
   color: $color-purple;
 }
 
@@ -96,21 +95,160 @@ li {
   margin-bottom: 0.8em;
 }
 
-nav {
-  background-color: white;
 
-  ul li a {
+.button {
+  padding: 0.7em 1.5em;
+  border-radius: 0.2em;
+  font-size: 1.125rem;
+  border: 0;
+}
+
+.button-primary {
+  border: 0;
+  background-color: $color-blue-dark;
+  color: white;
+  font-weight: $midWeight;
+}
+
+.button-secondary {
+  box-shadow: inset 0px 0px 0px 3px $color-blue-light;
+  background-color: white;
+  color: $color-blue-dark;
+  font-weight: $midWeight;
+}
+
+.button-small {
+  padding: 0.5em 1.5em;
+}
+
+.button-header {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: $boldWeight;
+  letter-spacing: 0.0125rem;
+  box-shadow: inset 0px 0px 0px 2px $color-blue-light;
+  padding: 0.875em 1.25em;
+  color: $color-blue-dark;
+  border-radius: 0.2em;
+  background-color: white;
+  display: inline-block;
+  line-height: 1;
+
+  svg { // button icon
+    height: 0.75em;
+    margin-right: 0.25em;
+  }
+}
+.button-header.active {
+  background-color: $color-blue-dark;
+  color: white;
+  box-shadow: none;
+
+  svg path { // button icon
+    fill: white;
+  }
+}
+
+.button-primary,
+.button-secondary {
+  &:hover {
+    background-color: $color-blue-darker;
+    color: $color-highlight;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 4px $color-highlight;
+    text-decoration: none;
+  }    
+  &:focus {
+    color: $color-text;
+    background-color: $color-highlight;
+    outline: 0;
+    text-decoration: none;
+    box-shadow: 0px 0px 0px 3px $color-blue-darker;
+  }
+  &:active {
+    background-color: $color-highlight;
+    box-shadow: none;
+    text-decoration: none;
+    box-shadow:  0px 0px 0px 4px $color-highlight, inset 0px 0px 0px 3px $color-blue-darker;
+  }
+}
+
+.page-container {
+  max-width: 1100px;
+  padding: 0 $gutter;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ------------- COMPONENTS ------------- */
+
+.global-header {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: white;
+  text-align: center;
+
+  .global-header__logo {
+    max-width: 150px;
+    font-size: 0; // removes white space below logo
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .global-header__top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+    border-bottom: 2px solid $color-brand-20;
+  }
+
+}
+
+.global-nav {
+
+  display: none; // hidden before shown via menu button
+
+  background-color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  border-bottom: 2px solid $color-brand-20;
+
+  li {
+    margin-bottom: 1.25em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li a {
     display: block;
-		//text-align: center;
 		font-weight: $normalWeight;
-		// padding: .5rem 0;
+  }
+  li a:visited {
+    color: $color-blue-dark; // prevents :visited colour applying from to main nav
   }
   
-  ul li a:active {
+  li a:active {
     text-decoration: none;
+    color: $color-text-muted;
+  }
+
+  .button-header {
+    margin-bottom: 1.5em;
   }
   
 } // end nav
+.global-nav.open {
+  display: block;
+}
 
 .sidebar {
   grid-column-start: 1;
@@ -135,7 +273,7 @@ nav {
   grid-row-start: 3;
   grid-row-end: 6;
   min-height: 400px;
-  padding-top: 0.5rem;
+  padding-top: $padMedium;
 }
 
 footer {
@@ -252,14 +390,6 @@ footer {
 
 
 
-.oruktools {
-  display: block;
-}
-
-.banner {
-  display: flex;
-}
-
 .section {
   background-color: #f2f2f2; //need this for home doc change so not in community
   padding: 1.5rem 1.5rem;
@@ -279,17 +409,6 @@ footer {
   }
 
 
-}
-button  {
-  line-height: 3em;
-  padding: 0 1em;
-  border-radius: 0.125em;
-  color: #ffffff;
-  background: #28614f;
-  margin-bottom:  2rem;
-  margin-top:  2rem;
-  margin-left: 0.5rem;
-  width: 250px;
 }
 
 .tempstyle {
@@ -321,3 +440,12 @@ button  {
 
 
 
+/* ------------- HELPER CLASSES ------------- */
+
+.show-md {
+  display: none;
+}
+
+.show-md-only {
+  display: none;
+}
