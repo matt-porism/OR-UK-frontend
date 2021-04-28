@@ -10,20 +10,18 @@ const SideMenu = ({ subMenu }) => {
 
 		<>
 			<div className="sidebar flexitem flexleft">
-				<h3>On this page</h3>
-					<hr />
-			
-			<ul>
-				{subMenu.map( (menuItem, index) => {
-					return (
-						<li key={index}>
-							<AnchorLink href={`#section-${index+1}-heading`}>
-								{menuItem}
-							</AnchorLink>
-						</li>
-					)
-				})}
-			</ul>
+				<h4 className="sidebar__heading">On this page</h4>
+				<ul>
+					{subMenu.map( (menuItem, index) => {
+						return (
+							<li key={index}>
+								<AnchorLink href={`#section-${index+1}-heading`}>
+									{menuItem}
+								</AnchorLink>
+							</li>
+						)
+					})}
+				</ul>
 			</div>
 		</>
 	)
