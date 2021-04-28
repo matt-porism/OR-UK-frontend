@@ -94,7 +94,7 @@ const footerProps = data;
   return (
      !isFetching && !isError  && Object.keys(homeProps).length > 0 &&
     
-    ( <div className="container">
+    ( <div>
       
     <Header mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         

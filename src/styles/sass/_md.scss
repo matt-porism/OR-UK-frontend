@@ -49,13 +49,6 @@ blockquote {
   font-size: 1rem;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 0.2fr 0.4fr 0.3fr 0.3fr 0.2fr;
-  grid-column-gap: 10px;
-  //grid-row-gap: 15px;
-}
-
 .global-header {
   grid-column-start: 1;
   grid-column-end: 6;
@@ -430,9 +423,8 @@ h2 {
 .flexleft { flex-basis: 30%; }
 .flexright { flex-basis: 70%;}
 
-.flexcontainer {
+.flex-container {
   -ms-box-orient: horizontal;
-  padding: 0.5rem;
 }
 
 .footergrid {
