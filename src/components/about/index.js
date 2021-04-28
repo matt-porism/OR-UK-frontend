@@ -15,7 +15,7 @@ const About = ({aboutProps, styleName}) => {
        
     <>
    
-        <main className={styleName} role="main" aria-label="main">
+        <main id="content" className={styleName} role="main" aria-label="main">
             <div className="flexcontainer">
             <SideMenu subMenu={sectionHeadings} />
           

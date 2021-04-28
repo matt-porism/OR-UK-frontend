@@ -30,7 +30,7 @@ function HomePage( {homePageProps, classname }) {
     
     return (
        
-        <main className={classname}>
+        <main id="content" className={classname}>
             <Section headingText={title} bodyText={body} styleName="section" />
             <InjectHtml paragraphText={introParagraph}/>
              {/*<p>Read our case studies</p>*/}

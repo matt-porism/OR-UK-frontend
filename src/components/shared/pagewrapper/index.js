@@ -5,7 +5,7 @@ export default PageWrapper = ({children, styles}) => {
     //use to wrap pages
     return (
         <>
-            <main className={styles.main} role="content" aria-label="main">
+            <main id="content" className={styles.main} role="content" aria-label="main">
                 {children}
             </main>
         </>

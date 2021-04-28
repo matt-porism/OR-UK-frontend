@@ -36,7 +36,7 @@ function CommunityPage({ communityProps, styleName }) {
  
     return (
        
-        <main className={styleName}>
+        <main id="content" className={styleName}>
            <ContentPage title={`<h1>${headerText}</h1>`} introParagraph={bodyText}/>
            {/* should form part of content page so can be reused with props */}
            { splitArray && splitArray.length > 0 && splitArray.map ((array, index) => {

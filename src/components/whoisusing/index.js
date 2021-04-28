@@ -47,7 +47,7 @@ import Title from '../shared/title';
     console.log(id);
  
     return (
-        !isFetching && !isError &&  (<main className="main">
+        !isFetching && !isError &&  (<main id="content" className="main">
             
           
               <div className="flexcontainer">

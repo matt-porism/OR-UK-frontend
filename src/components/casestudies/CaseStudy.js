@@ -29,7 +29,7 @@ const CaseStudy = ({ match }) => {
   }
 
   return (
-    <main className="main">
+    <main id="content" className="main">
       <div className="flexcontainer">
         <SideMenu subMenu={sectionHeadings} />
         <article className="flexright">
