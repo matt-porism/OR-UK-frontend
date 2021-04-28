@@ -5,9 +5,8 @@ import SideMenu from '../sidemenu';
 import { Link } from 'react-router-dom';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const GenericContentPage = ({ match }) => {
-  const { slugField } = match.params;
-  const [{ data, isError }] = useOukapi(new URL('/pages?slugfield=' + slugField, BASE_URL).href);
+const GenericContentPage = ({ cmsLocation }) => {
+  const [{ data, isError }] = useOukapi(new URL(cmsLocation, BASE_URL).href);
   const [page, setPage] = useState(null);
 
   const [sectionHeadings, setSectionHeadings] = useState([]);
