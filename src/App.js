@@ -11,7 +11,6 @@ import useOukapi from './helpers/dataFetch';
 import HomePage from "./components/home";
 import HowPage from "./components/how";
 import CommunityPage from "./components/community";
-import Contact from "./components/contact";
 import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
@@ -26,7 +25,6 @@ function App() {
   const [mainMenu, setMainMenu] = useState([]);
 
   const [errors] = useState({});  //use to confirm render component or error page
-  let [{data, isFetching, isError}] = useOukapi("https://admin.beta.openreferraluk.org/about-page")
 
   const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
@@ -36,11 +34,9 @@ function App() {
    console.log(errors);  //take care of on refactor
   
 
-[{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
+  let [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
 
 const communityProps = data;
-[{ data, isError }] = useOukapi(`${BASE_URL}${CONTACT_PAGE}`)
-const contactProps = data;
 [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${REACT_APP_FOOTER}`)
 const footerProps = data;
 
@@ -80,7 +76,7 @@ const footerProps = data;
             <Route path="/community/case-studies/:slugField" render={routeProps => <CaseStudy {...routeProps} /> } />
             <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
             <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
-            <Route path="/contact-us" render={() =>  <Contact contactProps={contactProps} styleName="main"/> }/>
+            <Route path="/contact-us" render={() => <GenericContentPage cmsLocation={CONTACT_PAGE} articleType="contactUs" />} />
             <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
             <Route path="/show-error"  component={GenericErrorPage} />
             <Route path="/404"  component={NotFound} />
