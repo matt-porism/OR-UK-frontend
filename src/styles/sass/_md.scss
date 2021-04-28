@@ -110,7 +110,7 @@ blockquote {
   grid-row-start: 4;
   grid-row-end: 6;
   min-height: 400px;
-  padding-top: 1.5rem;
+  padding-top: 3rem;
 }
 
 #learn {
@@ -158,13 +158,25 @@ blockquote {
   }
 }
 
-
 .sidebar {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 6;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 6;
+
+  .sidebar__heading {
+    font-size: 1rem;
   }
+
+  ul {
+    margin: 1em 0;
+  }
+  
+  li a {
+    font-size: 1.125rem;
+  }
+}
+
 
 .copy {
     grid-column-start: 1;
