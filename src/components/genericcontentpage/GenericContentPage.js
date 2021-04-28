@@ -5,30 +5,31 @@ import SideMenu from '../sidemenu';
 import { Link } from 'react-router-dom';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const GenericContentPage = ({ cmsLocation }) => {
+const GenericContentPage = ({ cmsLocation, articleType }) => {
   const [{ data, isError }] = useOukapi(new URL(cmsLocation, BASE_URL).href);
-  const [page, setPage] = useState(null);
+  const [article, setArticle] = useState(null);
 
   const [sectionHeadings, setSectionHeadings] = useState([]);
 
   useEffect(() => {
-    if (data[0]) {
-      setPage(data[0].page)
+    if (data) {
+      const pageData = Array.isArray(data) ? data[0] : data;
+      setArticle(pageData[articleType])
     };
 
-    if (page) {
-      setSectionHeadings(page.sections.map(section => section.sectionHeading));
+    if (article) {
+      setSectionHeadings(article.sections.map(section => section.sectionHeading));
     }
 
-  }, [page, data]);
+  }, [article, data, articleType]);
 
-  if (isError || !data[0] || !page) return <h1>404 - content not found!</h1>;
+  if (isError || !data[0] || !article) return null;
 
   let readNextLink = <></>
-  if (page.ReadNextLink) {
+  if (article.ReadNextLink) {
     readNextLink = (<><hr />
-      <Link to={page.ReadNextLink.url}>
-        {page.ReadNextLink.TextToDisplay}
+      <Link to={article.ReadNextLink.url}>
+        {article.ReadNextLink.TextToDisplay}
       </Link></>)
   }
 
@@ -37,8 +38,8 @@ const GenericContentPage = ({ cmsLocation }) => {
       <div className="flexcontainer">
         <SideMenu subMenu={sectionHeadings} />
         <article className="flexright">
-          <h1>{page.title}</h1>
-          <HtmlSection sections={page.sections} />
+          <h1>{article.title}</h1>
+          <HtmlSection sections={article.sections} />
           {readNextLink}
         </article>
       </div>
