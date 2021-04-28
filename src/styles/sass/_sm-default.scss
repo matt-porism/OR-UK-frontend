@@ -23,6 +23,10 @@ p, a, li {
   font-feature-settings: 'ss02' on;
 }
 
+li {
+  margin-top: 0.8em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: $boldWeight;
 }
@@ -95,11 +99,6 @@ a {
 article a:visited {
   color: $color-purple;
 }
-
-li {
-  margin-bottom: 0.8em;
-}
-
 
 .button {
   padding: 0.7em 1.5em;
@@ -280,6 +279,19 @@ footer {
     }
   }
 
+  .footer__column {
+    margin-bottom: 30px;
+  }
+
+  .footer_bottom {
+    background-color: $color-text;
+    padding-top: 30px;
+  }
+
+  .footnotegrid {
+    padding-bottom: 30px;
+  }
+
 }
 
 .sidebar {
@@ -325,27 +337,21 @@ footer {
   grid-row-start: 6;
   grid-row-end: 6;
   background-color: $color-brand-darker;
-  color: $color-white;
-  
-  ul { 
-    display: flex;
-    justify-content: space-between;
-  }
+  color: white;
 
   ul li {
-    margin-right: 15px;
     list-style-type: none;
 
     a {
-      color: $color-white;
+      color: white;
     }
     
   }
 
   a {
-    color:$color-white;
+    color: white;
     &:visited {
-      color: $color-white;
+      color: white;
     }
   }
 }

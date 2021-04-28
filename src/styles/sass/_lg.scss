@@ -171,22 +171,18 @@ h2 {
   padding: 0.5rem;
 }
 
-.footnotegrid {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-gap: 2.0em;
-  padding: 0.5rem;
+footer {
+  
+  .footnotegrid {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 30px;
+    }
+  }
+
 }
 
-.footerwrapper {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  margin: 1.5rem;;
-}
-
-.footerwrapper > div {
-  display: grid;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-template-columns: 1fr 1fr 1fr;
-}
