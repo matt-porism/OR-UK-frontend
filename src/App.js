@@ -74,7 +74,7 @@ const footerProps = data;
         
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
-            <Route path="/about-open-referral" render={({match}) => <GenericContentPage cmsLocation={ABOUT_PAGE} articleType="about" />}/>
+            <Route path="/about-open-referral" render={() => <GenericContentPage cmsLocation={ABOUT_PAGE} articleType="about" />}/>
             <Route path="/how-it-works/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/pages?slugfield=${match.params.slugField}`} articleType="page" />}/>
             <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>
             <Route path="/community/case-studies/:slugField" render={routeProps => <CaseStudy {...routeProps} /> } />
