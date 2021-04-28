@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 
-const Navigator = ({mainMenu, topMenuId}) => {
+const Navigator = ({mainMenu, topMenuId, menuButton}) => {
   const [isActive, setActive] = useState(false);
 
   const toggleClass = () => {
@@ -42,7 +42,7 @@ const Navigator = ({mainMenu, topMenuId}) => {
 
   return (
     
-    <nav onClick={toggleClass} className={isActive ? 'global-nav--open global-nav': "global-nav"}>
+    <nav onClick={toggleClass} className={menuButton ? 'global-nav--open global-nav': "global-nav"}>
       <div className="page-container">
         <a href="/developers" className="button button-secondary button-header hide-md">
           For developers
@@ -57,7 +57,8 @@ const Navigator = ({mainMenu, topMenuId}) => {
 }
 Navigator.propTypes = {
   mainMenu: PropTypes.array.isRequired,
-  topMenuId: PropTypes.string.isRequired
+  topMenuId: PropTypes.string.isRequired,
+  menuButton: PropTypes.bool
 }
 
 export default Navigator;

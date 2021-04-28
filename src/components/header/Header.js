@@ -28,14 +28,14 @@ const Header = ({ mainMenu, topMenuId }) => {
             <path d="M20 6H0V9H20V6Z" fill="#135E75" />
             <path d="M20 12H0V15H20V12Z" fill="#135E75" />
           </svg>
-          {isActive ? 'close': "menu"}
+          {isActive ? 'Close': "Menu"}
         </button>
         {/* <a href="/developers" className="button button-secondary button-header show-md">
           For developers
         </a> */}
         <LinkExternal link={link} rel="noreferrer" styleName="button button-secondary button-header show-md" />
       </div>
-      <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
+      <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} menuButton={isActive} />
     </header>
   );
 }
