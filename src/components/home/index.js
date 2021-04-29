@@ -25,17 +25,16 @@ function HomePage( {homePageProps, classname }) {
     //let styleName;
     let caseStudyLinks = [];
     caseStudyLinks.push(caseStudiesLink);
-    //convert to array will be array anyway
+    //convert to array sounds like will be array anyway single object
    
-    
     return (
        
         <main className={classname}>
             <Section headingText={title} bodyText={body} styleName="section" />
             <InjectHtml paragraphText={introParagraph}/>
-             {/*<p>Read our case studies</p>*/}
+             {<p className="card-content" >Read our case studies</p>}
            
-            { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote></figure>}
+            { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote><p>{homePageProps.PullQuote.Attribution && homePageProps.PullQuote.Attribution}</p></figure>}
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
         { homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
@@ -48,7 +47,6 @@ function HomePage( {homePageProps, classname }) {
                         <CardList key={benefitsSection.id} bodyText={benefitsSection.benefits.benefitText} paragraphTextList={benefitsSection.benefits} contentImage={benefitsSection.benefits.icon}/>
                         </div>
         }
-        
     <hr/>
         {caseStudiesLink && caseStudiesLink.id > 0 &&
                         ( <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
@@ -56,8 +54,6 @@ function HomePage( {homePageProps, classname }) {
                         
                         </div>)
         }
-        
-        
         </main>
     );
 }
