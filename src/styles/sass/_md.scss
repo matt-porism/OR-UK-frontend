@@ -474,16 +474,6 @@ h2 {
   
 }
 
-.card-content {
-  @include cardbox;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  max-height: 25rem; /*play with this as u build out */
-  overflow: hidden;
-  position: relative;
-  
-}
-
 .addlargefont {
   font-size: 3vw;
   font-weight: 600;

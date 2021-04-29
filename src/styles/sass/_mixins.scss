@@ -1,13 +1,13 @@
 @mixin cardbox {
   border: 3px solid $color-brand-20;
   border-radius: 4px;
-  padding: 1.0rem;
+  padding: $padSmall;
 }
 
 @mixin cardbox-dark {
   background-color: white;
   border: 3px solid $color-brand;
   border-radius: 4px;
-  padding: 1.0rem;
+  padding: $padSmall;
 }
 
