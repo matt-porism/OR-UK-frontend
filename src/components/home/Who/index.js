@@ -16,7 +16,7 @@ const Who = ({ CompanyLogo, id, OrganisationsIntroText, numbers, title, linkTitl
               <Badge  numbers={numbers} label="Register now"/>
         </div>
         <p>{OrganisationsIntroText}</p>
-        <div><CardList id={id} itemList={CompanyLogo} styles="" /></div>
+        <CardList id={id} itemList={CompanyLogo} styles="" />
         {linkTitle =true && <Link className="nav-link" to="view or orgs">
           "View all of the orgnisations in our community"
         </Link>}

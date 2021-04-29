@@ -31,6 +31,7 @@ figure.figure {
   padding: 2rem 0 2rem 0;
   margin: 0;
   background-color: white;
+  border-left: 4px solid $color-brand;
 }
 
 blockquote {
@@ -38,7 +39,7 @@ blockquote {
   font-size: 1.5rem;
   line-height: 1.8;
   padding-left: 1rem;
-  border-left: 4px solid $color-brand;
+  
 }
 
 .button {
@@ -99,11 +100,19 @@ blockquote {
   li a {
     font-size: 1.125rem;
   }
+
+  li a.active {
+    &:after {
+      bottom: -1.3em;
+      border-radius: 4px 4px 0px 0px;
+    }
+  }
+
 }
 
 footer {
   .footer__top {
-    
+    padding-bottom: 0;
   }
 
   .banner {
@@ -117,7 +126,29 @@ footer {
     margin-bottom: $padSmall;
   }
 
+  .footnotegrid {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  .footerwrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+
 }
+
+.footergrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2.0em;
+  padding: 0.5rem;
+}
+
+
 
 .main {
   grid-column-start: 1;
@@ -461,47 +492,34 @@ h2 {
   -ms-box-orient: horizontal;
 }
 
-.footergrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 2.0em;
-  padding: 0.5rem;
-}
-
-.footnotegrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 2.0em;
-  padding: 0.5rem;
-}
-
-.footerwrapper {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  margin: 1.5rem;;
-}
-
-.footerwrapper > div {
-  display: grid;
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 .contain {
+  //display: flex;
+  //padding-right: 35px;
+  width: 100%;
   display: flex;
-  padding-right: 35px;
-
-  button {
-    margin-top: 15px;
-  }
+  flex-wrap:wrap;
 }
+
+.home-card-content {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+.img {
+  flex: 1 0 20%; 
+  margin: 2px;
+}
+
 
 .numbers {
-  margin-right: auto;
+    padding: 10px;
+    flex:0 0 calc((100% - (20px * 8)) / 4);
+    margin:20px; 
+    display: inline-block;
 }
 
-
+    
     /* ------------- HELPER CLASSES ------------- */
 
 .hide-md {

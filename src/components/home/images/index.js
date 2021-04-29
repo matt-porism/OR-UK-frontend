@@ -5,6 +5,7 @@ import CompanyLogo from '../../artefacts/stakeholder';
  
 const ImageCard = ({logo, id, styleName}) => {
     /* return one org a single card */
+    /* variation in api properties */
   
     return (
         <div key={id} className={styleName}>

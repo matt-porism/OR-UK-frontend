@@ -1,35 +1,43 @@
 import { useState, useEffect } from 'react';
-import useOukapi from '../../helpers/dataFetch';
 import HtmlSection from '../htmlsection';
 import SideMenu from '../sidemenu';
 import { Link } from 'react-router-dom';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const GenericContentPage = ({ match }) => {
-  const { slugField } = match.params;
-  const [{ data, isError }] = useOukapi(new URL('/pages?slugfield=' + slugField, BASE_URL).href);
-  const [page, setPage] = useState(null);
+const GenericContentPage = ({ cmsLocation, articleType }) => {
+  const [article, setArticle] = useState(null);
+  const [data, setData] = useState(null);
+  const [isError, setIsError] = useState(null);
 
   const [sectionHeadings, setSectionHeadings] = useState([]);
 
   useEffect(() => {
-    if (data[0]) {
-      setPage(data[0].page)
+    fetch(new URL(cmsLocation, BASE_URL).href)
+      .then(res => res.json())
+      .then(jsonRes => setData(jsonRes))
+      .catch(err => setIsError(err))
+  }, [cmsLocation]);
+
+  useEffect(() => {
+    // check we have data, no error, and if data is array, array has elements
+    if (data && !isError && (!Array.isArray(data) || data.length)) {
+      const pageData = Array.isArray(data) ? data[0] : data;
+      setArticle(pageData[articleType])
     };
 
-    if (page) {
-      setSectionHeadings(page.sections.map(section => section.sectionHeading));
+    if (article) {
+      setSectionHeadings(article.sections.map(section => section.sectionHeading));
     }
 
-  }, [page, data]);
+  }, [article, data, isError, articleType]);
 
-  if (isError || !data[0] || !page) return <h1>404 - content not found!</h1>;
+  if (isError || !article) return null;
 
   let readNextLink = <></>
-  if (page.ReadNextLink) {
+  if (article.ReadNextLink) {
     readNextLink = (<><hr />
-      <Link to={page.ReadNextLink.url}>
-        {page.ReadNextLink.TextToDisplay}
+      <Link to={article.ReadNextLink.url}>
+        {article.ReadNextLink.TextToDisplay}
       </Link></>)
   }
 
@@ -38,8 +46,8 @@ const GenericContentPage = ({ match }) => {
       <div className="page-container flex-container">
         <SideMenu subMenu={sectionHeadings} />
         <article className="flexright">
-          <h1>{page.title}</h1>
-          <HtmlSection sections={page.sections} />
+          <h1>{article.title}</h1>
+          <HtmlSection sections={article.sections} />
           {readNextLink}
         </article>
       </div>
