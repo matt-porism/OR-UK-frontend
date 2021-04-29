@@ -35,8 +35,19 @@ function HomePage({ homePageProps, classname }) {
                 <Section headingText={title} bodyText={body} styleName="section" />
                 <InjectHtml paragraphText={introParagraph} />
                 {caseStudiesLink && caseStudiesLink.id && <p id="case-studies" className="card-content"><Link to={caseStudiesLink.url}>{caseStudiesLink.TextToDisplay}</Link></p>}&nbsp;
+            </div>
 
-            {quote && <figure role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote><p> {homePageProps.PullQuote.Attribution && homePageProps.PullQuote.Attribution}</p></figure>}
+            {quote && <figure role="figure" className="figure-block">
+                <div className="page-container">
+                    <div className="format">
+                        <blockquote>{homePageProps.PullQuote.quote}</blockquote>
+                        <figcaption>{homePageProps.PullQuote.Attribution && homePageProps.PullQuote.Attribution}</figcaption>
+                    </div>
+                </div>
+            </figure>}
+
+            <div className="page-container">
+            
                 {BenefitsAndOpportunities && <InjectHtml paragraphText={BenefitsAndOpportunities} />}
 
                 {homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox} />}
@@ -57,7 +68,8 @@ function HomePage({ homePageProps, classname }) {
                         
                         </div>)
        */ }
-            </div>
+       </div>
+
         </main>
     );
 }

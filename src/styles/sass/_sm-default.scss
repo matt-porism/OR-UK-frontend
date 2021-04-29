@@ -55,23 +55,36 @@ small {
   font-size: 0.875rem;
 }
 
-blockquote {
+.figure-block {
+  background-color: white;
+  padding-top: $padMedium;
+  padding-bottom: $padMedium;
+}
+
+.figure-block blockquote { // for homepage quote
   color: $color-brand-darker;
   font-size: 1.25rem;
   line-height: 1.8;
   quotes: "\201C" "\201D" "\2018" "\2019";
-    &:before {
-    content: open-quote;
-  }
-  &:after {
-    content: close-quote;
-  }
+  padding: 0;
 }
 
-blockquote small {
+.figure-block figcaption {
   color: $color-text-muted;
   display: block;
-  margin-top: 1rem;
+  padding-top: 0.75em;
+}
+
+blockquote { // for content quotes
+  color: $color-brand-darker;
+  background-color: white;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  padding: $padMedium $padSmall;
+
+  p:first-of-type {
+    margin: 0;
+  }
 }
 
 a {
@@ -372,6 +385,7 @@ footer {
 
 #case-studies {
   background: $color-blue-dark;
+  border-color: $color-blue-dark;
   color: $color-white;
 
   a {
