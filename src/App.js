@@ -9,8 +9,7 @@ import { fetchLandingPageContent,
          fetchMainMenuItems } from './helpers/ContentConsumer';
 import useOukapi from './helpers/dataFetch';
 import HomePage from "./components/home";
-import HowPage from "./components/how";
-import CommunityPage from "./components/community";
+import GenericLandingPage from "./components/genericlandingpage/GenericLandingPage";
 import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
@@ -26,19 +25,14 @@ function App() {
 
   const [errors] = useState({});  //use to confirm render component or error page
 
-  const COMMUNITY_PAGE = process.env.REACT_APP_COMMUNITY_PAGE;
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
   const ABOUT_PAGE = process.env.REACT_APP_ABOUT_PAGE_URI;
   const CONTACT_PAGE = process.env.REACT_APP_CONTACT_PAGE;
   const REACT_APP_FOOTER = process.env.REACT_APP_FOOTER
-   console.log(errors);  //take care of on refactor
-  
+  console.log(errors);  //take care of on refactor
 
-  let [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${COMMUNITY_PAGE}`)
-
-const communityProps = data;
-[{data, isFetching, isError}] = useOukapi(`${BASE_URL}${REACT_APP_FOOTER}`)
-const footerProps = data;
+  let [{data, isFetching, isError}] = useOukapi(`${BASE_URL}${REACT_APP_FOOTER}`)
+  const footerProps = data;
 
   useEffect(() => {
     // fetch from strapi
@@ -73,10 +67,10 @@ const footerProps = data;
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-open-referral" render={() => <GenericContentPage cmsLocation={ABOUT_PAGE} articleType="about" />}/>
             <Route path="/how-it-works/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/pages?slugfield=${match.params.slugField}`} articleType="page" />}/>
-            <Route path="/how-it-works" render={() =>  <HowPage styleName="main"/> }/>
+            <Route path="/how-it-works" render={() =>  <GenericLandingPage cmsLocation={process.env.REACT_APP_HOW_WORKS} articleType="HowItWorks"/> }/>
             <Route path="/community/case-studies/:slugField" render={({ match }) => <GenericContentPage cmsLocation={`/case-studies?slugfield=${match.params.slugField}`} articleType="CaseStudy" />} />
             <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
-            <Route path="/community" render={() =>  <CommunityPage communityProps={communityProps} styleName="main"/> }/>
+            <Route path="/community" render={() =>  <GenericLandingPage cmsLocation={process.env.REACT_APP_COMMUNITY_PAGE} articleType="communityPage"/> }/>
             <Route path="/contact-us" render={() => <GenericContentPage cmsLocation={CONTACT_PAGE} articleType="contactUs" />} />
             <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
             <Route path="/accessibility-statement" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
