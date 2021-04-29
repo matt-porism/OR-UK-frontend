@@ -13,8 +13,8 @@ const CompanyLogo = ({logo}) => {
         <>
        {  formats && (formats.thumbnail) ? <p key={id}><img src={BASE_URL ? 
        `${BASE_URL}${formats.thumbnail.url }`:""} alt={alternativeText ? alternativeText : "company_logo"}/></p>
-       : (<p key={id}><img src={BASE_URL ? 
-        `${BASE_URL}${logo.CompanyLogo.formats.thumbnail.url }`:""} alt={alternativeText ? alternativeText : "company_logo"}/></p>) }
+       : (<img key={id} src={BASE_URL ? 
+        `${BASE_URL}${logo.CompanyLogo.formats.thumbnail.url }`:""} alt={alternativeText ? alternativeText : ""}  />) }
        </>
     )
 }

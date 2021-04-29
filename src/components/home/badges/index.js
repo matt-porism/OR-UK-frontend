@@ -12,11 +12,12 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
     //return a single badge pass params
     //to be generic version
 
+
     const keyArray =  Object.keys(numbers).filter(n => n !== 'id' )
     
-    const numbersAray =  keyArray.map(x => {
+    const numbersAray =  keyArray.map(number => {
        
-        return <div className="numbers" key={x}>{numbers[x]}</div> 
+        return <div className="numbers" key={number}>{numbers[number]}<p>{number}</p></div> 
 
     } );
 
@@ -25,8 +26,7 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
        numbers && 
        <>
             <div className="contain listnostyle addlargefont">{numbersAray}
-            <Button label={label} disabled={true} onClick={handleClick} styles="style" role="button" icon="label"/></div>
-            {/*<div className="listnostyle">{keyAray}</div>*/}
+            <Button label={label} disabled={true} onClick={handleClick} styles="numbers" role="button" icon="label"/></div>
          </>
     );
 }
