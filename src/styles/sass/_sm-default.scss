@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $boldWeight;
 }
 
+p, a, li, h1, h2, h3, h4, h5, h6 {
+  max-width: 60em;
+}
+
 h1 {
   font-size: 1.75rem;
   line-height: 1.3;
@@ -366,6 +370,15 @@ footer {
   }
 }
 
+#case-studies {
+  background: $color-blue-dark;
+  color: $color-white;
+
+  a {
+    color: $color-white;
+  }
+}
+
 .who {
   grid-column-start: 1;
   grid-column-end: 6;
@@ -424,18 +437,7 @@ footer {
 }
 
 .format {
-  padding-left: $gutter;
-
-  h3 {
-    margin-top: 55px;
-    margin-bottom: 1.2rem;
-  }
-  ul {
-    margin-left: 3.0rem;
-
-  }
-
-
+  max-width: 682px;
 }
 
 .tempstyle {
@@ -491,10 +493,3 @@ footer {
   display: none;
 }
 
-#case-studies {
-  background: $color-brand-darker;
-  color: $color-white;
-  a {
-    color: $color-white;
-  }
-}
