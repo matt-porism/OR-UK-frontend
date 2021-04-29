@@ -2,6 +2,7 @@
 import Banner from '../banner';
 import Title from './tiles';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import LinkExternal from './LinkExternal';
 import LinksList from "../links/LinksList";
 import FooterColumn from './column';
@@ -98,9 +99,9 @@ const Footer = ({ footerProps, styleName }) => {
               <small>Copyright &copy; 2019–2021 Open Referral UK</small>
             </p>
               <ul>
-                <li key="1"><a href="/accessibility-statement"><small>Accessibility statement</small></a></li>
-                <li key="2"><a href="#"><small>Terms &amp; Conditions</small></a></li>
-                <li key="3"><a href="#"><small>Privacy Policy</small></a></li>
+                <li key="1"><Link to="/accessibility-statement"><small>Accessibility statement</small></Link></li>
+                <li key="2"><Link to="#"><small>Terms &amp; Conditions</small></Link></li>
+                <li key="3"><Link to="#"><small>Privacy Policy</small></Link></li>
               </ul>
           </div>
 
