@@ -100,8 +100,8 @@ const Footer = ({ footerProps, styleName }) => {
             </p>
               <ul>
                 <li key="1"><Link to="/accessibility-statement"><small>Accessibility statement</small></Link></li>
-                <li key="2"><Link to="#"><small>Terms &amp; Conditions</small></Link></li>
-                <li key="3"><Link to="#"><small>Privacy Policy</small></Link></li>
+                <li key="2"><Link to="/terms-conditions"><small>Terms &amp; Conditions</small></Link></li>
+                <li key="3"><Link to="/privacy-policy"><small>Privacy Policy</small></Link></li>
               </ul>
           </div>
 
