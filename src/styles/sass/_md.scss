@@ -129,6 +129,17 @@ footer {
   padding-top: 3rem;
 }
 
+.hero-container {
+  padding-bottom: 0;
+  background-image: url(../../assets/home-hero-graphic-lg.svg);
+  background-position: right center;
+  background-size: auto 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  align-content: center;
+  min-height: 32em;
+}
+
 #learn {
   grid-column-start: 2;
   grid-column-end: 5;

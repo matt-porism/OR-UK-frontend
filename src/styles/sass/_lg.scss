@@ -52,6 +52,10 @@
   min-height: 400px;
 }
 
+.hero-container {
+  grid-template-columns: 1fr 0.75fr;
+}
+
 #learn {
   grid-column-start: 2;
   grid-column-end: 5;

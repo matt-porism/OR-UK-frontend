@@ -353,6 +353,19 @@ footer {
   }
 }
 
+.hero-container {
+  @include cardbox-dark;
+  padding-bottom: 55%;
+  background-image: url(../../assets/home-hero-graphic-sm.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100%;
+
+  h1 {
+    color: $color-brand-darker;
+  }
+}
+
 .who {
   grid-column-start: 1;
   grid-column-end: 6;
