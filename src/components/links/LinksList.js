@@ -19,8 +19,9 @@ const LinksList = ({list}) => {
 								{list.TextToDisplay}
 							</Link>
 						</li> ) : (
-							
+						<li key={list.id}>	
 							<LinkExternal link={list} rel="noreferrer" target="_blank" />
+							</li>
 						)
 						:null
 					}
