@@ -314,16 +314,25 @@ h2 {
   }
 }
 
+
 .who {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-start: 6;
-  grid-row-end: 6;
-  margin-bottom: 1.5rem;
-  min-height: 430px;
-  
-  img {
-    width: auto;
+  .numbers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .numbers {
+    span {
+      font-size: 2.75rem;
+    }
+  }
+
+  .home-card-content {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    li {
+      height: 13vw;
+    }
   }
 }
 
@@ -538,15 +547,6 @@ h2 {
   flex: 1 0 20%; 
   margin: 2px;
 }
-
-
-.numbers {
-    padding: 10px;
-    flex:0 0 calc((100% - (20px * 8)) / 4);
-    margin:20px; 
-    display: inline-block;
-}
-
     
     /* ------------- HELPER CLASSES ------------- */
 
