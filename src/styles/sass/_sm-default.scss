@@ -120,12 +120,14 @@ article a:visited {
 .button-secondary {
   box-shadow: inset 0px 0px 0px 3px $color-blue-light;
   background-color: white;
+  -webkit-text-fill-color: $color-blue-dark;  //I will also check particularly on flexbox vendor specific
   color: $color-blue-dark;
   font-weight: $midWeight;
 }
 
 .button-light {
   background-color: white;
+  -webkit-text-fill-color: $color-blue-dark;
   color: $color-blue-dark;
 }
 
