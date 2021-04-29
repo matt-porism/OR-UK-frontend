@@ -42,6 +42,13 @@
   li a {
     font-size: 1.25rem;
   }
+
+  li a.active {
+    &:after {
+      bottom: -1.1em;
+    }
+  }
+
 }
 
 .main {
