@@ -13,6 +13,7 @@ import GenericLandingPage from "./components/genericlandingpage/GenericLandingPa
 import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
+import SkipToContent from './components/header/SkipToContent';
 
 //refactor
 //pull data as needed perhaps on first call of page?
@@ -59,6 +60,7 @@ function App() {
     
     ( <div>
       
+    <SkipToContent/>
     <Header mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         
         <Switch>
@@ -71,6 +73,9 @@ function App() {
             <Route path="/community" render={() =>  <GenericLandingPage cmsLocation={process.env.REACT_APP_COMMUNITY_PAGE} articleType="communityPage"/> }/>
             <Route path="/contact-us" render={() => <GenericContentPage cmsLocation={CONTACT_PAGE} articleType="contactUs" />} />
             <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
+            <Route path="/accessibility-statement" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
+            <Route path="/privacy-policy" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
+            <Route path="/terms-conditions" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
             <Route path="/show-error"  component={GenericErrorPage} />
             <Route path="/404"  component={NotFound} />
             <Redirect to="/404" />

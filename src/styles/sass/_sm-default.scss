@@ -23,6 +23,10 @@ p, a, li {
   font-feature-settings: 'ss02' on;
 }
 
+li {
+  margin-top: 0.8em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: $boldWeight;
 }
@@ -96,11 +100,6 @@ article a:visited {
   color: $color-purple;
 }
 
-li {
-  margin-bottom: 0.8em;
-}
-
-
 .button {
   padding: 0.7em 1.5em;
   border-radius: 0.2em;
@@ -134,6 +133,31 @@ li {
   padding: 0.6395em 1.5em;
 }
 
+.button-primary,
+.button-secondary {
+  &:hover {
+    background-color: $color-blue-darker;
+    color: $color-highlight;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 4px $color-highlight;
+    text-decoration: none;
+  }    
+  &:focus {
+    color: $color-text;
+    background-color: $color-highlight;
+    outline: 0;
+    text-decoration: none;
+    box-shadow: 0px 0px 0px 3px $color-blue-darker;
+  }
+  &:active {
+    color: $color-text;
+    background-color: $color-highlight;
+    box-shadow: none;
+    text-decoration: none;
+    box-shadow:  0px 0px 0px 4px $color-highlight, inset 0px 0px 0px 3px $color-blue-darker;
+  }
+}
+
 .button-header {
   text-decoration: none;
   font-size: 1rem;
@@ -160,29 +184,14 @@ li {
   svg path { // button icon
     fill: white;
   }
-}
-
-.button-primary,
-.button-secondary {
-  &:hover {
-    background-color: $color-blue-darker;
-    color: $color-highlight;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px 4px $color-highlight;
-    text-decoration: none;
-  }    
   &:focus {
-    color: $color-text;
-    background-color: $color-highlight;
-    outline: 0;
-    text-decoration: none;
-    box-shadow: 0px 0px 0px 3px $color-blue-darker;
-  }
-  &:active {
-    background-color: $color-highlight;
-    box-shadow: none;
-    text-decoration: none;
-    box-shadow:  0px 0px 0px 4px $color-highlight, inset 0px 0px 0px 3px $color-blue-darker;
+    color: $color-highlight;
+    background-color: $color-blue-darker;
+    box-shadow: 0px 0px 0px 3px $color-highlight;
+  
+    svg path { // button icon
+      fill: $color-highlight;
+    }
   }
 }
 
@@ -245,16 +254,28 @@ li {
   }
 
   li a {
-    display: block;
 		font-weight: $normalWeight;
   }
   li a:visited {
     color: $color-blue-dark; // prevents :visited colour applying from to main nav
   }
   
-  li a:active {
+  li a.active {
     text-decoration: none;
     color: $color-text-muted;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 100%;
+      position: absolute;
+      background-color: $color-brand;
+      bottom: -0.5em;
+      left: 0;
+      border-radius: 4px;
+    }
   }
 
   .button-header {
@@ -262,7 +283,7 @@ li {
   }
   
 } // end nav
-.global-nav.open {
+.global-nav--open {
   display: block;
 }
 
@@ -283,6 +304,29 @@ footer {
     }
   }
 
+  .footer__column {
+    margin-bottom: 30px;
+  }
+
+  .footer_bottom {
+    background-color: $color-text;
+    padding-top: 30px;
+  }
+
+  .footnotegrid {
+    padding-bottom: 30px;
+  }
+
+}
+
+.skiplink{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -100%);
+
+  &:focus {
+    transform: translate(-50%, 0%);
+  }
 }
 
 .sidebar {
@@ -328,27 +372,21 @@ footer {
   grid-row-start: 6;
   grid-row-end: 6;
   background-color: $color-brand-darker;
-  color: $color-white;
-  
-  ul { 
-    display: flex;
-    justify-content: space-between;
-  }
+  color: white;
 
   ul li {
-    margin-right: 15px;
     list-style-type: none;
 
     a {
-      color: $color-white;
+      color: white;
     }
     
   }
 
   a {
-    color:$color-white;
+    color: white;
     &:visited {
-      color: $color-white;
+      color: white;
     }
   }
 }

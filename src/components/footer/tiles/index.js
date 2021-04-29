@@ -3,7 +3,7 @@ import React from 'react';
 
 const Title = ({title, logoList}) => {
 
-    return <div><p>{title}</p></div>
+    return <h4>{title}</h4>
 
 }
 export default Title;
