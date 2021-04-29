@@ -31,6 +31,7 @@ figure.figure {
   padding: 2rem 0 2rem 0;
   margin: 0;
   background-color: white;
+  border-left: 4px solid $color-brand;
 }
 
 blockquote {
@@ -38,7 +39,7 @@ blockquote {
   font-size: 1.5rem;
   line-height: 1.8;
   padding-left: 1rem;
-  border-left: 4px solid $color-brand;
+  
 }
 
 .button {
@@ -484,19 +485,33 @@ h2 {
 }
 
 .contain {
+  //display: flex;
+  //padding-right: 35px;
+  width: 100%;
   display: flex;
-  padding-right: 35px;
-
-  button {
-    margin-top: 15px;
-  }
+  flex-wrap:wrap;
 }
+
+.home-card-content {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+.img {
+  flex: 1 0 20%; 
+  margin: 2px;
+}
+
 
 .numbers {
-  margin-right: auto;
+    padding: 10px;
+    flex:0 0 calc((100% - (20px * 8)) / 4);
+    margin:20px; 
+    display: inline-block;
 }
 
-
+    
     /* ------------- HELPER CLASSES ------------- */
 
 .hide-md {
