@@ -5,6 +5,7 @@ import InjectHtml from './InjectHtml';
 import PropTypes from 'prop-types';
 import CardList from '../cardlist/';
 import Title from '../shared/title';
+import { Link } from 'react-router-dom';
 
 //refactoring
 //look at structure of api response for page
@@ -33,9 +34,9 @@ function HomePage( {homePageProps, classname }) {
              <div className="page-container">
             <Section headingText={title} bodyText={body} styleName="section" />
             <InjectHtml paragraphText={introParagraph}/>
-             {<p id="case-studies" className="card-content">Placeholder</p>}&nbsp;
+             {caseStudiesLink && caseStudiesLink.id && <p id="case-studies" className="card-content"><Link to={caseStudiesLink.url}>{caseStudiesLink.TextToDisplay}</Link></p>}&nbsp;
            
-            { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote><p>{homePageProps.PullQuote.Attribution && homePageProps.PullQuote.Attribution}</p></figure>}
+            { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote><p> {homePageProps.PullQuote.Attribution && homePageProps.PullQuote.Attribution}</p></figure>}
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
         
         { homePageProps.CommunityStatsBox && homePageProps.CommunityStatsBox.title && <Who {...homePageProps.CommunityStatsBox}  /> }
@@ -49,12 +50,13 @@ function HomePage( {homePageProps, classname }) {
                         </div>
         }
     <hr/>
-        {caseStudiesLink && caseStudiesLink.id > 0 &&
+        {/* this content does not seem to be in the backend yet reviewing, should be the learn about and features link
+         &&
                         ( <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
                               <CardList key={caseStudiesLink.id} itemList={caseStudyLinks} />
                         
                         </div>)
-        }
+       */ }
 </div>
         </main>
     );
