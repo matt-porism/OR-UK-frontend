@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/header/Header';
-import Navigator from  './components/navigator/Navigator';
 import Footer from './components/footer/Footer';
 import NotFound from './components/errorpage/'
 import GenericErrorPage from './components/shared/errorpage/errorpagegeneric';
@@ -95,10 +94,10 @@ const footerProps = data;
   return (
      !isFetching && !isError  && Object.keys(homeProps).length > 0 &&
     
-    ( <div className="container">
+    ( <div>
       
-    <Header />
-        <Navigator mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
+    <Header mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
+        
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-open-referral" render={() =>  <About aboutProps={aboutProps} sideMenu={subMenu} styleName="main" /> }/>

@@ -29,10 +29,11 @@ function HomePage( {homePageProps, classname }) {
    
     return (
        
-        <main className={classname}>
+        <main className="main-container">
+             <div className="page-container">
             <Section headingText={title} bodyText={body} styleName="section" />
             <InjectHtml paragraphText={introParagraph}/>
-             {<p className="card-content" >Read our case studies</p>}
+             {<p id="case-studies" className="card-content">Placeholder</p>}&nbsp;
            
             { quote && <figure  role="figure" className="figure"><blockquote>{homePageProps.PullQuote.quote}</blockquote><p>{homePageProps.PullQuote.Attribution && homePageProps.PullQuote.Attribution}</p></figure>}
             { BenefitsAndOpportunities &&  <InjectHtml paragraphText={ BenefitsAndOpportunities}/>}
@@ -54,6 +55,7 @@ function HomePage( {homePageProps, classname }) {
                         
                         </div>)
         }
+</div>
         </main>
     );
 }

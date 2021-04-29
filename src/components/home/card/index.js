@@ -1,8 +1,12 @@
 import ImageCard from '../images/';
 const CardList = ({  id, itemList,  styles }) => {
 
-let i = 1000;
-    if (itemList.length && itemList.length%4 !== 0) {
+    let i = 1000;
+    const addPadding = () => {
+
+       
+    if (itemList.length && itemList.length % 4 !== 0) {
+        //pad out images for even distribution
         const paddingItem = {
             flexible: "",
             id: i
@@ -11,10 +15,12 @@ let i = 1000;
         itemList.push(paddingItem);
 
     }
-  
+    }
 
     const BuildList = ({list})  =>{
-        const myHolder = list.map(item => {
+        
+        addPadding();
+        const logosHolder = list.map(item => {
             if (item.CompanyLogo) {
             return <li  key={item.id ? `${item.id}_itemcard` : ""} className="img"><ImageCard  id={id}  logo={item}   styleName=""/></li>
             } else {
@@ -23,7 +29,7 @@ let i = 1000;
 
         })
        
-        return <ul className="home-card-content">{myHolder}</ul>
+        return <ul className="home-card-content">{logosHolder}</ul>
     }
     
     return (
