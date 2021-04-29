@@ -104,7 +104,7 @@ blockquote {
 
 footer {
   .footer__top {
-    
+    padding-bottom: 0;
   }
 
   .banner {
@@ -118,7 +118,29 @@ footer {
     margin-bottom: $padSmall;
   }
 
+  .footnotegrid {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  .footerwrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+
 }
+
+.footergrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2.0em;
+  padding: 0.5rem;
+}
+
+
 
 .main {
   grid-column-start: 1;
@@ -460,33 +482,6 @@ h2 {
 
 .flex-container {
   -ms-box-orient: horizontal;
-}
-
-.footergrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 2.0em;
-  padding: 0.5rem;
-}
-
-.footnotegrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 2.0em;
-  padding: 0.5rem;
-}
-
-.footerwrapper {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  margin: 1.5rem;;
-}
-
-.footerwrapper > div {
-  display: grid;
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .contain {
