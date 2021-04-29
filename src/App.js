@@ -14,6 +14,7 @@ import CommunityPage from "./components/community";
 import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
+import SkipToContent from './components/header/SkipToContent';
 
 //refactor
 //pull data as needed perhaps on first call of page?
@@ -65,6 +66,7 @@ const footerProps = data;
     
     ( <div>
       
+    <SkipToContent/>
     <Header mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         
         <Switch>

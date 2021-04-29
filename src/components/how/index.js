@@ -34,7 +34,7 @@ useEffect(() => {
     return ( 
         isError  ? null :
        ( !isFetching &&
-        <main className={styleName}> 
+        <main id="content" className={styleName}> 
           <HtmlSection sections={arrayStruct} /> 
              
           {links.length > 0 &&  <div id={"cd_title"} className="cardgrid">

@@ -319,6 +319,16 @@ footer {
 
 }
 
+.skiplink{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -100%);
+
+  &:focus {
+    transform: translate(-50%, 0%);
+  }
+}
+
 .sidebar {
   grid-column-start: 1;
   grid-column-end: 1;
