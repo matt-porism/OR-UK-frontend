@@ -3,8 +3,6 @@ import Banner from '../banner';
 import Title from './tiles';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import LinkExternal from './LinkExternal';
-import LinksList from "../links/LinksList";
 import FooterColumn from './column';
 //review refactor
 //todo - terms and conditions policy to go into grid
@@ -50,48 +48,17 @@ const Footer = ({ footerProps, styleName }) => {
             <div>logos grid</div>
           </div>
 
-          <div className="footer__column">
-            <Title title={involved.title} />
-            <LinkExternal link={involved.link} rel="noreferrer" target="_blank" />
-          </div>
-
-          <div className="footer__column">
-            <Title title={contactUs.title} />
-            <ul key={contactUs.id}><LinksList list={contactUs.link} /></ul>
-          </div>
-
+          <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true}/>
+          <FooterColumn links={[contactUs.link]} title={contactUs.title} />
         </div>
       </div>
 
-
       <div className="footer_bottom">
         <div className="page-container">
-
           <div className="footerwrapper">
-
-            <div className="footer__column">
-                <Title title={about.title} />
-                {about.links && about.links.map(link => {
-                  return <ul key={link.id}><LinksList list={link} /></ul>
-                })}
-              </div>
-
-
-              <div className="footer__column">
-                <Title title={howItWorks.title} />
-                <FooterColumn links={howItWorks.links} />
-              </div>
-
-
-              <div className="footer__column">
-                <Title title={community.title} />
-                {community.links.map(link => {
-                  //can probably check link domain here or see if anything in backend
-                  if (link.TextToDisplay && link.TextToDisplay === "Community Forum") link.external = true;
-                  return <ul key={link.id}><LinksList list={link} /></ul>
-                })}
-              </div>
-            
+            <FooterColumn links={about.links} title={about.title} />
+            <FooterColumn links={howItWorks.links} title={howItWorks.title}/>
+            <FooterColumn links={community.links} title={community.title} />            
           </div>
 
           <div className="footnotegrid">
