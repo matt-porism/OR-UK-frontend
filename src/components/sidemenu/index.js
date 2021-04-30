@@ -9,7 +9,7 @@ const SideMenu = ({ subMenu }) => {
 		//TO DO select the active sub menu item probably based off the URL passed to the API
 
 		<>
-			<div className="sidebar flex-left">
+			<aside className="sidebar flex-left">
 				<h4 className="sidebar__heading">On this page</h4>
 				<ul>
 					{subMenu.map( (menuItem, index) => {
@@ -22,7 +22,7 @@ const SideMenu = ({ subMenu }) => {
 						)
 					})}
 				</ul>
-			</div>
+			</aside>
 		</>
 	)
 }
