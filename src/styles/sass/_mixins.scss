@@ -3,3 +3,19 @@
     border-radius: 4px;
     padding: 1.0rem;
   }
+
+  @mixin  margins($left: null, $right: null, $top: null, $bottom: null) {
+    margin-left: $left;
+    margin-right: $right ;
+    margin-top: $top ;
+    margin-bottom: $bottom;
+  }
+
+  @mixin  padding($left: null, $right: null, $top: null, $bottom: null) {
+    padding-left: $left;
+    padding-right: $right ;
+    padding-top: $top ;
+    padding-bottom: $bottom;
+  }
+
+
