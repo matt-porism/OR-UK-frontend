@@ -11,17 +11,19 @@ const SideMenu = ({ subMenu }) => {
 		<>
 			<aside className="sidebar flex-left">
 				<h4 className="sidebar__heading">On this page</h4>
-				<ul>
-					{subMenu.map( (menuItem, index) => {
-						return (
-							<li key={index}>
-								<AnchorLink href={`#section-${index+1}-heading`}>
-									{menuItem}
-								</AnchorLink>
-							</li>
-						)
-					})}
-				</ul>
+				<nav>
+					<ul>
+						{subMenu.map((menuItem, index) => {
+							return (
+								<li key={index}>
+									<AnchorLink href={`#section-${index + 1}-heading`}>
+										{menuItem}
+									</AnchorLink>
+								</li>
+							)
+						})}
+					</ul>
+				</nav>
 			</aside>
 		</>
 	)
