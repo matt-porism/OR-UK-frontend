@@ -315,6 +315,9 @@ li {
 }
 
 footer {
+    background-color: $color-brand-darker;
+    color: white;
+
   .footer__top {
     padding-top: $padSmall;
   }
@@ -340,6 +343,14 @@ footer {
 
   .footer__column__subsection {
     margin-top: $padSmall;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+
+  a {
+    color: inherit;
   }
 
   .footer__bottom {
@@ -398,31 +409,6 @@ footer {
   grid-row-end: 6;
   min-height: 400px;
   padding-top: $padMedium;
-}
-
-footer {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-start: 6;
-  grid-row-end: 6;
-  background-color: $color-brand-darker;
-  color: white;
-
-  ul li {
-    list-style-type: none;
-
-    a {
-      color: white;
-    }
-    
-  }
-
-  a {
-    color: white;
-    &:visited {
-      color: white;
-    }
-  }
 }
 
 .hero-container {
