@@ -65,7 +65,7 @@ function HomePage({ homePageProps, classname }) {
                             {readNextLinks.map((next, index) => {
 
                             
-return <ul key={next.id ? next.id: index}><LinkCard linkItem={next} styleName="listnostyle card-content"/></ul>
+return <LinkCard linkItem={next} styleName="listnostyle card-content"/>
                 })}
                         
                         </div>)
