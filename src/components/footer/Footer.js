@@ -4,6 +4,7 @@ import Title from './tiles';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FooterColumn from './column';
+import FooterLinksSection from './column/FooterLinksSection'
 //review refactor
 //todo - terms and conditions policy to go into grid
 
@@ -14,6 +15,8 @@ const Footer = ({ footerProps, styleName }) => {
   const [community, setCommunityLinks] = useState({});
   const [involved, setInvolvedLinks] = useState({});
   const [contactUs, setContactLink] = useState({});
+  const [technicalFeedback, setTechnicalFeedback] = useState(null);
+  const [technicalSection, setTechnicalSection] = useState(null);
 
 
   useEffect(() => {
@@ -25,9 +28,20 @@ const Footer = ({ footerProps, styleName }) => {
       if (footerProps.communityLinks) setCommunityLinks(footerProps.communityLinks);
       if (footerProps.getInvolved) setInvolvedLinks(footerProps.getInvolved);
       if (footerProps.contact) setContactLink(footerProps.contact);
+      if (footerProps.technicalFeedbackLink) setTechnicalFeedback(footerProps.technicalFeedbackLink);
 
     }
   }, [footerProps]);
+
+  useEffect(() => {
+    if (technicalFeedback){
+      setTechnicalSection((
+        <div className="footer__column__subsection">
+          <FooterLinksSection links={[technicalFeedback.link]} title={technicalFeedback.title} />
+        </div>
+      ))
+    }
+  }, [technicalFeedback]);
 
   // there is an id property if needed when refactored
 
@@ -49,7 +63,7 @@ const Footer = ({ footerProps, styleName }) => {
           </div>
 
           <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true}/>
-          <FooterColumn links={[contactUs.link]} title={contactUs.title} />
+          <FooterColumn links={[contactUs.link]} title={contactUs.title} subSection={technicalSection}/>
         </div>
       </div>
 
@@ -58,7 +72,7 @@ const Footer = ({ footerProps, styleName }) => {
           <div className="footerwrapper">
             <FooterColumn links={about.links} title={about.title} />
             <FooterColumn links={howItWorks.links} title={howItWorks.title}/>
-            <FooterColumn links={community.links} title={community.title} />            
+            <FooterColumn links={community.links} title={community.title} />
           </div>
 
           <div className="footnotegrid">
