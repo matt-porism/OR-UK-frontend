@@ -91,6 +91,11 @@ blockquote { // for content quotes
     margin: 0;
   }
 }
+main article {
+  blockquote { // for content quotes
+    margin: $padMedium 0;
+  }
+}
 
 a {
   color: $color-blue-dark;
@@ -263,6 +268,25 @@ table {
   margin-top: $padMedium;
 }
 
+main article { // article page content, pulled from CMS
+  h2 {
+    margin-top: 2em;
+  }
+
+  h1 + h2 {
+    margin-top: 1em;
+  }
+
+  h3 {
+    margin-top: 1em;
+  }
+
+  blockquote { // for content quotes
+    margin: $padMedium 0;
+  }
+
+}
+
 /* ------------- COMPONENTS ------------- */
 
 .global-header {
@@ -387,10 +411,8 @@ footer {
 }
 
 .sidebar {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 3;
-  grid-row-end: 6;
+  margin-bottom: $padSmall;
+  border-bottom: 2px solid $color-brand-20;
 
   .sidebar__heading {
     font-size: 0.875rem;
@@ -414,20 +436,7 @@ footer {
   list-style-type: none;
 }
 
-.main {
-  grid-column-start:1;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 6;
-  min-height: 400px;
-  padding-top: $padMedium;
-}
-
 footer {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-start: 6;
-  grid-row-end: 6;
   background-color: $color-brand-darker;
   color: white;
 
