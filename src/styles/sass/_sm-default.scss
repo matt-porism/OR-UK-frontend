@@ -63,6 +63,7 @@ small {
   background-color: white;
   padding-top: $padMedium;
   padding-bottom: $padMedium;
+  margin-bottom: $padLarge;
 }
 
 .figure-block blockquote { // for homepage quote
@@ -142,7 +143,6 @@ li {
 .button-secondary {
   box-shadow: inset 0px 0px 0px 3px $color-blue-light;
   background-color: white;
-  -webkit-text-fill-color: $color-blue-dark;  //I will also check particularly on flexbox vendor specific
   color: $color-blue-dark;
   font-weight: $midWeight;
 }
@@ -151,6 +151,16 @@ li {
   background-color: white;
   -webkit-text-fill-color: $color-blue-dark;
   color: $color-blue-dark;
+
+  &:hover {
+    -webkit-text-fill-color: inherit;
+  }    
+  &:focus {
+    -webkit-text-fill-color: inherit;
+  }
+  &:active {
+    -webkit-text-fill-color: inherit;
+  }
 }
 
 .button-small {
@@ -422,6 +432,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 100%;
+  margin-bottom: $padLarge;
 
   h1 {
     color: $color-brand-darker;
@@ -432,6 +443,7 @@ footer {
   background: $color-blue-dark;
   border-color: $color-blue-dark;
   color: $color-white;
+  margin-top: $padLarge;
 
   a {
     color: $color-white;
@@ -440,6 +452,7 @@ footer {
 
 .who {
   @include cardbox-dark;
+  margin-bottom: $padLarge;
 
   .numbers-container {
     list-style-type: none;
@@ -460,6 +473,10 @@ footer {
     }
   }
 
+  .button-primary {
+    margin-bottom: $padSmaller;
+  }
+
   ul {
     margin-bottom: $padSmall;
   }
@@ -473,7 +490,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $gutter;
-    margin-top: $padSmall;
+    margin-top: $padSmaller;
 
     li {
       @include cardbox;
@@ -539,10 +556,7 @@ footer {
   @include cardbox;
   margin-bottom: $padMedium;
   width: 100%;
-  // max-height: 25rem; // why was this here?
-  // overflow: hidden; // why was this here?
   position: relative;
-  
 }
 
 .contain {
