@@ -45,7 +45,7 @@ const Footer = ({ footerProps, styleName }) => {
 
         <div className="footerwrapper">
           <div className="footer__column">
-            <Title title="Governance board" />
+            <Title title="Our stakeholders" />
             {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
             <div>logos grid</div>
           </div>
