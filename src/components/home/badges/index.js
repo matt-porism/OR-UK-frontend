@@ -10,7 +10,7 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
     
     const numbersAray =  keyArray.map(number => {
        
-        return <div className="numbers" key={number}>{numbers[number]}<p>{number}</p></div> 
+        return <li className="numbers" key={number}><span>{numbers[number]}</span>{number}</li> 
 
     } );
 
