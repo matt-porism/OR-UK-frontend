@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import ArticleListPage from './ArticleListPage';
 import ContentPage from "../page";
-import Learn from '../home/Learn';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
 const GenericLandingPage = ({cmsLocation, articleType}) => {
 
@@ -27,24 +28,11 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
 
   if (isError || !article) return null;
 
-  let listBoxLinks = [...article.links];
-  let style;
-  let itemCount = 2;
-  let splitArray = [];
-  while(listBoxLinks.length) {
-    splitArray.push(listBoxLinks.splice(0,2))
-  }
-
   return (
     <main className="main-container">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
-      { splitArray && splitArray.length > 0 && splitArray.map ((array, index) => {
-             style = splitArray[index].length === itemCount ?  "listbox" : "listboxsingle";
-                return  <div className={style} key={array[index].id}>
-                <Learn styleName={style} list={array}/>
-                </div>
-              }) 
-          }
+      <ArticleListPage article={article}/>
+      
     </main>
   )
 }

@@ -1,11 +1,4 @@
 import React from 'react';
-import Button from '../../shared/button';
-
-
-const handleClick = (evemt) => {
-    console.log("Button clicked ");
-}
-
 
 const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => {
     
@@ -25,8 +18,8 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
         
        numbers && 
        <>
-            <ul className="numbers-container">{numbersAray}</ul>
-            <Button label={label} disabled={true} onClick={handleClick} styles="button button-primary" role="button" icon="label"/>
+            <div className="contain listnostyle addlargefont">{numbersAray}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScZU1lVUDZoruKzT86MV1Ko0v7LTBSA9-Y8fd9a-I73-jv2KA/viewform" className="numbers button">{label}</a></div>
          </>
     );
 }
