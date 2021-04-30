@@ -1,21 +1,20 @@
-import Button from '../shared/button';
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Numbers from './badge/'
 import SideMenu from "../sidemenu/";
 import useOukapi from '../../helpers/dataFetch';
 import CardList from './Cards/CardList';
-import LinksList from '../links/LinksList';
-import { Fragment } from 'react';
 import Title from '../shared/title';
 
 //build a picture
- const WhoIsUsing= ({ styles, disabled }) => {
+const WhoIsUsing = () => {
 
- //use styles prop
+    //use styles prop
 
     const getObjects = (orgSections) => {
-       
+
         let titles = orgSections.filter(org => org.title);
-       
+
         return titles.map(title => {
             return title.title
         });
@@ -28,60 +27,52 @@ import Title from '../shared/title';
 
     }
 
-
-    const handleClick = (event) => {
-        console.log("Button clicked,  define handler");
-    }
-
     const BASE_URL = process.env.REACT_APP_BASE_URL;
     const REACT_APP_WHO_IS_USING_PAGE = process.env.REACT_APP_WHO_IS_USING_PAGE;
 
-    const [{data, isError}, isFetching] = useOukapi(`${BASE_URL}${REACT_APP_WHO_IS_USING_PAGE}`);
-    const {pageTitle, numbers, id, orgSections, caseStudiesLink, underNumbersText } = data
+    const [{ data, isError }, isFetching] = useOukapi(`${BASE_URL}${REACT_APP_WHO_IS_USING_PAGE}`);
+    const { pageTitle, numbers, id, orgSections, caseStudiesLink, underNumbersText, registerLink } = data
 
-
-    const label = "Register your organisation"; //check if comes through from backend
-    console.log("data", data) //check no unnecessary update
-  
     //need id make sure all keys set
     console.log(id);
- 
+
+    if (isFetching || isError) return null;
+
     return (
-        !isFetching && !isError &&  (<main id="content" className="main">
-            
-          
-              <div className="flexcontainer">
-            <SideMenu subMenu={getObjects(orgSections)} />
-            <div className="flex-right">
-        <h1>{pageTitle}</h1>
-        <p>{underNumbersText}</p>
-      
-       <Numbers  numbers={numbers} />
-       
-        <Button label={label} disabled={disabled} onClick={handleClick} styles="style" role="button" icon="label" />
-       
-        { caseStudiesLink && <ul className="listnostyle tempstyle"><LinksList list={caseStudiesLink} /></ul> }
+        <main id="content" className="main-container">
+            <div className="page-container flex-container">
+                <SideMenu subMenu={getObjects(orgSections)} />
+                <article className="flex-right">
+                    <h1>{pageTitle}</h1>
 
-         
-         
-                { orgSections &&  getGroups(orgSections).map(organisation => 
-                    {
-                        return <Fragment key={`${organisation.id}grouptitle}`}> 
-                            <Title title={organisation.title}/>  
-                         <div id={`${organisation.id}_title`} className="cardgrid">
-                        <CardList key={organisation.id} organisationList={organisation.Organisation} type="org" />
-                        </div>
+                    <Numbers numbers={numbers} />
+                    <p>{underNumbersText}</p>
+
+                    <a href={registerLink.url} className="button button-primary">
+                        {registerLink.TextToDisplay}
+                    </a>
+
+                    <Link to={caseStudiesLink.url} >{caseStudiesLink.TextToDisplay}</Link>
+
+
+
+                    {orgSections && getGroups(orgSections).map((organisation, index) => {
+                        return <Fragment key={`${organisation.id}grouptitle}`}>
+                            <Title title={organisation.title} id={`section-${index + 1}-heading`} />
+                            <div id={`${organisation.id}_title`} className="cardgrid">
+                                <CardList key={organisation.id} organisationList={organisation.Organisation} type="org" />
+                            </div>
                         </Fragment>
-                      
+
                     })
-            }
-            
-         </div>
+                    }
 
-    </div>
+                </article>
 
-</main>)
-)
+            </div>
+
+        </main>
+    )
 
 }
 export default WhoIsUsing;
