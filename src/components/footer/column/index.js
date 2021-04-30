@@ -1,21 +1,12 @@
 import React from 'react';
-import Title from '../tiles';
-import LinksList from '../../links/LinksList';
+import FooterLinksSection from "./FooterLinksSection";
 
-const FooterColumn = ({ title, links }) => {
+const FooterColumn = ({ title, links, subSection }) => {
 
   return (
     <div className="footer__column">
-      <Title title={title}/>
-      <ul>
-      {
-        links.map(link => {
-          // TODO: review this - try and more somewhere more sensible + make more robust
-          if (link.url.startsWith("http")) link.external = true;
-          
-          return <LinksList key={link.id} list={link} />
-        })}
-      </ul>
+      <FooterLinksSection title={title} links={links}/>
+      {subSection}
     </div>
   )
 
