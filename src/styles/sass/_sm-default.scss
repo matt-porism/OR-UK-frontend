@@ -63,6 +63,7 @@ small {
   background-color: white;
   padding-top: $padMedium;
   padding-bottom: $padMedium;
+  margin-bottom: $padLarge;
 }
 
 .figure-block blockquote { // for homepage quote
@@ -88,6 +89,11 @@ blockquote { // for content quotes
 
   p:first-of-type {
     margin: 0;
+  }
+}
+main article {
+  blockquote { // for content quotes
+    margin: $padMedium 0;
   }
 }
 
@@ -142,7 +148,6 @@ li {
 .button-secondary {
   box-shadow: inset 0px 0px 0px 3px $color-blue-light;
   background-color: white;
-  -webkit-text-fill-color: $color-blue-dark;  //I will also check particularly on flexbox vendor specific
   color: $color-blue-dark;
   font-weight: $midWeight;
 }
@@ -151,6 +156,16 @@ li {
   background-color: white;
   -webkit-text-fill-color: $color-blue-dark;
   color: $color-blue-dark;
+
+  &:hover {
+    -webkit-text-fill-color: inherit;
+  }    
+  &:focus {
+    -webkit-text-fill-color: inherit;
+  }
+  &:active {
+    -webkit-text-fill-color: inherit;
+  }
 }
 
 .button-small {
@@ -222,6 +237,29 @@ li {
   }
 }
 
+table {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  width: 100%;
+  border-bottom: 2px solid $color-brand;
+  border-collapse: collapse;
+
+  thead th {
+    font-weight: $boldWeight;
+    border-top: 3px solid $color-brand;
+    border-bottom: 3px solid $color-brand;
+    text-align: left;
+  }
+
+  tr {
+    border-bottom: 2px solid $color-brand;
+  }
+
+  th, td {
+    padding: 0.5em 0.25em;
+  }
+}
+
 .page-container {
   max-width: 1100px;
   padding: 0 $gutter;
@@ -231,6 +269,25 @@ li {
 
 .main-container {
   margin-top: $padMedium;
+}
+
+main article { // article page content, pulled from CMS
+  h2 {
+    margin-top: 2em;
+  }
+
+  h1 + h2 {
+    margin-top: 1em;
+  }
+
+  h3 {
+    margin-top: 1em;
+  }
+
+  blockquote { // for content quotes
+    margin: $padMedium 0;
+  }
+
 }
 
 /* ------------- COMPONENTS ------------- */
@@ -376,10 +433,8 @@ footer {
 }
 
 .sidebar {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 3;
-  grid-row-end: 6;
+  margin-bottom: $padSmall;
+  border-bottom: 2px solid $color-brand-20;
 
   .sidebar__heading {
     font-size: 0.875rem;
@@ -403,13 +458,25 @@ footer {
   list-style-type: none;
 }
 
-.main {
-  grid-column-start:1;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 6;
-  min-height: 400px;
-  padding-top: $padMedium;
+footer {
+  background-color: $color-brand-darker;
+  color: white;
+
+  ul li {
+    list-style-type: none;
+
+    a {
+      color: white;
+    }
+    
+  }
+
+  a {
+    color: white;
+    &:visited {
+      color: white;
+    }
+  }
 }
 
 .hero-container {
@@ -419,6 +486,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 100%;
+  margin-bottom: $padLarge;
 
   h1 {
     color: $color-brand-darker;
@@ -429,6 +497,7 @@ footer {
   background: $color-blue-dark;
   border-color: $color-blue-dark;
   color: $color-white;
+  margin-top: $padLarge;
 
   a {
     color: $color-white;
@@ -437,6 +506,7 @@ footer {
 
 .who {
   @include cardbox-dark;
+  margin-bottom: $padLarge;
 
   .numbers-container {
     list-style-type: none;
@@ -457,6 +527,10 @@ footer {
     }
   }
 
+  .button-primary {
+    margin-bottom: $padSmaller;
+  }
+
   ul {
     margin-bottom: $padSmall;
   }
@@ -470,7 +544,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $gutter;
-    margin-top: $padSmall;
+    margin-top: $padSmaller;
 
     li {
       @include cardbox;
@@ -536,10 +610,7 @@ footer {
   @include cardbox;
   margin-bottom: $padMedium;
   width: 100%;
-  // max-height: 25rem; // why was this here?
-  // overflow: hidden; // why was this here?
   position: relative;
-  
 }
 
 .contain {
