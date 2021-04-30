@@ -4,7 +4,6 @@ import LinkExternal from '../footer/LinkExternal';
 
 const LinksList = ({list}) => {
 
-	/* when no id what do we want? */
 	list.labelText = list.TextToDisplay /*needs testing can we add in cms */
 	return (
 		
@@ -20,7 +19,7 @@ const LinksList = ({list}) => {
 							</Link>
 						</li> ) : (
 						<li key={list.id}>	
-							<LinkExternal link={list} rel="noreferrer" target="_blank" />
+							<LinkExternal link={list} />
 							</li>
 						)
 						:null
