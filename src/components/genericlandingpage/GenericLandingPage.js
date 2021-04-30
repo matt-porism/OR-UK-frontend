@@ -28,10 +28,6 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
 
   if (isError || !article) return null;
 
-  let listBoxLinks = [...article.links];
-  let splitArray = [];
-
-
   return (
     <main className="main-container">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
