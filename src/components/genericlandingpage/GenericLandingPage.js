@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ArticleListPage from './ArticleListPage';
 import ContentPage from "../page";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -29,14 +30,13 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
 
   let listBoxLinks = [...article.links];
   let splitArray = [];
-  while(listBoxLinks.length) {
-    splitArray.push(listBoxLinks.splice(0,2))
-  }
+
 
   return (
     <main className="main-container">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
-     
+      <ArticleListPage article={article}/>
+      
     </main>
   )
 }
