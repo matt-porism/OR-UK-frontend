@@ -5,6 +5,7 @@ import SideMenu from "../sidemenu/";
 import useOukapi from '../../helpers/dataFetch';
 import CardList from './Cards/CardList';
 import Title from '../shared/title';
+import LinkWithTitleSection from "./LinkWithTitleSection";
 
 //build a picture
 const WhoIsUsing = () => {
@@ -45,21 +46,6 @@ const WhoIsUsing = () => {
     //need id make sure all keys set
     console.log(id);
 
-    let registerLinkWithTitleSection = null;
-    if (registerLinkWithTitle) {
-        registerLinkWithTitleSection = (
-        <>
-            <hr/>
-            <section>
-                <h3>{registerLinkWithTitle.title}</h3>
-                <Link to={registerLinkWithTitle.link.url}>
-                    {registerLinkWithTitle.link.TextToDisplay}
-                </Link>
-            </section>
-        </>
-        )
-    }
-
     if (isFetching || isError) return null;
 
     return (
@@ -91,7 +77,7 @@ const WhoIsUsing = () => {
                     })
                     }
 
-                    {registerLinkWithTitleSection}
+                    <LinkWithTitleSection {...registerLinkWithTitle}/>
 
                 </article>
 
