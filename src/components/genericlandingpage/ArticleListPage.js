@@ -10,7 +10,7 @@ const ArticleListPage = ({article}) => {
           
           //   URL API does not work because of relatives
           if (link.TextToDisplay && link.TextToDisplay === "Community forum") link.external = true; 
-          return <ul key={link.id ? link.id: index} className="listnostyle"><LinkCard linkItem={link} styleName="card-content"/></ul>
+          return <LinkCard linkItem={link} styleName="listnostyle card-content"/>
         })}
         </div>
   )
