@@ -42,7 +42,7 @@ const GenericContentPage = ({ cmsLocation, articleType }) => {
   }
 
   return (
-    <main className="main-container">
+    <main id="content" className="main-container">
       <div className="page-container flex-container">
         <SideMenu subMenu={sectionHeadings} />
         <article className="flexright">

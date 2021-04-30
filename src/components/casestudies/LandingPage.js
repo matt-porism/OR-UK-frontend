@@ -28,7 +28,7 @@ const CaseStudiesLandingPage = ({styleName}) => {
   });
 
   return (
-    <main className={styleName} role="main" aria-label="main">
+    <main id="content" className={styleName} role="main" aria-label="main">
       <ContentPage title={`<h1>${title}</h1>`} introParagraph={introParagraph} />
       <ul>
         {caseStudyOverviewElements}
