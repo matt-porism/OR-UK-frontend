@@ -317,6 +317,9 @@ li {
 footer {
   .footer__top {
     padding-top: $padSmall;
+  }
+
+  .banner {
     padding-bottom: $padSmall;
   }
 
@@ -332,16 +335,20 @@ footer {
   }
 
   .footer__column {
-    margin-bottom: 30px;
+    margin-bottom: $padSmall;
   }
 
-  .footer_bottom {
+  .footer__column__subsection {
+    margin-top: $padSmall;
+  }
+
+  .footer__bottom {
     background-color: $color-text;
-    padding-top: 30px;
+    padding-top: $padSmall;
   }
 
   .footnotegrid {
-    padding-bottom: 30px;
+    padding-bottom: $padSmall;
   }
 
 }

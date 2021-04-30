@@ -164,6 +164,11 @@ footer {
     grid-gap: 1em;
   }
 
+  .footer__bottom {
+    padding-top: $padMedium;
+    margin-top: $padSmall;
+  }
+
 }
 
 .footergrid {

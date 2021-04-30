@@ -186,27 +186,18 @@ h2 {
   flex-basis: 67%;
 }
 
-.footer {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-start: 7;
-  grid-row-end: 7;
-}
-
 .banner {
   display: flex;
   grid-column: 2/span 4;
   grid-row: 1;
 }
 
-.footergrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 2.0em;
-  padding: 0.5rem;
-}
-
 footer {
+
+  .footer__bottom {
+    padding-top: $padLarge;
+    margin-top: $padMedium;
+  }
   
   .footnotegrid {
     display: flex;

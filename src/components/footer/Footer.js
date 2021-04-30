@@ -52,9 +52,7 @@ const Footer = ({ footerProps, styleName }) => {
       <div className="page-container">
         <div className="footer__top">
           <Banner />
-        </div>
-
-
+        
         <div className="footerwrapper">
           <div className="footer__column">
             <Title title="Our stakeholders" />
@@ -65,9 +63,11 @@ const Footer = ({ footerProps, styleName }) => {
           <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true}/>
           <FooterColumn links={[contactUs.link]} title={contactUs.title} subSection={technicalSection}/>
         </div>
+
+        </div>
       </div>
 
-      <div className="footer_bottom">
+      <div className="footer__bottom">
         <div className="page-container">
           <div className="footerwrapper">
             <FooterColumn links={about.links} title={about.title} />
