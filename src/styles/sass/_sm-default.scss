@@ -162,12 +162,14 @@ li {
   &:hover {
     background-color: $color-blue-darker;
     color: $color-highlight;
+    -webkit-text-fill-color: $color-highlight;
     cursor: pointer;
     box-shadow: 0px 0px 0px 4px $color-highlight;
     text-decoration: none;
   }    
   &:focus {
     color: $color-text;
+    -webkit-text-fill-color: $color-text;
     background-color: $color-highlight;
     outline: 0;
     text-decoration: none;
@@ -175,6 +177,7 @@ li {
   }
   &:active {
     color: $color-text;
+    -webkit-text-fill-color: $color-text;
     background-color: $color-highlight;
     box-shadow: none;
     text-decoration: none;
