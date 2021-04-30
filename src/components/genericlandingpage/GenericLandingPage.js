@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import ContentPage from "../page";
-import CardList from '../home/card/index';
-import LinkCard from '../home/card/LinkCard'
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
@@ -38,15 +36,7 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
   return (
     <main className="main-container">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
-      {article.links &&
-                        ( <div id={`${article.links.id}_title`} className="cardgrid">
-                          {article.links.map (link => {
-                            return <ul className="listnostyle"><LinkCard linkItem={link} styleName="card-content"/></ul>
-                          })}
-                            
-                        
-                        </div>)
-}
+      
     </main>
   )
 }
