@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import ContentPage from "../page";
-import Learn from '../home/Learn';
+import CardList from '../home/card/index';
+import LinkCard from '../home/card/LinkCard'
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
 const GenericLandingPage = ({cmsLocation, articleType}) => {
 
@@ -28,8 +30,6 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
   if (isError || !article) return null;
 
   let listBoxLinks = [...article.links];
-  let style;
-  let itemCount = 2;
   let splitArray = [];
   while(listBoxLinks.length) {
     splitArray.push(listBoxLinks.splice(0,2))
@@ -38,13 +38,15 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
   return (
     <main className="main-container">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
-      { splitArray && splitArray.length > 0 && splitArray.map ((array, index) => {
-             style = splitArray[index].length === itemCount ?  "listbox" : "listboxsingle";
-                return  <div className={style} key={array[index].id}>
-                <Learn styleName={style} list={array}/>
-                </div>
-              }) 
-          }
+      {article.links &&
+                        ( <div id={`${article.links.id}_title`} className="cardgrid">
+                          {article.links.map (link => {
+                            return <ul className="listnostyle"><LinkCard linkItem={link} styleName="card-content"/></ul>
+                          })}
+                            
+                        
+                        </div>)
+}
     </main>
   )
 }
