@@ -17,7 +17,7 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
     
     const numbersAray =  keyArray.map(number => {
        
-        return <div className="numbers" key={number}>{numbers[number]}<p>{number}</p></div> 
+        return <li className="numbers" key={number}><span>{numbers[number]}</span>{number}</li> 
 
     } );
 
@@ -25,8 +25,8 @@ const Badge = ( {OrganisationsIntroText, numbers, title, linkTitle, label }) => 
         
        numbers && 
        <>
-            <div className="contain listnostyle addlargefont">{numbersAray}
-            <Button label={label} disabled={true} onClick={handleClick} styles="numbers" role="button" icon="label"/></div>
+            <ul className="numbers-container">{numbersAray}</ul>
+            <Button label={label} disabled={true} onClick={handleClick} styles="button button-primary" role="button" icon="label"/>
          </>
     );
 }

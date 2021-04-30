@@ -59,6 +59,40 @@
   min-height: 400px;
 }
 
+.hero-container {
+  grid-template-columns: 1fr 0.75fr;
+}
+
+.figure-block blockquote { // for homepage quote
+  font-size: 1.375rem;
+  line-height: 1.65;
+}
+
+.who {
+  background-image: url(../../assets/home-who-graphic.svg);
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: top right;
+
+  .numbers-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .numbers {
+    span {
+      font-size: 3rem;
+    }
+  }
+
+  .home-card-content {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    li {
+      height: 5em;
+    }
+  }
+}
+
 #learn {
   grid-column-start: 2;
   grid-column-end: 5;
