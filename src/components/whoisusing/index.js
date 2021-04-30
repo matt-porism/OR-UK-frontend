@@ -31,10 +31,34 @@ const WhoIsUsing = () => {
     const REACT_APP_WHO_IS_USING_PAGE = process.env.REACT_APP_WHO_IS_USING_PAGE;
 
     const [{ data, isError }, isFetching] = useOukapi(`${BASE_URL}${REACT_APP_WHO_IS_USING_PAGE}`);
-    const { pageTitle, numbers, id, orgSections, caseStudiesLink, underNumbersText, registerLink } = data
+    const {
+        pageTitle, 
+        numbers, 
+        id, 
+        orgSections, 
+        caseStudiesLink, 
+        underNumbersText, 
+        registerLink,
+        registerLinkWithTitle
+     } = data
 
     //need id make sure all keys set
     console.log(id);
+
+    let registerLinkWithTitleSection = null;
+    if (registerLinkWithTitle) {
+        registerLinkWithTitleSection = (
+        <>
+            <hr/>
+            <section>
+                <h3>{registerLinkWithTitle.title}</h3>
+                <Link to={registerLinkWithTitle.link.url}>
+                    {registerLinkWithTitle.link.TextToDisplay}
+                </Link>
+            </section>
+        </>
+        )
+    }
 
     if (isFetching || isError) return null;
 
@@ -66,6 +90,8 @@ const WhoIsUsing = () => {
 
                     })
                     }
+
+                    {registerLinkWithTitleSection}
 
                 </article>
 
