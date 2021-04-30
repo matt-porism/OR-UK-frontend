@@ -10,6 +10,9 @@ const FooterColumn = ({ title, links }) => {
       <ul>
       {
         links.map(link => {
+          // TODO: review this - try and more somewhere more sensible + make more robust
+          if (link.url.startsWith("http")) link.external = true;
+          
           return <LinksList key={link.id} list={link} />
         })}
       </ul>
