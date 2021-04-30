@@ -52,7 +52,7 @@ import Title from '../shared/title';
           
               <div className="flexcontainer">
             <SideMenu subMenu={getObjects(orgSections)} />
-            <div className="flex-right">
+            <div className="flexright">
         <h1>{pageTitle}</h1>
         <p>{underNumbersText}</p>
       
