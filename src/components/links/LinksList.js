@@ -15,7 +15,7 @@ const LinksList = ({list}) => {
 					list.id  !== "" ?
 					  list && !list.external ?
 						( <li key={list.id}>
-						 <Link aria-label={list.labelText} to={list.url}>
+						 <Link to={list.url}>
 								{list.TextToDisplay}
 							</Link>
 						</li> ) : (
