@@ -1,5 +1,5 @@
 import Title from '../tiles';
-import LinksList from '../../links/LinksList';
+import LinkListItem from '../../links/LinkListItem';
 
 const FooterLinksSection = ({title, links}) => {
   return (
@@ -8,10 +8,8 @@ const FooterLinksSection = ({title, links}) => {
       <ul>
         {
           links.map(link => {
-            // TODO: review this - try and more somewhere more sensible + make more robust
-            if (link.url.startsWith("http")) link.external = true;
 
-            return <LinksList key={link.id} list={link} />
+            return <LinkListItem key={link.id} link={link} />
           })}
       </ul>
     </>
