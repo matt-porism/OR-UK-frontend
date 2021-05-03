@@ -7,7 +7,7 @@ import LinkExternal from '../footer/LinkExternal';
 const Header = ({ mainMenu, topMenuId }) => {
   const link = {
     url:"https://developers.openreferraluk.org",
-    TextToDisplay: "For developers",
+    textToDisplay: "For developers",
     labelText: "For developers",
     external: true
   }

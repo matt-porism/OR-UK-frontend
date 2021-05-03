@@ -34,7 +34,7 @@ function HomePage({ homePageProps, classname }) {
             <div className="page-container">
                 <Section headingText={title} bodyText={body} styleName="section" />
                 <InjectHtml paragraphText={introParagraph} />
-                {caseStudiesLink && caseStudiesLink.id && <p id="case-studies" className="card-content"><Link to={caseStudiesLink.url}>{caseStudiesLink.TextToDisplay}</Link></p>}&nbsp;
+                {caseStudiesLink && caseStudiesLink.id && <p id="case-studies" className="card-content"><Link to={caseStudiesLink.url}>{caseStudiesLink.textToDisplay}</Link></p>}&nbsp;
             </div>
 
             {quote && <figure role="figure" className="figure-block">

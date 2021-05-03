@@ -37,7 +37,7 @@ const GenericContentPage = ({ cmsLocation, articleType }) => {
   if (article.ReadNextLink) {
     readNextLink = (<><hr />
       <Link to={article.ReadNextLink.url}>
-        {article.ReadNextLink.TextToDisplay}
+        {article.ReadNextLink.textToDisplay}
       </Link></>)
   }
 
