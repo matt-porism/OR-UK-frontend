@@ -20,28 +20,6 @@ const LinkListItem = ({ link }) => {
 			{linkElToRender}
 		</li>
 	)
-
-	// return (
-
-	// 				<>
-
-	// 				{ 
-
-	// 				link.id  !== "" ?
-	// 				  link && !link.external ?
-	// 					( <li key={link.id}>
-	// 					 <Link aria-label={link.labelText} to={link.url}>
-	// 							{link.textToDisplay}
-	// 						</Link>
-	// 					</li> ) : (
-	// 					<li key={link.id}>	
-	// 						<LinkExternal link={link} rel="noreferrer" target="_blank" />
-	// 						</li>
-	// 					)
-	// 					:null
-	// 				}
-	// 					</>
-	// 		)
 }
 
 export default LinkListItem;

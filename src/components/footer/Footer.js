@@ -86,8 +86,6 @@ const Footer = ({ footerProps, styleName }) => {
               <div className="footer__column">
                 <Title title={community.title} />
                 {community.links.map(link => {
-                  //can probably check link domain here or see if anything in backend
-                  if (link.textToDisplay && link.textToDisplay === "Community Forum") link.external = true;
                   return <ul key={link.id}><LinkListItem link={link} /></ul>
                 })}
               </div>
