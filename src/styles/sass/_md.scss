@@ -52,6 +52,7 @@
 
 footer {
   .footer__top {
+    padding-top: $padLarge;
     padding-bottom: 0;
   }
 
@@ -77,6 +78,11 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
+  }
+
+  .footer__bottom {
+    padding-top: $padMedium;
+    margin-top: $padSmall;
   }
 
 }
