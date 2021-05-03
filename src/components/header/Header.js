@@ -19,7 +19,7 @@ const Header = ({ mainMenu, topMenuId }) => {
   };
 
   return (
-    <header className="global-header" role="banner" aria-label="Header">
+    <header className="global-header" role="banner">
       <div className="global-header__top-container page-container">
         <Link to="/" className="global-header__logo"><img src={logo} alt="Open Referral UK"/></Link>
         <button onClick={toggleClass} 
