@@ -1,5 +1,5 @@
 import React from 'react';
-import LinksList from '../../links/LinksList';
+import LinkListItem from '../../links/LinkListItem';
 
 
 const LinkCard = ({ linkItem, styleName }) => {
@@ -8,7 +8,7 @@ const LinkCard = ({ linkItem, styleName }) => {
 
     return (
         <ul key={`${id}_ul`} className={styleName}>
-            <LinksList key={linkItem.id} styleName="listnostyle"  list={linkItem}/>
+            <LinkListItem key={linkItem.id} styleName="listnostyle"  link={linkItem}/>
           </ul>
     );
 };

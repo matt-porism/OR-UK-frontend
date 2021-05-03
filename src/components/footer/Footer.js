@@ -4,7 +4,7 @@ import Title from './tiles';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LinkExternal from './LinkExternal';
-import LinksList from "../links/LinksList";
+import LinkListItem from "../links/LinkListItem";
 import FooterColumn from './column';
 //review refactor
 //todo - terms and conditions policy to go into grid
@@ -57,7 +57,7 @@ const Footer = ({ footerProps, styleName }) => {
 
           <div className="footer__column">
             <Title title={contactUs.title} />
-            <ul key={contactUs.id}><LinksList list={contactUs.link} /></ul>
+            <ul key={contactUs.id}><LinkListItem link={contactUs.link} /></ul>
           </div>
 
         </div>
@@ -72,7 +72,7 @@ const Footer = ({ footerProps, styleName }) => {
             <div className="footer__column">
                 <Title title={about.title} />
                 {about.links && about.links.map(link => {
-                  return <ul key={link.id}><LinksList list={link} /></ul>
+                  return <ul key={link.id}><LinkListItem link={link} /></ul>
                 })}
               </div>
 
@@ -88,7 +88,7 @@ const Footer = ({ footerProps, styleName }) => {
                 {community.links.map(link => {
                   //can probably check link domain here or see if anything in backend
                   if (link.textToDisplay && link.textToDisplay === "Community Forum") link.external = true;
-                  return <ul key={link.id}><LinksList list={link} /></ul>
+                  return <ul key={link.id}><LinkListItem link={link} /></ul>
                 })}
               </div>
             

@@ -1,7 +1,7 @@
 import React from 'react';
 import CompanyLogo from '../../artefacts/logo';
 
-import LinksList from '../../links/LinksList';
+import LinkListItem from '../../links/LinkListItem';
 import Title from '../../shared/title/';
 //use generic
 
@@ -26,7 +26,7 @@ const Card = ({organisation, styleName}) => {
 
         { orgLinks && Object.keys(orgLinks).length > 0 && orgLinks.map(orgLink => {
             orgLink.external = true;
-            return <LinksList key={`${id}${orgLink.id}`} styleName="listnostyle"  list={orgLink}/>
+            return <LinkListItem key={`${id}${orgLink.id}`} styleName="listnostyle"  link={orgLink}/>
         }) 
         }
         </ul>

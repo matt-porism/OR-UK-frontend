@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import LinksList from '../../links/LinksList';
+import LinkListItem from '../../links/LinkListItem';
 
 const FooterColumn  = ({title, links, styles}) => {
     return(
     <Fragment>
   { 
     links.map(link => {
-      return <ul key={link.id}><LinksList list={link}/></ul>
+      return <ul key={link.id}><LinkListItem link={link}/></ul>
     })}
   </Fragment>
     )

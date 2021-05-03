@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import LinksList from '../../links/LinksList';
+import LinkListItem from '../../links/LinkListItem';
 
 
 const Learn = ({list}) => {
@@ -8,7 +8,7 @@ const Learn = ({list}) => {
     <Fragment>
         { 
             list.map((item) => {
-            return <section key={item.id}><ul><LinksList list={item} /></ul></section>
+            return <section key={item.id}><ul><LinkListItem link={item} /></ul></section>
         }) 
     }
      </Fragment>

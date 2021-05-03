@@ -3,7 +3,7 @@ import Numbers from './badge/'
 import SideMenu from "../sidemenu/";
 import useOukapi from '../../helpers/dataFetch';
 import CardList from './Cards/CardList';
-import LinksList from '../links/LinksList';
+import LinkListItem from '../links/LinkListItem';
 import { Fragment } from 'react';
 import Title from '../shared/title';
 
@@ -60,7 +60,7 @@ import Title from '../shared/title';
        
         <Button label={label} disabled={disabled} onClick={handleClick} styles="style" role="button" icon="label" />
        
-        { caseStudiesLink && <ul className="listnostyle tempstyle"><LinksList list={caseStudiesLink} /></ul> }
+        { caseStudiesLink && <ul className="listnostyle tempstyle"><LinkListItem link={caseStudiesLink} /></ul> }
 
          
          
