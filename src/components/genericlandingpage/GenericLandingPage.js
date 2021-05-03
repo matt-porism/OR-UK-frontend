@@ -29,7 +29,7 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
   if (isError || !article) return null;
 
   return (
-    <main className="main-container">
+    <main className="main-container" id="content">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
       <ArticleListPage article={article}/>
       
