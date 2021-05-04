@@ -9,20 +9,22 @@ const SideMenu = ({ subMenu }) => {
 		//TO DO select the active sub menu item probably based off the URL passed to the API
 
 		<>
-			<div className="sidebar flex-left">
-				<h2 className="sidebar__heading">On this page</h2>
-				<ul>
-					{subMenu.map( (menuItem, index) => {
-						return (
-							<li key={index}>
-								<AnchorLink href={`#section-${index+1}-heading`}>
-									{menuItem}
-								</AnchorLink>
-							</li>
-						)
-					})}
-				</ul>
-			</div>
+			<aside className="sidebar flex-left">
+				<h4 className="sidebar__heading">On this page</h4>
+				<nav>
+					<ul>
+						{subMenu.map((menuItem, index) => {
+							return (
+								<li key={index}>
+									<AnchorLink href={`#section-${index + 1}-heading`}>
+										{menuItem}
+									</AnchorLink>
+								</li>
+							)
+						})}
+					</ul>
+				</nav>
+			</aside>
 		</>
 	)
 }
