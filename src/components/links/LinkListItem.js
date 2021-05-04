@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import LinkExternal from '../footer/LinkExternal';
 
 const LinkListItem = ({ link }) => {
-	console.log(`🏓🏓🏓 link `, link);
 	if (!link) return null;
 
 	let linkElToRender;
