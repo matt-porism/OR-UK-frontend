@@ -163,6 +163,10 @@ main article blockquote { // for content quotes // article page content, pulled 
   }
 }
 
+.cardgrid {
+  gap: 1.5rem;
+}
+
 #learn {
   grid-column-start: 2;
   grid-column-end: 5;
