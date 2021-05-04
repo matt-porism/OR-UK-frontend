@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import ContentPage from '../page'
 import CaseStudyOverview from './CaseStudyOverview';
 import InjectHtml from "../home/InjectHtml";
 import useOukapi from '../../helpers/dataFetch';
