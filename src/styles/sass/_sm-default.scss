@@ -212,10 +212,24 @@ li {
   background-color: white;
   display: inline-block;
   line-height: 1;
+  min-width: 0.75em;
 
   svg { // button icon
     height: 0.75em;
     margin-right: 0.25em;
+    fill: inherit;
+  }
+
+  &:hover {
+    svg path { // button icon
+      fill: $color-highlight;
+    }
+  }
+  &:focus,
+  &:active {
+    svg path { // button icon
+      fill: $color-text;
+    }
   }
 }
 .button-header.active {
@@ -226,13 +240,29 @@ li {
   svg path { // button icon
     fill: white;
   }
+  &:hover {
+    svg path { // button icon
+      fill: $color-highlight;
+    }
+  }
   &:focus {
     color: $color-highlight;
+    -webkit-text-fill-color: $color-highlight;
     background-color: $color-blue-darker;
     box-shadow: 0px 0px 0px 3px $color-highlight;
   
     svg path { // button icon
       fill: $color-highlight;
+    }
+  }
+  &:active {
+    color: $color-text;
+    -webkit-text-fill-color: $color-text;
+    background-color: $color-highlight;
+    box-shadow: 0px 0px 0px 4px $color-highlight, inset 0px 0px 0px 3px $color-text;
+  
+    svg path { // button icon
+      fill: $color-text;
     }
   }
 }
