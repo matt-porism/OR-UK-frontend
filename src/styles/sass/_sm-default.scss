@@ -641,15 +641,11 @@ footer {
   }
 }
 
-.readlinkscard {
-  list-style: none;
-  padding: 0;
-}
-.readlinksitem {
-  
-  border: 1px solid $color-brand;
-  border-radius: 4px;
-  padding: 0.5rem;
+.card-link-container {
+  li {
+    @include cardbox-dark;
+    margin-top: $padSmall;
+  }
 }
 
 /* ------------- HELPER CLASSES ------------- */
