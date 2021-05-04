@@ -6,14 +6,12 @@ const LinkListItem = ({ link }) => {
 	console.log(`🏓🏓🏓 link `, link);
 	if (!link) return null;
 
-	link.labelText = link.textToDisplay;
-
 	let linkElToRender;
 
 	if (link.isExternal) {
 		linkElToRender = <LinkExternal link={link} rel="noreferrer" target="_blank" />
 	} else {
-		linkElToRender = <Link to={link.url}>	{link.textToDisplay} </Link>
+		linkElToRender = <Link to={link.url}>	{link.TextToDisplay} </Link>
 	}
 
 	return (
