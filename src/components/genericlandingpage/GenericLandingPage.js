@@ -30,9 +30,10 @@ const GenericLandingPage = ({cmsLocation, articleType}) => {
 
   return (
     <main className="main-container" id="content">
+      <div className="page-container">
       <ContentPage title={`<h1>${article.title}</h1>`} introParagraph={article.introParagraph}/>
       <ArticleListPage article={article}/>
-      
+      </div>
     </main>
   )
 }
