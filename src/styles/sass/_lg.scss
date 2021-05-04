@@ -229,6 +229,13 @@ main article blockquote { // for content quotes // article page content, pulled 
   grid-row: 1;
 }
 
+.card-link-container {
+  a:first-of-type {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+}
+
 footer {
 
   .footer__bottom {

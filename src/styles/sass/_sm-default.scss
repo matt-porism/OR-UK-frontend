@@ -646,6 +646,11 @@ footer {
     @include cardbox-dark;
     margin-top: $padSmall;
   }
+  a:first-of-type {
+    font-size: 1.5rem;
+    font-weight: $boldWeight;
+    line-height: 1.4;
+  }
 }
 
 /* ------------- HELPER CLASSES ------------- */
