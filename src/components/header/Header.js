@@ -33,12 +33,9 @@ const Header = ({ mainMenu, topMenuId }) => {
           </svg>
           {isActive ? 'Close': "Menu"}
         </button>
-        {/* <a href="/developers" className="button button-secondary button-header show-md">
-          For developers
-        </a> */}
         <LinkExternal link={link} rel="noreferrer" styleName="button button-secondary button-header show-md" />
       </div>
-      <Navigator onClick={toggleClass} mainMenu={mainMenu} topMenuId={topMenuId.toString()} menuButton={isActive} />
+      <Navigator onClick={toggleClass} mainMenu={mainMenu} topMenuId={topMenuId.toString()} menuButton={isActive} developersLink={link}/>
     </header>
   );
 }
