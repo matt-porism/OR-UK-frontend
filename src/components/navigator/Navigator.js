@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import LinkExternal from '../footer/LinkExternal';
 
-const Navigator = ({mainMenu, topMenuId, menuButton, onClick}) => {
+const Navigator = ({mainMenu, menuButton, onClick, developersLink}) => {
   const isLongestMatch = (mainMenu, index) => {
     if (window.location.href.indexOf(mainMenu[index].link) === -1)
     {
@@ -37,9 +38,7 @@ const Navigator = ({mainMenu, topMenuId, menuButton, onClick}) => {
     
     <nav onClick={onClick} className={menuButton ? 'global-nav--open global-nav': "global-nav"}>
       <div className="page-container">
-        <a href="/developers" className="button button-secondary button-header hide-md">
-          For developers
-        </a>
+        <LinkExternal link={developersLink} rel="noreferrer" styleName="button button-secondary button-header hide-md" />
         <ul>
             {menuItems}
         </ul>
