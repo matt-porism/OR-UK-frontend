@@ -6,9 +6,9 @@ const CaseStudyOverview = ({CaseStudy, description, slugfield}) => {
   return (
     <li>
         <Link to={`case-studies/${slugfield}`}>
-          <h2>{title}</h2>
-          <p className="case-study-description">{description}</p>
+          {title}
         </Link>
+        <p className="case-study-description">{description}</p>
       </li>
   )
 };

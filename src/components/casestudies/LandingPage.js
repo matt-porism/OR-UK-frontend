@@ -32,7 +32,7 @@ const CaseStudiesLandingPage = () => {
       <main id="content" className="main-container" role="main">
         <h1>{title}</h1>
         <InjectHtml paragraphText={introParagraph} />
-        <ul className="readlinkscard">
+        <ul className="card-link-container listnostyle">
           {caseStudyOverviewElements}
         </ul>
       </main>
