@@ -1,11 +1,11 @@
 import React from 'react';
-import LinksList from '../links/LinksList';
+import LinkListItem from '../links/LinkListItem';
 
 
 const ReadNextItem = ({ linkItem, styleName }) => {
 
     return (
-            <LinksList key={linkItem.id} styleName={styleName}  list={linkItem}/>
+            <LinkListItem key={linkItem.id} styleName={styleName}  link={linkItem}/>
     );
 };
 
