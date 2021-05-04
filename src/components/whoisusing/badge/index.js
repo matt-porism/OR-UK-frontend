@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Numbers = ( {OrganisationsIntroText, numbers, title, linkTitle }) => {
+const Numbers = ({ numbers }) => {
 
     if (!numbers) return null;
     
