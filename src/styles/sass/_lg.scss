@@ -204,6 +204,11 @@ main article blockquote { // for content quotes // article page content, pulled 
     }
 }
 
+
+.sidebar {
+  padding-right: $padSmall;
+}
+
 .flex-left { 
   flex-basis: 33%; 
 }
