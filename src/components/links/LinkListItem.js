@@ -8,7 +8,7 @@ const LinkListItem = ({ link }) => {
 	let linkElToRender;
 
 	if (link.isExternal) {
-		linkElToRender = <LinkExternal link={link} rel="noreferrer" target="_blank" />
+		linkElToRender = <LinkExternal link={link} rel="noreferrer" />
 	} else {
 		linkElToRender = <Link to={link.url}>	{link.TextToDisplay} </Link>
 	}
