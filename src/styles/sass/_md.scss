@@ -105,6 +105,10 @@ footer {
 //   padding-top: 3rem;
 // }
 
+hr {
+  margin: $padMedium 0;
+}
+
 .main-container {
   margin-top: $padLarge;
 }
@@ -267,7 +271,6 @@ footer {
 
 
 .who {
-  padding: $padSmall;
 
   .numbers-container {
     display: grid;
@@ -279,6 +282,11 @@ footer {
       font-size: 2.75rem;
     }
   }
+}
+
+.who--homepage {
+  padding: $padSmall;
+
 
   .home-card-content {
     grid-template-columns: 1fr 1fr 1fr;
@@ -290,54 +298,46 @@ footer {
 }
 
     
-    .listbox {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 20px;
-      
-      ul {
-      list-style-type: none;
-      }
-    }
+.listbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 20px;
   
-    .listboxsingle {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 20px;
-      width: 49%;
-      
-      ul {
-      list-style-type: none;
-      }
-    }
-   /* width on last child */
-    .listbox > section {
-      flex: 1 1 auto;
-      margin-bottom: 20px;
-      width: 25%;
-      padding: 30px;
-    }
+  ul {
+  list-style-type: none;
+  }
+}
 
-    .listboxsingle > section {
-      flex: 1 1 auto;
-      margin-bottom: 20px;
-      width: 25%;
-      padding: 30px;
-    }
+.listboxsingle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 20px;
+  width: 49%;
+  
+  ul {
+  list-style-type: none;
+  }
+}
+/* width on last child */
+.listbox > section {
+  flex: 1 1 auto;
+  margin-bottom: 20px;
+  width: 25%;
+  padding: 30px;
+}
 
-    .usingcolumns {
-      flex: 50%;
-      padding: 0 0.5rem;
-    }
+.listboxsingle > section {
+  flex: 1 1 auto;
+  margin-bottom: 20px;
+  width: 25%;
+  padding: 30px;
+}
 
-    .cardgrid {
-      display: grid;
-      flex-wrap: wrap;
-      column-gap: 1.2rem;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      //justify-items: center;
-    }
+.cardgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
 
 
 .card {
@@ -370,11 +370,6 @@ footer {
 
 .card-content {
   padding: $padSmall;
-}
-
-.addlargefont {
-  font-size: 3vw;
-  font-weight: 600;
 }
 
 

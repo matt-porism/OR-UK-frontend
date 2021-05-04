@@ -33,15 +33,15 @@ const WhoIsUsing = () => {
 
     const [{ data, isError }, isFetching] = useOukapi(`${BASE_URL}${REACT_APP_WHO_IS_USING_PAGE}`);
     const {
-        pageTitle, 
-        numbers, 
-        id, 
-        orgSections, 
-        caseStudiesLink, 
-        underNumbersText, 
+        pageTitle,
+        numbers,
+        id,
+        orgSections,
+        caseStudiesLink,
+        underNumbersText,
         registerLink,
         registerLinkWithTitle
-     } = data
+    } = data
 
     //need id make sure all keys set
     console.log(id);
@@ -62,22 +62,22 @@ const WhoIsUsing = () => {
                         {registerLink.TextToDisplay}
                     </a>
 
-                    <Link to={caseStudiesLink.url} >{caseStudiesLink.TextToDisplay}</Link>
-
-
+                    <p>
+                        <Link to={caseStudiesLink.url} >{caseStudiesLink.TextToDisplay}</Link>
+                    </p>
 
                     {orgSections && getGroups(orgSections).map((organisation, index) => {
                         return <Fragment key={`${organisation.id}grouptitle}`}>
                             <Title title={organisation.title} id={`section-${index + 1}-heading`} />
-                            <div id={`${organisation.id}_title`} className="cardgrid">
+                            <ul id={`${organisation.id}_title`} className="cardgrid">
                                 <CardList key={organisation.id} organisationList={organisation.Organisation} type="org" />
-                            </div>
+                            </ul>
                         </Fragment>
 
                     })
                     }
 
-                    <LinkWithTitleSection {...registerLinkWithTitle}/>
+                    <LinkWithTitleSection {...registerLinkWithTitle} />
 
                 </article>
 
