@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import CardList from '../cardlist/';
 import Title from '../shared/title';
 import { Link } from 'react-router-dom';
+import ReadNextItem from '../readnext';
 
 //refactoring
 //look at structure of api response for page
@@ -19,7 +20,8 @@ function HomePage({ homePageProps, classname }) {
         BenefitsAndOpportunities,
         introParagraph,
         caseStudiesLink,
-        benefitsSection
+        benefitsSection,
+        readNextLinks
     } = homePageProps;
 
 
@@ -61,13 +63,15 @@ function HomePage({ homePageProps, classname }) {
                     </div>
                 }
                 <hr />
-                {/* this content does not seem to be in the backend yet reviewing, should be the learn about and features link
-         &&
-                        ( <div id={`${caseStudiesLink.id}_title`} className="cardgrid">
-                              <CardList key={caseStudiesLink.id} itemList={caseStudyLinks} />
-                        
+                { readNextLinks &&  
+                        ( <div>
+                            <ul className="readlinkscard">
+                              {readNextLinks.map((next, index) => { 
+                                return <ReadNextItem key={index} linkItem={next} styleName="listnostyle readlinksitem"/>
+                                })}
+                            </ul>
                         </div>)
-       */ }
+        }
        </div>
 
         </main>

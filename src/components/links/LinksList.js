@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import LinkExternal from '../footer/LinkExternal';
 
-const LinksList = ({list}) => {
+const LinksList = ({list, styleName }) => {
 
 	/* when no id what do we want? */
 	list.labelText = list.TextToDisplay /*needs testing can we add in cms */
@@ -14,7 +14,7 @@ const LinksList = ({list}) => {
 					
 					list.id  !== "" ?
 					  list && !list.external ?
-						( <li key={list.id}>
+						( <li key={list.id} className={styleName ? styleName: ""}>
 						 <Link to={list.url}>
 								{list.TextToDisplay}
 							</Link>
