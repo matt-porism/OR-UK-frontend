@@ -1,18 +1,18 @@
 import React from 'react';
 import LinkCard from '../home/card/LinkCard';
 
-const ArticleListPage = ({article}) => {
+const ArticleListPage = ({article, index}) => {
 
   return (
     article.links &&
-       <div id={`${article.links.id}_title`} className="cardgrid">
+       <div>
+         <ul className="readlinkscard">
         {article.links.map (link => {
-          return <ul className="listnostyle"><LinkCard linkItem={link} styleName="card-content"/></ul>
+         return <ReadNextItem key={link.id ? link.id : index} linkItem={link} styleName="listnostyle readlinksitem"/>
         })}
+        </ul>
         </div>
   )
-
-
       }
       export default ArticleListPage;
 
