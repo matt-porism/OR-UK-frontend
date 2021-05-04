@@ -9,7 +9,7 @@ const CompanyLogo = ({logo}) => {
 
     return (
         <>
-       {  formats && (formats.thumbnail) && <p key={id}><img src={BASE_URL ? `${BASE_URL}${formats.thumbnail.url }`:""} alt={alternativeText ? alternativeText : "company_logo"}/></p> }
+       {  formats && (formats.thumbnail) && <img src={BASE_URL ? `${BASE_URL}${formats.thumbnail.url }`:""} alt={alternativeText ? alternativeText : "company_logo"}/> }
        </>
     )
 }
