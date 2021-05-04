@@ -19,10 +19,10 @@ const Card = ({organisation, styleName}) => {
     }
 
     return (
-        <div key={id} className={styleName}>
+        <li key={id} className={styleName}>
             {logo}
         <Title title={orgTitle}/>
-        <ul className="listnostyle">
+        <ul className="listnostyle card__sub-list">
 
         { orgLinks && Object.keys(orgLinks).length > 0 && orgLinks.map(orgLink => {
             orgLink.external = true;
@@ -30,7 +30,7 @@ const Card = ({organisation, styleName}) => {
         }) 
         }
         </ul>
-          </div>
+          </li>
     );
 };
 
