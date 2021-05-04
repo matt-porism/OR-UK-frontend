@@ -414,6 +414,10 @@ footer {
   a, 
   a:active {
     color: inherit;
+    display: inline-block;
+  }
+  a:active {
+    box-shadow: 0px 2px 0px 0px white;
   }
 
   .footer__bottom {
@@ -462,28 +466,6 @@ footer {
 
 .listnostyle {
   list-style-type: none;
-}
-
-footer {
-  background-color: $color-brand-darker;
-  color: white;
-
-  ul li {
-    list-style-type: none;
-
-    a {
-      color: white;
-      display: block;
-    }
-    
-  }
-
-  a {
-    color: white;
-    &:visited {
-      color: white;
-    }
-  }
 }
 
 .hero-container {
