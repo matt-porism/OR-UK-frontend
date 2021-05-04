@@ -136,19 +136,22 @@ main article blockquote { // for content quotes // article page content, pulled 
 
 
 .who {
+  .numbers {
+    span {
+      font-size: 3rem;
+    }
+  }
+}
+
+.who--homepage {
   background-image: url(../../assets/home-who-graphic.svg);
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: top right;
 
+
   .numbers-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  .numbers {
-    span {
-      font-size: 3rem;
-    }
   }
 
   .home-card-content {
@@ -158,6 +161,10 @@ main article blockquote { // for content quotes // article page content, pulled 
       height: 5em;
     }
   }
+}
+
+.cardgrid {
+  gap: 1.5rem;
 }
 
 #learn {
@@ -202,6 +209,11 @@ main article blockquote { // for content quotes // article page content, pulled 
     ul li {
       text-align: left;
     }
+}
+
+
+.sidebar {
+  padding-right: $padSmall;
 }
 
 .flex-left { 

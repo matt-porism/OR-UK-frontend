@@ -7,7 +7,7 @@ const CardList = ({ organisationList, id, styles }) => {
             organisationList && organisationList.length > 0 && organisationList.map(organisation => 
                 {
            
-                    return <Card key={organisation.id} organisation={organisation}  styleName="card-content"/>
+                    return <Card key={organisation.id} organisation={organisation}  styleName="card-content listnostyle"/>
                
                 })
     )
