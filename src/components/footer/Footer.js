@@ -34,7 +34,7 @@ const Footer = ({ footerProps, styleName }) => {
   }, [footerProps]);
 
   useEffect(() => {
-    if (technicalFeedback){
+    if (technicalFeedback) {
       setTechnicalSection((
         <div className="footer__column__subsection">
           <FooterLinksSection links={[technicalFeedback.link]} title={technicalFeedback.title} />
@@ -52,17 +52,17 @@ const Footer = ({ footerProps, styleName }) => {
       <div className="page-container">
         <div className="footer__top">
           <Banner />
-        
-        <div className="footerwrapper">
-          <div className="footer__column">
-            <Title title="Our stakeholders" />
-            {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
-            <div>logos grid</div>
-          </div>
 
-          <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true}/>
-          <FooterColumn links={[contactUs.link]} title={contactUs.title} subSection={technicalSection}/>
-        </div>
+          <div className="footerwrapper">
+            <div className="footer__column">
+              <Title title="Our stakeholders" />
+              {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
+              <div>logos grid</div>
+            </div>
+
+            <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true} />
+            <FooterColumn links={[contactUs.link]} title={contactUs.title} subSection={technicalSection} />
+          </div>
 
         </div>
       </div>
@@ -71,7 +71,7 @@ const Footer = ({ footerProps, styleName }) => {
         <div className="page-container">
           <div className="footerwrapper">
             <FooterColumn links={about.links} title={about.title} />
-            <FooterColumn links={howItWorks.links} title={howItWorks.title}/>
+            <FooterColumn links={howItWorks.links} title={howItWorks.title} />
             <FooterColumn links={community.links} title={community.title} />
           </div>
 
@@ -79,11 +79,11 @@ const Footer = ({ footerProps, styleName }) => {
             <p>
               <small>Copyright &copy; 2019–2021 Open Referral UK</small>
             </p>
-              <ul>
-                <li key="1"><Link to="/accessibility-statement"><small>Accessibility statement</small></Link></li>
-                <li key="2"><Link to="/terms-conditions"><small>Terms &amp; Conditions</small></Link></li>
-                <li key="3"><Link to="/privacy-policy"><small>Privacy Policy</small></Link></li>
-              </ul>
+            <ul>
+              <li key="1"><Link to="/accessibility-statement"><small>Accessibility statement</small></Link></li>
+              <li key="2"><Link to="/terms-conditions"><small>Terms &amp; Conditions</small></Link></li>
+              <li key="3"><Link to="/privacy-policy"><small>Privacy Policy</small></Link></li>
+            </ul>
           </div>
 
         </div>
