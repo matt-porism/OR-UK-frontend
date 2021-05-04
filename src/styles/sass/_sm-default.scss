@@ -177,12 +177,14 @@ li {
   &:hover {
     background-color: $color-blue-darker;
     color: $color-highlight;
+    -webkit-text-fill-color: $color-highlight;
     cursor: pointer;
     box-shadow: 0px 0px 0px 4px $color-highlight;
     text-decoration: none;
   }    
   &:focus {
     color: $color-text;
+    -webkit-text-fill-color: $color-text;
     background-color: $color-highlight;
     outline: 0;
     text-decoration: none;
@@ -190,6 +192,7 @@ li {
   }
   &:active {
     color: $color-text;
+    -webkit-text-fill-color: $color-text;
     background-color: $color-highlight;
     box-shadow: none;
     text-decoration: none;
@@ -369,8 +372,14 @@ main article { // article page content, pulled from CMS
 }
 
 footer {
+    background-color: $color-brand-darker;
+    color: white;
+
   .footer__top {
     padding-top: $padSmall;
+  }
+
+  .banner {
     padding-bottom: $padSmall;
   }
 
@@ -386,16 +395,29 @@ footer {
   }
 
   .footer__column {
-    margin-bottom: 30px;
+    margin-bottom: $padSmall;
   }
 
-  .footer_bottom {
+  .footer__column__subsection {
+    margin-top: $padSmall;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+
+  a, 
+  a:active {
+    color: inherit;
+  }
+
+  .footer__bottom {
     background-color: $color-text;
-    padding-top: 30px;
+    padding-top: $padSmall;
   }
 
   .footnotegrid {
-    padding-bottom: 30px;
+    padding-bottom: $padSmall;
   }
 
 }
@@ -416,6 +438,7 @@ footer {
 
   .sidebar__heading {
     font-size: 0.875rem;
+    line-height: 1.8;
   }
 
   ul {
@@ -445,6 +468,7 @@ footer {
 
     a {
       color: white;
+      display: block;
     }
     
   }

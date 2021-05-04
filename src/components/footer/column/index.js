@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
-import LinksList from '../../links/LinksList';
+import React from 'react';
+import FooterLinksSection from "./FooterLinksSection";
 
-const FooterColumn  = ({title, links, styles}) => {
-    return(
-    <Fragment>
-  { 
-    links.map(link => {
-      return <ul key={link.id}><LinksList list={link}/></ul>
-    })}
-  </Fragment>
-    )
+const FooterColumn = ({ title, links, subSection }) => {
+
+  return (
+    <div className="footer__column">
+      <FooterLinksSection title={title} links={links}/>
+      {subSection}
+    </div>
+  )
 
 }
 export default FooterColumn;
