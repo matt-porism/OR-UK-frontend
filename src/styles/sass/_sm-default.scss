@@ -507,8 +507,6 @@ footer {
 }
 
 .who {
-  @include cardbox-dark;
-  margin-bottom: $padLarge;
 
   .numbers-container {
     list-style-type: none;
@@ -529,16 +527,21 @@ footer {
     }
   }
 
-  .button-primary {
-    margin-bottom: $padSmaller;
-  }
-
   ul {
     margin-bottom: $padSmall;
   }
 
   h2 {
     padding: 0;
+  }
+}
+
+.who--homepage {
+  @include cardbox-dark;
+  margin-bottom: $padLarge;
+
+  .button-primary {
+    margin-bottom: $padSmaller;
   }
 
   .home-card-content {

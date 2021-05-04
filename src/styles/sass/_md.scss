@@ -267,7 +267,6 @@ footer {
 
 
 .who {
-  padding: $padSmall;
 
   .numbers-container {
     display: grid;
@@ -279,6 +278,11 @@ footer {
       font-size: 2.75rem;
     }
   }
+}
+
+.who--homepage {
+  padding: $padSmall;
+
 
   .home-card-content {
     grid-template-columns: 1fr 1fr 1fr;
@@ -325,11 +329,6 @@ footer {
       padding: 30px;
     }
 
-    .usingcolumns {
-      flex: 50%;
-      padding: 0 0.5rem;
-    }
-
     .cardgrid {
       display: grid;
       flex-wrap: wrap;
@@ -370,11 +369,6 @@ footer {
 
 .card-content {
   padding: $padSmall;
-}
-
-.addlargefont {
-  font-size: 3vw;
-  font-weight: 600;
 }
 
 
