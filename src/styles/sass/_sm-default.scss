@@ -498,11 +498,19 @@ footer {
 #case-studies {
   background: $color-blue-dark;
   border-color: $color-blue-dark;
-  color: $color-white;
+  color: white;
   margin-top: $padLarge;
 
   a {
-    color: $color-white;
+    color: white;
+
+    &:focus {
+      color: $color-text;
+    }
+    &:active {
+      color: white;
+      box-shadow: 0px 2px 0px 0px white;
+    }
   }
 }
 
