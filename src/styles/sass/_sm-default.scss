@@ -402,6 +402,27 @@ footer {
 
   .footer__column {
     margin-bottom: $padSmall;
+
+    .home-card-content {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $gutter;
+      margin-top: $padSmaller;
+      border: 0;
+  
+      li {
+        padding: $gutter;
+        margin: 0;
+        height: 17.5vw;
+  
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
   }
 
   .footer__column__subsection {

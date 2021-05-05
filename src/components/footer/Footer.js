@@ -4,7 +4,8 @@ import Title from './tiles';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FooterColumn from './column';
-import FooterLinksSection from './column/FooterLinksSection'
+import FooterLinksSection from './column/FooterLinksSection';
+import CardList from '../shared/logocardlist';
 //review refactor
 //todo - terms and conditions policy to go into grid
 
@@ -17,6 +18,8 @@ const Footer = ({ footerProps, styleName }) => {
   const [contactUs, setContactLink] = useState({});
   const [technicalFeedback, setTechnicalFeedback] = useState(null);
   const [technicalSection, setTechnicalSection] = useState(null);
+  const [governanceBoardLogos, setGovernanceBoardLogos] = useState([]);
+  const [id, setGovernanceBoardId] = useState(101);
 
 
   useEffect(() => {
@@ -29,6 +32,8 @@ const Footer = ({ footerProps, styleName }) => {
       if (footerProps.getInvolved) setInvolvedLinks(footerProps.getInvolved);
       if (footerProps.contact) setContactLink(footerProps.contact);
       if (footerProps.technicalFeedbackLink) setTechnicalFeedback(footerProps.technicalFeedbackLink);
+      if (footerProps.governanceBoardSection) setGovernanceBoardId(footerProps.governanceBoardSection.id)
+      if (footerProps.governanceBoardSection && footerProps.governanceBoardSection.governanceBoardLogos) setGovernanceBoardLogos(footerProps.governanceBoardSection.governanceBoardLogos);
 
     }
   }, [footerProps]);
@@ -56,8 +61,8 @@ const Footer = ({ footerProps, styleName }) => {
           <div className="footerwrapper">
             <div className="footer__column">
               <Title title="Our stakeholders" />
-              {/*<CreateImgTag/> build grid if we don't want a fluid flow*/}
-              <div>logos grid</div>
+              {/*is id actually needed upstream? */}
+               <CardList id={id} itemList={governanceBoardLogos} /> 
             </div>
 
             <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true} />
