@@ -72,7 +72,7 @@ function App() {
             <Route path="/community/case-studies" render={ () => <CaseStudiesLandingPage styleName="main"/> } />
             <Route path="/community" render={() =>  <GenericLandingPage cmsLocation={process.env.REACT_APP_COMMUNITY_PAGE} articleType="communityPage"/> }/>
             <Route path="/contact-us" render={() => <GenericContentPage cmsLocation={CONTACT_PAGE} articleType="contactUs" />} />
-            <Route path="/who-is-using" render={() =>  <WhoIsUsing styleName="main"/> }/>
+            <Route path="/standard-community" render={() =>  <WhoIsUsing styleName="main"/> }/>
             <Route path="/accessibility-statement" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
             <Route path="/privacy-policy" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
             <Route path="/terms-conditions" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
