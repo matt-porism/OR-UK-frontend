@@ -19,6 +19,7 @@ const Footer = ({ footerProps, styleName }) => {
   const [technicalFeedback, setTechnicalFeedback] = useState(null);
   const [technicalSection, setTechnicalSection] = useState(null);
   const [governanceBoardLogos, setGovernanceBoardLogos] = useState([]);
+  const [id, setGovernanceBoardId] = useState(101);
 
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const Footer = ({ footerProps, styleName }) => {
       if (footerProps.getInvolved) setInvolvedLinks(footerProps.getInvolved);
       if (footerProps.contact) setContactLink(footerProps.contact);
       if (footerProps.technicalFeedbackLink) setTechnicalFeedback(footerProps.technicalFeedbackLink);
+      if (footerProps.governanceBoardSection) setGovernanceBoardId(footerProps.governanceBoardSection.id)
       if (footerProps.governanceBoardSection && footerProps.governanceBoardSection.governanceBoardLogos) setGovernanceBoardLogos(footerProps.governanceBoardSection.governanceBoardLogos);
 
     }
@@ -59,7 +61,8 @@ const Footer = ({ footerProps, styleName }) => {
           <div className="footerwrapper">
             <div className="footer__column">
               <Title title="Our stakeholders" />
-              <CardList id={1} itemList={governanceBoardLogos} />
+              {/*is id actually needed upstream? */}
+              { governanceBoardLogos && <CardList id={id} itemList={governanceBoardLogos} /> }
             </div>
 
             <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true} />
