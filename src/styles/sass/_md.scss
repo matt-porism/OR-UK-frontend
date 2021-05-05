@@ -67,6 +67,20 @@ footer {
     margin-bottom: $padSmall;
   }
 
+  
+    .footer__column {
+      .home-card-content {
+        gap: 1em;
+
+        li {
+          a {
+            height: 5vw;
+          }
+        }
+      }
+    }
+  
+
   .footnotegrid {
     ul {
       display: grid;
@@ -403,17 +417,6 @@ hr {
   width: 100%;
   display: flex;
   flex-wrap:wrap;
-}
-
-.home-card-content {
- display: flex;
- justify-content: space-between;
- flex-wrap: wrap;
-}
-
-.img {
-  flex: 1 0 20%; 
-  margin: 2px;
 }
 
 .card-link-container {
