@@ -29,10 +29,12 @@ const CaseStudiesLandingPage = ({styleName}) => {
 
   return (
     <main id="content" className={styleName} role="main">
+      <div className="page-container">
       <ContentPage title={`<h1>${title}</h1>`} introParagraph={introParagraph} />
       <ul>
         {caseStudyOverviewElements}
       </ul>
+      </div>
     </main>
   )
 }
