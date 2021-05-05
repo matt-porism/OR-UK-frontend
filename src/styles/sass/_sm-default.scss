@@ -119,10 +119,7 @@ article a:visited:not(.button) {
   color: $color-purple;
 }
 
-a.card__img-container:focus,
-a.global-header__logo:focus,
-a.footer__logo:focus,
-.home-card-content a:focus {
+.link-with-image:focus { // specific focus state for links that contain images
   background: none;
   box-shadow: 0px 0px 0px 2px $color-text, 0px 0px 0px 5px $color-highlight;
 }
