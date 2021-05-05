@@ -62,7 +62,7 @@ const Footer = ({ footerProps, styleName }) => {
             <div className="footer__column">
               <Title title="Our stakeholders" />
               {/*is id actually needed upstream? */}
-              { governanceBoardLogos && <CardList id={id} itemList={governanceBoardLogos} /> }
+               <CardList id={id} itemList={governanceBoardLogos} /> 
             </div>
 
             <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true} />
