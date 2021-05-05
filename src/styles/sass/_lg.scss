@@ -238,6 +238,16 @@ main article blockquote { // for content quotes // article page content, pulled 
 
 footer {
 
+  .footer__column {
+    .home-card-content {
+      li {
+        a {
+          height: 2.5em;
+        }
+      }
+    }
+  }
+
   .footer__bottom {
     padding-top: $padLarge;
     margin-top: $padMedium;

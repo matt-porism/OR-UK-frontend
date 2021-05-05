@@ -447,10 +447,19 @@ footer {
       border: 0;
   
       li {
+        @include cardbox;
         padding: $gutter;
         margin: 0;
-        height: 17.5vw;
-  
+
+        a {
+          height: 15vw;
+          display: block;
+        }
+
+        div {
+          display: inline;
+        }
+
         img {
           height: 100%;
           width: 100%;
