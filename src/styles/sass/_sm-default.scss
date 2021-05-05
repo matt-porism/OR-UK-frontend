@@ -719,14 +719,17 @@ footer {
     height: 5em;
     display: block;
 
-    img {
+    .CompanyLogo {
       height: 100%;
       width: 100%;
       max-width: 18rem;
-      object-fit: contain;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;  
+      float:left;  
       margin: 0 auto;
-      display: block;
-    }
+      display: block; 
+    } 
   }
 }
 
