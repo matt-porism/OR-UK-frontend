@@ -292,8 +292,8 @@ hr {
   .home-card-content {
     grid-template-columns: 1fr 1fr 1fr;
 
-    li {
-      height: 13vw;
+    li a {
+      height: 11vw;
     }
   }
 }
