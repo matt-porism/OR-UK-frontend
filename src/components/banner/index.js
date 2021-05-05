@@ -14,7 +14,7 @@ const Banner = () => {
 
 return (
 <div className="banner">
-    <Link to="/" className="footer__logo"><img src={logo} alt="Open Referral UK" /></Link>
+    <Link to="/" className="footer__logo link-with-image"><img src={logo} alt="Open Referral UK" /></Link>
     {/**extract to small component for header and footer */}
     <LinkExternal link={link} styleName="button button-primary button-small button-light" />
 </div>
