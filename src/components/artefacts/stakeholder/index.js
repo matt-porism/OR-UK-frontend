@@ -13,8 +13,8 @@ const CompanyLogo = ({logo}) => {
     //massive refactor required 
     return (
         <>
-       {  formats && (formats.thumbnail) ? <p key={id}><div className="CompanyLogo" style={{ backgroundImage: `url(${logoUrl})` }} alt={alternativeText ? alternativeText : "company_logo"}/></p>
-       : (<div key={id} className="CompanyLogo" style={{ backgroundImage: `url(${logoUrl})` }} alt={alternativeText ? alternativeText : ""}  ></div>) }
+       {  formats && (formats.thumbnail) ? <p key={id}><div className="CompanyLogo" style={{ backgroundImage: `url(${logoUrl})` }} title={alternativeText ? alternativeText : "company_logo"}/></p>
+       : (<div key={id} className="CompanyLogo" style={{ backgroundImage: `url(${logoUrl})` }} title={alternativeText ? alternativeText : ""}  ></div>) }
        </>
     )
 }
