@@ -59,7 +59,7 @@ const Footer = ({ footerProps, styleName }) => {
           <div className="footerwrapper">
             <div className="footer__column">
               <Title title="Our stakeholders" />
-              <div><CardList id={1} itemList={governanceBoardLogos} /></div>
+              <CardList id={1} itemList={governanceBoardLogos} />
             </div>
 
             <FooterColumn links={[{ ...involved.link, external: true }]} title={involved.title} externalLink={true} />
