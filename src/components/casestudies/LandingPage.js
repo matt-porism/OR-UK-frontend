@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import ContentPage from '../page'
 import CaseStudyOverview from './CaseStudyOverview';
+import InjectHtml from "../home/InjectHtml";
 import useOukapi from '../../helpers/dataFetch';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const CASE_STUDIES_LANDING_PAGE = process.env.REACT_APP_CASE_STUDIES_LANDING_PAGE;
 const CASE_STUDIES = process.env.REACT_APP_CASE_STUDIES;
 
-const CaseStudiesLandingPage = ({styleName}) => {
+const CaseStudiesLandingPage = () => {
   const [title, setTitle] = useState("");
   const [introParagraph, setIntroParagraph] = useState("");
 
@@ -28,12 +28,15 @@ const CaseStudiesLandingPage = ({styleName}) => {
   });
 
   return (
-    <main id="content" className={styleName} role="main">
-      <ContentPage title={`<h1>${title}</h1>`} introParagraph={introParagraph} />
-      <ul>
-        {caseStudyOverviewElements}
-      </ul>
-    </main>
+    <div class="page-container">
+      <main id="content" className="main-container" role="main">
+        <h1>{title}</h1>
+        <InjectHtml paragraphText={introParagraph} />
+        <ul className="card-link-container listnostyle">
+          {caseStudyOverviewElements}
+        </ul>
+      </main>
+    </div>
   )
 }
 

@@ -5,13 +5,11 @@ const ArticleListPage = ({article}) => {
 
   return (
     article.links &&
-       <div>
-         <ul className="readlinkscard">
-        {article.links.map ((link, index) => {
-            return <ReadNextItem key={link.id ? link.id : index} linkItem={link} styleName="listnostyle readlinksitem"/>
-        })}
+         <ul className="card-link-container listnostyle">
+          {article.links.map ((link, index) => {
+              return <ReadNextItem key={link.id ? link.id : index} linkItem={link} styleName="test" />
+          })}
         </ul>
-        </div>
   )
 
       }
