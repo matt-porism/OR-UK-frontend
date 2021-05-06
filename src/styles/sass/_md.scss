@@ -82,11 +82,15 @@ footer {
   
     @media all and (-ms-high-contrast:none)
     {
-      .who--footer__column {
+      .footer__column {
+        margin-right:-10px;
+        margin-bottom:-10px;
+
         .home-card-content {
           li{
-            width:calc(25% - 1em);
-            padding:1em;
+            width:calc(50% - 20px);
+            margin-right:10px;
+            margin-bottom:10px;
             display:inline-block;
           }
         }
