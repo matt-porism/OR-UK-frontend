@@ -28,7 +28,7 @@ const CaseStudiesLandingPage = () => {
   });
 
   return (
-    <div class="page-container">
+    <div className="page-container">
       <main id="content" className="main-container" role="main">
         <h1>{title}</h1>
         <InjectHtml paragraphText={introParagraph} />

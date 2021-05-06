@@ -157,8 +157,8 @@ main article blockquote { // for content quotes // article page content, pulled 
   .home-card-content {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    li {
-      height: 5em;
+    li a {
+      height: 4em;
     }
   }
 }
@@ -237,6 +237,16 @@ main article blockquote { // for content quotes // article page content, pulled 
 }
 
 footer {
+
+  .footer__column {
+    .home-card-content {
+      li {
+        a {
+          height: 2.5em;
+        }
+      }
+    }
+  }
 
   .footer__bottom {
     padding-top: $padLarge;

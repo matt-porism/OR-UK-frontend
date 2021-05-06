@@ -67,6 +67,20 @@ footer {
     margin-bottom: $padSmall;
   }
 
+  
+    .footer__column {
+      .home-card-content {
+        gap: 1em;
+
+        li {
+          a {
+            height: 5vw;
+          }
+        }
+      }
+    }
+  
+
   .footnotegrid {
     ul {
       display: grid;
@@ -292,8 +306,8 @@ hr {
   .home-card-content {
     grid-template-columns: 1fr 1fr 1fr;
 
-    li {
-      height: 13vw;
+    li a {
+      height: 11vw;
     }
   }
 }
@@ -405,17 +419,6 @@ hr {
   flex-wrap:wrap;
 }
 
-.home-card-content {
- display: flex;
- justify-content: space-between;
- flex-wrap: wrap;
-}
-
-.img {
-  flex: 1 0 20%; 
-  margin: 2px;
-}
-
 .card-link-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -425,6 +428,35 @@ hr {
     padding: $padSmall;
   }
 }
+
+.gridRow {
+  display:-ms-inline-flexbox;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.gridColumn {
+  display:flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+#oruk-video {
+  margin-top: 90px;
+
+}
+
+#videobox {
+  padding-left: $paddingSpace;
+  padding-bottom: $padSmaller;
+}
+
+#video-link {
+  width: max-content;
+}
+
 
     
     /* ------------- HELPER CLASSES ------------- */
