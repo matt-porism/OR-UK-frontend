@@ -360,6 +360,18 @@ grid-row-end: 1;
   }
 }
 
+@media all and (-ms-high-contrast:none)
+{
+  .who--homepage {
+    .home-card-content {
+      li{
+        width:calc(25% - 10px);
+        display:inline-block;
+      }
+    }
+  }  
+}
+
     
 .listbox {
   display: flex;
