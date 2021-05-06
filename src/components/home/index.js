@@ -11,6 +11,7 @@ import TwoColumnGrid from './sidebyside/';
 import Video from '../shared/video';
 //refactoring
 //look at structure of api response for page
+//remove env var setting and checks for now as I cannot pick them up on the server at the moment
 
 function HomePage({ homePageProps, classname }) {
 
@@ -32,7 +33,7 @@ function HomePage({ homePageProps, classname }) {
         <main id="content" className="main-container">
             <div className="page-container">
                 <Section headingText={title} bodyText={body} styleName="section" />
-                <TwoColumnGrid id="right"  leftSideContent={ <InjectHtml paragraphText={introParagraph}/>}  rightSideContent={ process.env.REACT_APP_VIDEO ? <Video name="oruk-video" height="250" source={process.env.REACT_APP_VIDEO} /> : null}/>
+                <TwoColumnGrid id="right"  leftSideContent={ <InjectHtml paragraphText={introParagraph}/>}  rightSideContent={  <Video name="oruk-video" height="250" /> }/>
                
                 {caseStudiesLink && caseStudiesLink.id && <p id="case-studies" className="card-content"><Link to={caseStudiesLink.url}>{caseStudiesLink.TextToDisplay}</Link></p>}&nbsp;
             </div>
