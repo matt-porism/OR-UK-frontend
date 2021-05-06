@@ -429,6 +429,35 @@ hr {
   }
 }
 
+.gridRow {
+  display:-ms-inline-flexbox;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.gridColumn {
+  display:flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+#oruk-video {
+  margin-top: 90px;
+
+}
+
+#videobox {
+  padding-left: $paddingSpace;
+  padding-bottom: $padSmaller;
+}
+
+#video-link {
+  width: max-content;
+}
+
+
     
     /* ------------- HELPER CLASSES ------------- */
 

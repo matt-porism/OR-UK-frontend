@@ -7,13 +7,13 @@ import CardList from '../cardlist/';
 import Title from '../shared/title';
 import { Link } from 'react-router-dom';
 import ReadNextItem from '../readnext';
-
+import TwoColumnGrid from './sidebyside/';
+import Video from '../shared/video';
 //refactoring
 //look at structure of api response for page
 
 function HomePage({ homePageProps, classname }) {
 
-    //const [headText, setHeaderText] = useState(homePageProps);
     const {
         heroBanner: { body, title },
         PullQuote: { quote },
@@ -24,18 +24,16 @@ function HomePage({ homePageProps, classname }) {
         readNextLinks
     } = homePageProps;
 
-
-    //let styleName;
     let caseStudyLinks = [];
     caseStudyLinks.push(caseStudiesLink);
-    //convert to array sounds like will be array anyway single object
-
+   
     return (
 
         <main id="content" className="main-container">
             <div className="page-container">
                 <Section headingText={title} bodyText={body} styleName="section" />
-                <InjectHtml paragraphText={introParagraph} />
+                <TwoColumnGrid id="right"  leftSideContent={ <InjectHtml paragraphText={introParagraph}/>}  rightSideContent={ process.env.REACT_APP_VIDEO ? <Video name="oruk-video" height="250" source={process.env.REACT_APP_VIDEO} /> : null}/>
+               
                 {caseStudiesLink && caseStudiesLink.id && <p id="case-studies" className="card-content"><Link to={caseStudiesLink.url}>{caseStudiesLink.TextToDisplay}</Link></p>}&nbsp;
             </div>
 
