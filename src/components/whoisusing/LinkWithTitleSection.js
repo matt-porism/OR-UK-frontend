@@ -1,18 +1,16 @@
-import { Link } from 'react-router-dom';
+import LinkExternal from '../footer/LinkExternal';
 
-const LinkWithTitle = ({ title, link: { url, TextToDisplay } }) => {
-  if (!title || !url || !TextToDisplay) return null;
+const LinkWithTitle = ({ link }) => {
+  if (!link) return null;
 
   return (
     <>
       <hr />
       <section>
-        <h3>{title}</h3>
+      {link.TextToDisplay && <h3>{link.TextToDisplay}</h3> }
         <p>
-          <Link to={url}>
-            {TextToDisplay}
-          </Link>
-        </p>
+          <LinkExternal link={link} styleName=""/> 
+          </p>
       </section>
     </>
   )
