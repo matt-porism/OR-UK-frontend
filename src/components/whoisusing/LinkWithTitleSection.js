@@ -7,8 +7,10 @@ const LinkWithTitle = ({ link }) => {
     <>
       <hr />
       <section>
+        <p>
         {link.TextToDisplay && <h3>{link.TextToDisplay}</h3> }
           <LinkExternal link={link} styleName=""/> 
+          </p>
       </section>
     </>
   )
