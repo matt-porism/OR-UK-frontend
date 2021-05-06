@@ -1,7 +1,8 @@
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const SideMenu = ({ subMenu }) => {
-	if (!subMenu || subMenu.length === 0) {
+	// don't render sidebar unless we have at least one section that has a title
+	if (!subMenu || subMenu.length === 0 || (subMenu.length === 1 && !subMenu[0])) {
 		return null;
 	}
 

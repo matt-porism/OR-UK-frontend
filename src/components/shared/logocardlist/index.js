@@ -6,7 +6,7 @@ const CardList = ({  id, itemList,  styles }) => {
         
         const logosHolder = list.map((item, index) => {
             if (item.CompanyLogo) {
-            return <li  key={item.id ? `${item.id}_itemcard` : ""} className="img"><a href={item.link}><ImageCard  id={id}  logo={item}   styleName=""/></a></li>
+            return <li  key={item.id ? `${item.id}_itemcard` : ""} className="img"><a href={item.link} className="link-with-image"><ImageCard  id={id}  logo={item}   styleName=""/></a></li>
             } else {
                 return <li key={index} className="img"></li>
             }})

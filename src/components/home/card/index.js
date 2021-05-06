@@ -22,7 +22,7 @@ const CardList = ({  id, itemList,  styles }) => {
         addPadding();
         const logosHolder = list.map(item => {
             if (item.CompanyLogo) {
-            return <li  key={item.id ? `${item.id}_itemcard` : ""} className="img"><a href={item.link}><ImageCard  id={id}  logo={item}   styleName=""/></a></li>
+            return <li  key={item.id ? `${item.id}_itemcard` : ""} className="img"><a href={item.link} className="link-with-image"><ImageCard  id={id}  logo={item}   styleName=""/></a></li>
             } else {
                 return <li key={i++} className="img"></li>
             }

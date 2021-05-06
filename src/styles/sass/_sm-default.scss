@@ -119,6 +119,11 @@ article a:visited:not(.button) {
   color: $color-purple;
 }
 
+.link-with-image:focus { // specific focus state for links that contain images
+  background: none;
+  box-shadow: 0px 0px 0px 2px $color-text, 0px 0px 0px 5px $color-highlight;
+}
+
 li {
   margin-top: 1em;
 }
@@ -447,14 +452,19 @@ footer {
       border: 0;
   
       li {
+        @include cardbox;
         padding: $gutter;
         margin: 0;
-        height: 17.5vw;
 
-        a, div {
+        a {
+          height: 15vw;
+          display: block;
+        }
+
+        div {
           display: inline;
         }
-  
+
         .CompanyLogo {
           height: 100%;
           width: 100%;
@@ -622,10 +632,14 @@ footer {
       @include cardbox;
       padding: $gutter;
       margin: 0;
-      height: 17.5vw;
 
       div {
         display: inline;
+      }
+
+      a {
+        height: 13vw;
+        display: block;
       }
 
       .CompanyLogo {
