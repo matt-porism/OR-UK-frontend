@@ -58,11 +58,12 @@ function App() {
   return (
      !isFetching && !isError  && Object.keys(homeProps).length > 0 &&
     
-    ( <div>
+    (<>
       
     <SkipToContent/>
     <Header mainMenu={mainMenu} topMenuId={topMenuId.toString()} />
         
+        <div className="page-wrapper">
         <Switch>
             <Route exact path="/" render={() => ( <HomePage homePageProps={homeProps} classname="main" /> )}/>
             <Route path="/about-standard" render={() => <GenericContentPage cmsLocation={ABOUT_PAGE} articleType="about" />}/>
@@ -80,12 +81,12 @@ function App() {
             <Route path="/open-referral-uk-video-transcript" render={({ location }) => <GenericContentPage cmsLocation={`/pages?slugfield=${location.pathname.substring(1)}`} articleType="page" />} />
             <Route path="/404"  component={NotFound} />
             <Redirect to="/404" />
-
-      </Switch> 
+        </Switch> 
+        </div>
       <Footer footerProps={footerProps} styleName="footer" />
     
     
-    </div>)
+    </>)
     
   );
 }

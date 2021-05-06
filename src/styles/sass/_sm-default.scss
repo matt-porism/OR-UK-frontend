@@ -17,6 +17,11 @@ body {
   background-color: $color-page-bg;
 }
 
+.page-wrapper { // to prevent footer touching the header while page loads
+  min-height: 400px; //fallback for no vh support
+  min-height: 50vh;
+}
+
 p, a, li {
   font-size: 1.125rem;
   line-height: 1.85;
