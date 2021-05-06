@@ -14,6 +14,13 @@ import WhoIsUsing from "./components/whoisusing";
 import GenericContentPage from './components/genericcontentpage/GenericContentPage';
 import CaseStudiesLandingPage from './components/casestudies/LandingPage';
 import SkipToContent from './components/header/SkipToContent';
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  gtmId: 'GTM-WMF38WK',
+}
+
+TagManager.initialize(tagManagerArgs);
 
 //refactor
 //pull data as needed perhaps on first call of page?
