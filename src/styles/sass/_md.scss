@@ -649,6 +649,13 @@ grid-row-end: 1;
   width: max-content;
 }
 
+
+.readlinkscard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $padSmall;
+}
+
     
     /* ------------- HELPER CLASSES ------------- */
 
