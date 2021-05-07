@@ -7,9 +7,11 @@ const CompanyLogo = ({logo}) => {
     const { formats, alternativeText } = logo;
     //thumbnail does not work well for large screen spit out different image for large `formats.small ? ${BASE_URL}${formats.small.url}` : `${BASE_URL}${formats.thumbnail.url }`
 
+    let logoUrl = BASE_URL ? `${BASE_URL}${formats.thumbnail.url }`:"";
+
     return (
         <>
-       {  formats && (formats.thumbnail) && <img src={BASE_URL ? `${BASE_URL}${formats.thumbnail.url }`:""} alt={alternativeText ? alternativeText : "company_logo"}/> }
+       {  formats && (formats.thumbnail) && <div className="CompanyLogo" style={{ backgroundImage: `url(${logoUrl})` }} title={alternativeText ? alternativeText : "company_logo"}/> }
        </>
     )
 }

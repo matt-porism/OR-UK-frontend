@@ -64,7 +64,7 @@ function HomePage({ homePageProps, classname }) {
                 <hr />
                 { readNextLinks &&  
                         ( <div>
-                            <ul className="readlinkscard">
+                            <ul className="listnostyle readlinkscard">
                               {readNextLinks.map((next, index) => { 
                                 return <ReadNextItem key={index} linkItem={next} styleName="listnostyle readlinksitem"/>
                                 })}
