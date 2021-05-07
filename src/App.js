@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import NotFound from './components/errorpage/'
@@ -18,11 +18,11 @@ import SkipToContent from './components/header/SkipToContent';
 //refactor
 //pull data as needed perhaps on first call of page?
 function App() {
-  const [homeProps, setHomeProps] = useState({});
+  const location = useLocation();
 
+  const [homeProps, setHomeProps] = useState({});
   const [topMenuId, setTopMenuId] = useState('');
   const [mainMenu, setMainMenu] = useState([]);
-
   const [errors] = useState({});  //use to confirm render component or error page
 
   const BASE_URL  = process.env.REACT_APP_BASE_URL;
@@ -52,7 +52,21 @@ function App() {
       .then((data) => { 
         setMainMenu(data)
       });
-  }, []);
+  }, []);    
+
+  useEffect(() => {
+    console.log(location.hash);
+    if (location.hash === '') {
+      return;
+    }
+    setTimeout(() => {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView();
+      }
+    }, 1000);
+  }, [location]);
 
   //now can use iserror instead of object keys
   return (
