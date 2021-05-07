@@ -304,6 +304,7 @@ hr {
 }
 
 .main-container {
+  display:block;
   margin-top: $padMedium;
   margin-bottom: $padLarge;
 }
@@ -334,9 +335,13 @@ main article { // article page content, pulled from CMS
 /* ------------- COMPONENTS ------------- */
 
 .global-header {
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 5;
   grid-column-end: 6;
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-row-span: 1;
   grid-row-end: 2;
   background-color: white;
   text-align: center;
@@ -460,14 +465,25 @@ footer {
           display: inline;
         }
 
-        img {
+        .CompanyLogo {
           height: 100%;
           width: 100%;
-          object-fit: contain;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;  
+          float:left;   
         }
       }
     }
   }
+
+  .footer__column:nth-child(2){
+    -ms-grid-column: 2;
+  }
+
+  .footer__column:nth-child(3){
+    -ms-grid-column: 3;
+  } 
 
   .footer__column__subsection {
     margin-top: $padSmall;
@@ -626,10 +642,28 @@ footer {
         display: block;
       }
 
-      img {
+      .CompanyLogo {
         height: 100%;
         width: 100%;
-        object-fit: contain;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;  
+        float:left;      
+      }
+    }
+  }
+}
+
+@media all and (-ms-high-contrast:none)
+{
+  .who--homepage {
+    .home-card-content {
+      margin-left:-$gutter;
+      margin-bottom:-$gutter;
+  
+      li {
+        margin-left:$gutter;
+        margin-bottom:$gutter;
       }
     }
   }
@@ -699,14 +733,17 @@ footer {
     height: 5em;
     display: block;
 
-    img {
+    .CompanyLogo {
       height: 100%;
       width: 100%;
       max-width: 18rem;
-      object-fit: contain;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;  
+      float:left;  
       margin: 0 auto;
-      display: block;
-    }
+      display: block; 
+    } 
   }
 }
 
